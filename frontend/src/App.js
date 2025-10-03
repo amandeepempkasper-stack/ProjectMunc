@@ -19,6 +19,10 @@ import BlogDetails from "./pages/BlogPages/BlogDetails";
 import CategoryBlogs from "./pages/BlogPages/CategoryBlogs";
 import SingleBlog from "./pages/BlogPages/SingleBlog";
 import PrivateRoute from "./pages/BlogPages/services/ProtectedRoutes";
+import ImsProduct from "./components/Ims/ImsProductSection1";
+import LmsProduct from "./components/Lms/LmsProduct";
+import HrmsProduct from "./components/Hrms/HrmsProduct";
+import SmsProduct from "./components/SMS/SmsProduct";
 
 const App = () => {
   useEffect(() => {
@@ -45,35 +49,28 @@ const App = () => {
           }
         />
 
-
-          <Route
-            path="/blogpage"
-            element={
-              <>
-                {/* <Navbar /> */}
-                <Blog_pagination />
-              </>
-            }
-          />
-           <Route
-            path="/blogpost/:slugOrId"
-            element={
-              <>
-                <BlogPost />
-              </>
-            }
-          />
-          <Route
-            path="/blogs"
-            element={
-              <>
-                {/* <Header /> */}
-                {/* <AdminSidebar /> */}
-                <Blogs />
-              </>
-            }
-          />
-      
+        <Route
+          path="/blogpage"
+          element={
+            <>
+              {/* <Navbar /> */}
+              <Blog_pagination />
+            </>
+          }
+        />
+        <Route
+          path="/blogpost/:slugOrId"
+          element={
+            <>
+              <BlogPost />
+            </>
+          }
+        />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/inventory-management-system" element={<ImsProduct />} />
+        <Route path="/lead-management-system" element={<LmsProduct />} />
+        <Route path="/human-resource-management-system" element={<HrmsProduct />} />
+        <Route path="/school-management-system" element={<SmsProduct />} />
 
         {/* Blog Auth/Login */}
         <Route path="login" element={<Login />} />
