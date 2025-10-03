@@ -39,50 +39,29 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Features />} />
         {/* <Route path="blogpost" element={<Features />} /> */}
-        <Route
-          path="/register"
-          element={
-            <>
-              {/* <Header /> */}
-              <Register />
-            </>
-          }
-        />
-
-        <Route
-          path="/blogpage"
-          element={
-            <>
-              {/* <Navbar /> */}
-              <Blog_pagination />
-            </>
-          }
-        />
-        <Route
-          path="/blogpost/:slugOrId"
-          element={
-            <>
-              <BlogPost />
-            </>
-          }
-        />
+        <Route path="/blogpage" element={<Blog_pagination />} />
+        <Route path="/blogpost/:slugOrId" element={<BlogPost />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/inventory-management-system" element={<ImsProduct />} />
         <Route path="/lead-management-system" element={<LmsProduct />} />
-        <Route path="/human-resource-management-system" element={<HrmsProduct />} />
+        <Route
+          path="/human-resource-management-system"
+          element={<HrmsProduct />}
+        />
         <Route path="/school-management-system" element={<SmsProduct />} />
+      </Route>
 
-        {/* Blog Auth/Login */}
-        <Route path="login" element={<Login />} />
+      {/* Blog Auth/Login */}
+      <Route path="/register" element={<Register />} />
+      <Route path="login" element={<Login />} />
 
-        {/* Admin Routes with Nested Children */}
-        <Route path="adminsidebar" element={<AdminLayouts />}>
-          <Route path="profile" element={<Profile />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="my-blogs" element={<UserBlogs />} />
-          <Route path="addcategory" element={<Addcategory />} />
-          <Route path="addblog" element={<AddBlog />} />
-        </Route>
+      {/* Admin Routes with Nested Children */}
+      <Route path="adminsidebar" element={<AdminLayouts />}>
+        <Route path="profile" element={<Profile />} />
+        <Route path="blogs" element={<Blogs />} />
+        <Route path="my-blogs" element={<UserBlogs />} />
+        <Route path="addcategory" element={<Addcategory />} />
+        <Route path="addblog" element={<AddBlog />} />
       </Route>
     </Routes>
   );

@@ -280,7 +280,7 @@ const Features = () => {
   }, [images.length]);
 
   return (
-    <div >
+    <div>
       <NavBar />
 
       {/* hero section */}
@@ -298,7 +298,7 @@ const Features = () => {
         <motion.img
           src={float1}
           alt="Floating Icon 1"
-          className="absolute top-90 left-50 w-17 h-17 hidden md:block "
+          className="floating-icon floating-icon-1"
           style={{ y: yLeft, x: xLeft }}
           animate={{
             x: [0, -5, 5, -5, 0],
@@ -311,7 +311,7 @@ const Features = () => {
         <motion.img
           src={float2}
           alt="Floating Icon 2"
-          className="absolute top-42 right-46 w-20 h-20 hidden md:block"
+          className="floating-icon floating-icon-2"
           style={{ y: yRight, x: xRight }}
           animate={{
             x: [0, -4, 4, -4, 0],
@@ -324,7 +324,7 @@ const Features = () => {
         <motion.img
           src={float3}
           alt="Floating Icon 3"
-          className="absolute top-110 right-65 w-17 h-17 hidden md:block"
+          className="floating-icon floating-icon-3"
           style={{ y: yCenter }}
           animate={{
             x: [0, -4, 4, -4, 0],
@@ -341,7 +341,7 @@ const Features = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="text-center space-y-3 flex flex-col items-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-[64px] font-medium leading-[140%] text-[#1C2B33]  mt-5 sm:mt-0">
+            <h1 className="text-3xl sm:text-4xl lg:text-[64px] font-medium leading-gap text-[#1C2B33]  mt-5 sm:mt-0">
               Everything You Need to <br />
               Run{" "}
               <span className="relative w-fit px-4 border-[3px] sm:border-[4px] border-blue-400 text-[#154583] bg-white">
@@ -462,4 +462,3 @@ const Features = () => {
 };
 
 export default Features;
-
