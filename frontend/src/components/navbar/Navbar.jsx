@@ -44,7 +44,7 @@ const NavBar = () => {
   return (
     <>
       <div className="fixed top-0 left-0 w-full z-50 md:bg-white md:backdrop-blur-sm bg-white shadow-sm">
-        <div className="flex justify-between items-center max-w-7xl mx-auto">
+        <div className="flex justify-between items-center max-w-7xl mx-auto py-2">
           {/* Logo */}
           <div>
             <NavLink to="/">
@@ -53,12 +53,12 @@ const NavBar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-10 items-center">
-            <ul className="flex gap-8 text-[#3E4247] relative">
+          <div className="hidden md:flex gap-10">
+            <ul className="flex gap-8 text-[#3E4247] relative my-auto ">
               {links.map((el, idx) => (
                 <li
                   key={idx}
-                  className="list-none relative"
+                  className="list-none relative "
                   onMouseEnter={() => el.dropdown && setShowDropdown(true)}
                   onMouseLeave={() => el.dropdown && setShowDropdown(false)}
                 >
@@ -67,7 +67,7 @@ const NavBar = () => {
                       to={el.path}
                       className={({ isActive }) =>
                         `relative cursor-pointer transition-colors duration-300 
-                        hover:text-blue-500 hover:underline 
+                        hover:text-blue-500 no-underline hover:underline 
                         ${isActive ? "text-blue-500 underline font-medium" : "text-gray-800"}`
                       }
                     >
@@ -77,7 +77,7 @@ const NavBar = () => {
                     <HashLink
                       smooth
                       to={el.path}
-                      className="relative cursor-pointer text-gray-800 hover:text-blue-500 hover:underline transition-colors duration-300"
+                      className="relative cursor-pointer no-underline text-gray-800 hover:text-blue-500 hover:underline transition-colors duration-300"
                     >
                       {el.label}
                     </HashLink>
@@ -94,14 +94,14 @@ const NavBar = () => {
 
                   {/* Dropdown Menu */}
                   {el.dropdown && showDropdown && (
-                    <div className="absolute left-0 mt-0 w-48 bg-white shadow-lg rounded-md py-2 z-50">
+                    <div className="absolute left-0 mt-0 w-48 bg-white shadow-lg rounded-md z-50">
                       {productItems.map((item, i) => (
                         <NavLink
                           key={i}
                           to={item.path}
                           className={({ isActive }) =>
                             `block px-4 py-2 text-sm transition-colors duration-300 
-                            hover:bg-blue-50 hover:text-blue-600 
+                            hover:bg-blue-50 hover:text-blue-600 no-underline
                             ${isActive ? "text-blue-600 underline font-medium" : "text-gray-700"}`
                           }
                         >

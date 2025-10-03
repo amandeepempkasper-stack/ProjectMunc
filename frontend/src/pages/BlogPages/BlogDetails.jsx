@@ -8,7 +8,7 @@ import TopMobileNavbar from "../../components/Blogs/AdminBoard/TopMobileNavbar";
 // import "./blogdetails.css";
 // import Header from "../../components/Blogs/AdminBoard/Header";
 import BASE_URL from "../Config/config";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const config = {
   readonly: false,
