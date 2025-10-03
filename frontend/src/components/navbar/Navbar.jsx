@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/HomeSection/logo.svg";
-// import BlueButton from "../UI/BlueButton";
+import BlueButton from "../../UI/BlueButton";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa";
 // import Contact from "./ProductDemo";
@@ -16,11 +16,7 @@ const NavBar = () => {
 
   const links = [
     { label: "Home", path: "/" },
-    {
-      label: "Products",
-      path: "#",
-      dropdown: true,
-    },
+    { label: "Products", path: "#", dropdown: true },
     { label: "About", path: "/about" },
     { label: "Contact Us", path: "/#contact", scroll: true },
     { label: "Blogs", path: "/blogs" },
@@ -39,8 +35,6 @@ const NavBar = () => {
     } else {
       document.body.style.overflow = "auto"; // restore scroll
     }
-
-    // cleanup when component unmounts
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -48,14 +42,16 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-50 md:bg-white md:backdrop-blur-sm bg-white">
+      <div className="fixed top-0 left-0 w-full z-50 md:bg-white md:backdrop-blur-sm bg-white shadow-sm">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+          {/* Logo */}
           <div>
             <NavLink to="/">
               <img width={120} src={Logo} alt="Logo" />
             </NavLink>
           </div>
 
+          {/* Desktop Nav */}
           <div className="hidden md:flex gap-10 items-center">
             <ul className="flex gap-8 text-[#3E4247] relative">
               {links.map((el, idx) => (
@@ -70,9 +66,8 @@ const NavBar = () => {
                       to={el.path}
                       className={({ isActive }) =>
                         `relative cursor-pointer transition-colors duration-300 
-                       after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-blue-500 
-                       hover:text-blue-500 hover:after:w-full after:transition-all after:duration-300
-                       ${isActive ? "text-blue-500 after:w-full" : ""}`
+                        hover:text-blue-500 hover:underline 
+                        ${isActive ? "text-blue-500 underline font-medium" : "text-gray-800"}`
                       }
                     >
                       {el.label}
@@ -81,14 +76,13 @@ const NavBar = () => {
                     <HashLink
                       smooth
                       to={el.path}
-                      className="relative cursor-pointer hover:text-blue-500 transition-colors duration-300"
+                      className="relative cursor-pointer text-gray-800 hover:text-blue-500 hover:underline transition-colors duration-300"
                     >
                       {el.label}
                     </HashLink>
                   ) : (
-                    <span className="relative cursor-pointer flex items-center gap-1 hover:text-blue-500 transition-colors duration-300">
+                    <span className="relative cursor-pointer flex items-center gap-1 text-gray-800 hover:text-blue-500 hover:underline transition-colors duration-300">
                       {el.label}
-
                       <FaChevronDown
                         className={`ml-1 transition-transform duration-300 ${
                           showDropdown ? "rotate-180" : "rotate-0"
@@ -97,6 +91,7 @@ const NavBar = () => {
                     </span>
                   )}
 
+                  {/* Dropdown Menu */}
                   {el.dropdown && showDropdown && (
                     <div className="absolute left-0 mt-0 w-48 bg-white shadow-lg rounded-md py-2 z-50">
                       {productItems.map((item, i) => (
@@ -104,12 +99,9 @@ const NavBar = () => {
                           key={i}
                           to={item.path}
                           className={({ isActive }) =>
-                            `block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600 
-                          ${
-                            isActive
-                              ? "text-blue-600 font-medium"
-                              : "text-gray-700"
-                          }`
+                            `block px-4 py-2 text-sm transition-colors duration-300 
+                            hover:bg-blue-50 hover:text-blue-600 
+                            ${isActive ? "text-blue-600 underline font-medium" : "text-gray-700"}`
                           }
                         >
                           {item.label}
@@ -120,20 +112,18 @@ const NavBar = () => {
                 </li>
               ))}
             </ul>
-            {/* <BlueButton
-              Addname="Try a Demo"
-              handleForm={() => setShowForm(true)}
-            /> */}
+            <BlueButton Addname="Try a Demo" handleForm={() => setShowForm(true)} />
           </div>
 
+          {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-3 md:hidden">
-            {/* <BlueButton
+            <BlueButton
               Addname="Try For Free"
               handleForm={() => {
-                setShowForm(true); 
-                setMobileMenuOpen(false); 
+                setShowForm(true);
+                setMobileMenuOpen(false);
               }}
-            /> */}
+            />
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? (
                 <HiX className="w-7 h-7 text-gray-700" />
@@ -144,6 +134,7 @@ const NavBar = () => {
           </div>
         </div>
 
+        {/* Mobile Nav */}
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-sm shadow-lg px-6 py-6 space-y-2 flex flex-col">
             <div className="flex justify-between items-center">
@@ -159,7 +150,11 @@ const NavBar = () => {
                   {!el.dropdown && !el.scroll ? (
                     <NavLink
                       to={el.path}
-                      className="block py-2 text-gray-700 hover:text-blue-500"
+                      className={({ isActive }) =>
+                        `block py-2 transition-colors duration-300 
+                        hover:text-blue-500 hover:underline 
+                        ${isActive ? "text-blue-500 underline font-medium" : "text-gray-800"}`
+                      }
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {el.label}
@@ -168,7 +163,7 @@ const NavBar = () => {
                     <HashLink
                       smooth
                       to={el.path}
-                      className="block py-2 text-gray-700 hover:text-blue-500"
+                      className="block py-2 text-gray-800 hover:text-blue-500 hover:underline"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {el.label}
@@ -176,10 +171,8 @@ const NavBar = () => {
                   ) : (
                     <>
                       <button
-                        onClick={() =>
-                          setMobileDropdownOpen(!mobileDropdownOpen)
-                        }
-                        className="flex justify-between items-center w-full py-2 text-gray-700 hover:text-blue-500"
+                        onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                        className="flex justify-between items-center w-full py-2 text-gray-800 hover:text-blue-500 hover:underline"
                       >
                         <span>{el.label}</span>
                         <FaChevronDown
@@ -195,7 +188,11 @@ const NavBar = () => {
                             <NavLink
                               key={i}
                               to={item.path}
-                              className="block py-1 text-sm hover:text-blue-600 hover:underline"
+                              className={({ isActive }) =>
+                                `block py-1 text-sm transition-colors duration-300 
+                                hover:text-blue-600 hover:underline 
+                                ${isActive ? "text-blue-600 underline font-medium" : "text-gray-800"}`
+                              }
                               onClick={() => {
                                 setMobileMenuOpen(false);
                                 setMobileDropdownOpen(false);
