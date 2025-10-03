@@ -42,13 +42,13 @@ const App = () => {
         <Route path="/blogpage" element={<Blog_pagination />} />
         <Route path="/blogpost/:slugOrId" element={<BlogPost />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/inventory-management-system" element={<ImsProduct />} />
-        <Route path="/lead-management-system" element={<LmsProduct />} />
+        <Route path="/products/inventory-management-system" element={<ImsProduct />} />
+        <Route path="/products/lead-management-system" element={<LmsProduct />} />
         <Route
-          path="/human-resource-management-system"
+          path="/products/human-resource-management-system"
           element={<HrmsProduct />}
         />
-        <Route path="/school-management-system" element={<SmsProduct />} />
+        <Route path="/products/school-management-system" element={<SmsProduct />} />
       </Route>
 
       {/* Blog Auth/Login */}

@@ -63,7 +63,7 @@ const TestimonialSlider = () => {
       style={{ backgroundImage: `url(${backgroundimg})` }}
     >
       <div className="w-full lg:w-[50%] text-center lg:text-left mb-6 lg:mb-0">
-        <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl text-white">
+        <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl text-white whitespace-nowrap">
           What Our Client Says !
         </h1>
       </div>
@@ -80,19 +80,19 @@ const TestimonialSlider = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -60, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="absolute inset-1 bg-white w-full max-w-[700px] h-auto min-h-[200px] lg:h-[180px] rounded-xl shadow-xl px-4 sm:px-7 py-1 flex flex-col justify-between"
+              className="absolute inset-1 bg-white w-full max-w-[700px] h-44 overflow-hidden min-h-[200px] lg:h-[180px] rounded-xl shadow-xl px-4 sm:px-7 py-1 flex flex-col justify-between"
             >
               <img
                 src={testimonials[index].logo}
                 alt={`${testimonials[index].name} logo`}
-                className="w-15 sm:w-11 mb-2"
+                className="!w-[75px] sm:w-11 h-full object-cover md:mb-2"
               />
 
-              <p className="text-[#5C5C5C] text-[13px] sm:text-[13px] font-medium leading-[120%] flex-1">
+              <p className="text-[#5C5C5C] text-xs sm:text-sm font-medium leading-[120%] flex-1">
                 {testimonials[index].text}
               </p>
 
-              <div className="flex items-center gap-3 mt-3">
+              <div className="flex items-center gap-3 md:mt-2">
                 <img
                   src={testimonials[index].image}
                   alt={testimonials[index].name}

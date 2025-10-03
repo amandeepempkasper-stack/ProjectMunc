@@ -298,7 +298,7 @@ const Features = () => {
         <motion.img
           src={float1}
           alt="Floating Icon 1"
-          className="floating-icon floating-icon-1"
+          className="floating-icon floating-icon-1 "
           style={{ y: yLeft, x: xLeft }}
           animate={{
             x: [0, -5, 5, -5, 0],
@@ -311,7 +311,7 @@ const Features = () => {
         <motion.img
           src={float2}
           alt="Floating Icon 2"
-          className="floating-icon floating-icon-2"
+          className="floating-icon floating-icon-2 "
           style={{ y: yRight, x: xRight }}
           animate={{
             x: [0, -4, 4, -4, 0],
@@ -324,7 +324,7 @@ const Features = () => {
         <motion.img
           src={float3}
           alt="Floating Icon 3"
-          className="floating-icon floating-icon-3"
+          className="floating-icon floating-icon-3 "
           style={{ y: yCenter }}
           animate={{
             x: [0, -4, 4, -4, 0],
@@ -365,7 +365,7 @@ const Features = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleClick}
-              className="flex gap-2 items-center text-[#007AFF] border-[2px] rounded-full px-6 py-3 border-blue-500 hover:bg-[#007AFF] transition-all duration-300 hover:text-white text-sm sm:text-base"
+              className="flex gap-2 items-center text-[#007AFF] border-[2px] rounded-full py-2 px-4 border-blue-500 hover:bg-[#007AFF] transition-all duration-300 hover:text-white text-sm sm:text-base"
             >
               Let’s Solve It Together <FaArrowRightLong />
             </motion.button>

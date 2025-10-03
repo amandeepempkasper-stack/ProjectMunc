@@ -8,7 +8,7 @@
   display: none; /* hidden on mobile */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .floating-icon {
     display: block; /* show on md+ */
   }
@@ -82,3 +82,6 @@
   height: 100%;
   object-fit: cover;
 }
+
+
+/* ========================================== Our Product ===================================== */

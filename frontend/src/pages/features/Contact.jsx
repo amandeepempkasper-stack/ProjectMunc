@@ -96,7 +96,7 @@ const Contact = () => {
                   placeholder="Enter your phone"
                   className="
       h-12 w-full rounded-lg border border-black/10 px-2 outline-none focus:ring-2 focus:ring-[#727272]
-      placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-base lg:placeholder:text-xs 2xl:placeholder:text-xl
+      placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm
     "
                 />
 
@@ -109,8 +109,8 @@ const Contact = () => {
                     onChange={handleChange}
                     className="
       h-12 w-full rounded-lg border border-black/10 px-1.5 pr-6 outline-none 
-      focus:ring-2 focus:ring-[#727272] text-[#727272] appearance-none
-      text-sm sm:text-base md:text-lg lg:text-xs 2xl:text-2xl
+      focus:ring-2 focus:ring-[#727272] text-[#999999]
+      text-sm sm:text-sm
     "
                   >
                     <option value="" disabled hidden>
