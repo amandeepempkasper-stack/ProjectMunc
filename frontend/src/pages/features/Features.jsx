@@ -376,66 +376,42 @@ const Features = () => {
         </motion.div>
 
         <motion.div
-          className="relative flex justify-center mt-10 sm:mt-16 mb-10 w-full"
+          className="dashboard-preview"
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img
-            src={HomeDesk}
-            alt="Dashboard preview"
-            className="w-full max-w-[1100px] h-auto"
-          />
+          {/* Background Dashboard Image */}
+          <div className="dashboard-wrapper">
+            <img
+              src={HomeDesk}
+              alt="Dashboard preview"
+              className="dashboard-img"
+            />
 
-          <div
-            className="
-            absolute 
-            top-[11%] left-[5.5%] w-[89%] h-[88%]   
-            md:top-[11.5%] md:left-[5.5%] md:w-[89%] md:h-[88%]  
-            lg:top-[10.3%] lg:left-[5.5%] lg:w-[89%] lg:h-[89%]      
-            xl:top-[10.3%] xl:left-[13.2%] xl:w-[73.9%] xl:h-[89%]      
-            2xl:top-[10.3%] 2xl:left-[22.5%] 2xl:w-[55%] 2xl:h-[90%]  
-            3xl:top-[9%] 3xl:left-[25%] 3xl:w-[48%] 3xl:h-[92%]  
-            flex justify-center items-center overflow-hidden
-            "
-          >
-            <Swiper
-              spaceBetween={30}
-              centeredSlides={true}
-              autoplay={{ delay: 2500, disableOnInteraction: false }}
-              // pagination={{ clickable: true }}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="w-full h-full"
-            >
-              <SwiperSlide>
-                <img
-                  src={hrms}
-                  alt="HRMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={ims}
-                  alt="IMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={lms}
-                  alt="LMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={sms}
-                  alt="SMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-            </Swiper>
+            {/* Slider inside the screen */}
+            <div className="slider-container">
+              <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{ delay: 2500, disableOnInteraction: false }}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="w-100 h-100"
+              >
+                <SwiperSlide>
+                  <img src={hrms} alt="HRMS Slide" className="img-slide" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={ims} alt="IMS Slide" className="img-slide" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={lms} alt="LMS Slide" className="img-slide" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={sms} alt="SMS Slide" className="img-slide" />
+                </SwiperSlide>
+              </Swiper>
+            </div>
           </div>
         </motion.div>
       </div>
