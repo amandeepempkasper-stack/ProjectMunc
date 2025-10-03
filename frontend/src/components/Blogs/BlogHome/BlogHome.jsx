@@ -29,14 +29,14 @@ const BlogHome = () => {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-            slidesToScroll: 2,
+          slidesToScroll: 2,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-            slidesToScroll: 1,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -50,9 +50,9 @@ const BlogHome = () => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-         const sorted = [...data.blogs].sort(
-  (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-);
+        const sorted = [...data.blogs].sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
         if (data?.success) {
           setBlogs(sorted);
         }
@@ -77,58 +77,78 @@ const BlogHome = () => {
   const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
   return (
-    <div style={{minHeight: "80vh"}}>
-                <ServiceMainSection highlights="OUR BLOGS" highlightsDouble="BLOGS"/>
+    <div style={{ minHeight: "80vh" }}>
+      <ServiceMainSection highlights="OUR BLOGS" highlightsDouble="BLOGS" />
 
       <Container>
         <Row className="gy-4">
-        
           {blogs.slice(0, 4).map((post) => (
-           
-                <Col key={post._id} xs={12} sm={6} md={4} lg={3}>
-                                        <div className="blog-part h-100 d-flex flex-column">
-                            <div className="blog-imagesec position-relative overflow-hidden"style={{padding:"5px", borderRadius:"5px"}}>
-                              <Link to={`/blogpost/${post.slug || post._id}`}>
-                                <img
-                                  src={
-                                    Array.isArray(post.thumbnail) && post.thumbnail.length > 0
-                                      ? `${BASE_URL}/${post.thumbnail[0].startsWith("/") ? post.thumbnail[0].slice(1) : post.thumbnail[0]}`
-                                      : post.image
-                                      ? post.image
-                                      : "https://via.placeholder.com/300x200?text=No+Image"
-                                  }
-                                  alt={post.title}
-                                  className="img-fluid rounded-top"
-                                  style={{ width: "100%", height: "auto", maxHeight: "230px", objectFit: "cover" }}                    />
-                              </Link>
-                            </div>
-            
-                            <div className="blog-part-inner flex-grow-1 d-flex flex-column">
-                              <div className="blogpost_detail d-flex justify-content-between text-primary small mb-2">
-                                <span><FaUser className="me-1" />{post?.user?.username || "Unknown"}</span>
-                                <span><SlCalender className="me-1" />{moment(post.createdAt).format("LL")}</span>
-                              </div>
-                              <h6 className="fw-bold post-title">
-                                <Link to={`/blogpost/${post.slug || post._id}`} className="text-decoration-none text-dark"  style={{color:"rgba(16, 97, 73, 0.877)"}}>
-                                  {post.title}
-                                </Link>
-                              </h6>
-                              <p className="text-muted flex-grow-1">
-                                {parse(DOMPurify.sanitize(post.description?.slice(0, 40)))}
-                              </p>
-                              <Link
-              to={`/blogpost/${post.slug || post._id}`}
-              state={{ width: "fit-content",  }}
-              className="btn btn-outline-primary mt-auto"
-              style={{ width: "fit-content", alignSelf: "center" }}
-            >
-              Read more
-            </Link>
-            
-                              
-                            </div>
-                          </div>
-                        </Col>
+            <Col key={post._id} xs={12} sm={6} md={4} lg={3}>
+              <div className="blog-part h-100 d-flex flex-column">
+                <div
+                  className="blog-imagesec position-relative overflow-hidden"
+                  style={{ padding: "5px", borderRadius: "5px" }}
+                >
+                  <Link to={`/blogpost/${post.slug || post._id}`}>
+                    <img
+                      src={
+                        Array.isArray(post.thumbnail) &&
+                        post.thumbnail.length > 0
+                          ? `${BASE_URL}/${
+                              post.thumbnail[0].startsWith("/")
+                                ? post.thumbnail[0].slice(1)
+                                : post.thumbnail[0]
+                            }`
+                          : post.image
+                          ? post.image
+                          : "https://via.placeholder.com/300x200?text=No+Image"
+                      }
+                      alt={post.title}
+                      className="img-fluid rounded-top"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        maxHeight: "230px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Link>
+                </div>
+
+                <div className="blog-part-inner flex-grow-1 d-flex flex-column">
+                  <div className="blogpost_detail d-flex justify-content-between text-primary small mb-2">
+                    <span>
+                      <FaUser className="me-1" />
+                      {post?.user?.username || "Unknown"}
+                    </span>
+                    <span>
+                      <SlCalender className="me-1" />
+                      {moment(post.createdAt).format("LL")}
+                    </span>
+                  </div>
+                  <h6 className="fw-bold post-title">
+                    <Link
+                      to={`/blogpost/${post.slug || post._id}`}
+                      className="text-decoration-none text-dark"
+                      style={{ color: "rgba(16, 97, 73, 0.877)" }}
+                    >
+                      {post.title}
+                    </Link>
+                  </h6>
+                  <p className="text-muted flex-grow-1">
+                    {parse(DOMPurify.sanitize(post.description?.slice(0, 40)))}
+                  </p>
+                  <Link
+                    to={`/blogpost/${post.slug || post._id}`}
+                    state={{ width: "fit-content" }}
+                    className="btn btn-outline-primary mt-auto"
+                    style={{ width: "fit-content", alignSelf: "center" }}
+                  >
+                    Read more
+                  </Link>
+                </div>
+              </div>
+            </Col>
           ))}
         </Row>
       </Container>
@@ -137,7 +157,6 @@ const BlogHome = () => {
 };
 
 export default BlogHome;
-
 
 // import React, { useEffect, useState } from "react";
 // import { FaUser } from "react-icons/fa";
@@ -150,7 +169,6 @@ export default BlogHome;
 // import "slick-carousel/slick/slick-theme.css";
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
-
 
 // import axios from "axios";
 // import moment from "moment";
@@ -319,7 +337,6 @@ export default BlogHome;
 //     ? parse(DOMPurify.sanitize(post.description.slice(0, 50)))
 //     : "No description"}
 // </div>
-
 
 //                     <Link to="/Blog_pagination">
 //                       Read Blogs...

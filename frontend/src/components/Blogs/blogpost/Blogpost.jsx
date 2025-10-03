@@ -148,14 +148,6 @@ const BlogPost = () => {
     },
   });
 
-  // const imageUrl =
-  //   Array.isArray(blog.thumbnail) && blog.thumbnail.length > 0
-  //     ? `${BASE_URL}/${blog?.thumbnail[0].startsWith("/")
-  //       ? blog.thumbnail[0].slice(1)
-  //       : blog.thumbnail[0]
-  //     }`
-  //     : blog.image || "/imgthumb.png";
-
   const imageUrl =
     Array.isArray(blog.thumbnail) && blog.thumbnail.length > 0
       ? `${
@@ -169,33 +161,27 @@ const BlogPost = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="blogpost container-fluid my-0 py-5">
+      {/* <Navbar /> */}
+      <section className="bg-[#F0FDFF] py-12 px-6 md:px-20">
         <div className="row h-100">
-          {/* <Link to="/blogpage" className="backtohome text-decoration-none">
-          <span className="custom-back-btn">
-            <IoIosArrowBack className="me-2" />
-            <span>Back</span>
-          </span>
-        </Link> */}
-          <div className="titles sticky-title bg-white">
+          <div className="text-[28px] md:text-[36px] font-semibold leading-[130%] text-[#1C2B33]">
             <h3 className="mb-3 tittle">{blog.title}</h3>
           </div>
 
           <div className="row h-100">
             {/* Main Blog Post */}
             <div className="blog-main-section col-lg-9 d-flex flex-column">
-              {/* your blog content here */}
+              
 
               <div className="blog-img-section">
                 <img src={imageUrl} className="img-fluid mb-4" alt="Blog" />
               </div>
-              {/* <h1 className="mb-3">{blog.title}</h1> */}
-              <p className="text-muted">
+              
+              <p className="text-muted text-sm text-gray-500 mb-3">
                 {moment(blog.createdAt).format("LL")}
               </p>
 
-              <div className="parsed-content">{parsedContent}</div>
+              <div className="parsed-content   max-h-[400px] overflow-y-auto pr-2 space-y-3 text-gray-700 leading-relaxed prose prose-lg max-w-none scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-100 rounded">{parsedContent}</div>
 
               {/* Author and Social Section */}
               <div className=" pt-4 border-top  align-items-center flex-wrap gap-2">
@@ -206,98 +192,71 @@ const BlogPost = () => {
                     </strong>
                   </p>
                 </div>
-                {/* <div className="d-flex gap-3">
-              <a href="#" className="text-dark">
-                <FaFacebookF size={20} />
-              </a>
-              <a href="#" className="text-dark">
-                <FaTwitter size={20} />
-              </a>
-              <a href="#" className="text-dark">
-                <FaInstagram size={20} />
-              </a>
-              <a href="#" className="text-dark">
-                <FaLinkedinIn size={20} />
-              </a>
-            </div> */}
               </div>
             </div>
 
             {/* Sidebar */}
             <div className="side-blogcontainer col-lg-3 d-none d-lg-block">
               {toc.length > 0 && (
-                <div className="mb-4 toc-section">
-                  <h4>Table of Contents</h4>
-                  <div className="button-container">
+                <div className="bg-white p-4 rounded-xl shadow mb-6">
+                  <h3 className="font-semibold text-lg mb-3 text-gray-800 border-b pb-2">
+                    Table of Contents
+                  </h3>
+                  <div className="flex flex-col gap-2">
                     {toc.map((item, index) => (
-                      <button key={item.id} className="custom-button">
-                        <a href={`#${item.id}`} className="button-link">
-                          {index + 1}. {item.text}
-                        </a>
-                      </button>
+                      <a
+                        key={item.id}
+                        href={`#${item.id}`}
+                        className="px-3 py-2 rounded-md text-sm text-gray-700 bg-blue-50 hover:bg-blue-100 hover:text-blue-600 transition font-medium"
+                      >
+                        {index + 1}. {item.text}
+                      </a>
                     ))}
                   </div>
                 </div>
               )}
 
-              <div className="mb-4 shadow rounded border p-4 bg-light text-primary categories-section ">
-                <h4 className="mb-3 text-dark border-bottom pb-2">
-                  Categories
-                </h4>
+              <div className="bg-white p-[16px] w-[333px] rounded-xl mb-2">
+                <h3 className="font-semibold text-lg mb-3 text-gray-800">
+                  Category
+                </h3>
 
-                <div className="category-grid">
+                <div className="flex flex-wrap gap-2">
                   {visibleCategories.length === 0 ? (
-                    <button className="category-btn">
-                      No Categories Available
-                    </button>
+                    <span className="px-3 py-1 text-xs font-medium bg-gray-100 text-gray-500 rounded-full">
+                      No categories found
+                    </span>
                   ) : (
                     visibleCategories.map((cat) => (
-                      <button
+                      <span
                         key={cat._id}
-                        className="category-btn"
                         onClick={() => navigate(`/category/${cat.slug}`)}
+                        className="px-3 py-1 text-xs font-medium bg-blue-50 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 transition"
                       >
                         {cat.title}
-                      </button>
+                      </span>
                     ))
                   )}
-                </div>
-                {categories.length > 4 && (
-                  <div className="mt-3 text-center">
-                    <span
-                      className="show-more-btn d-inline-flex align-items-center gap-1"
+
+                  {categories.length > 5 && (
+                    <button
                       onClick={() => setShowAll(!showAll)}
-                      style={{ cursor: "pointer", fontWeight: "bold" }}
+                      className="text-xs font-medium text-blue-500 hover:underline w-full text-left mt-2"
                     >
-                      {showAll ? (
-                        <>
-                          Show Less <FaChevronUp />
-                        </>
-                      ) : (
-                        <>
-                          Show More <FaChevronDown />
-                        </>
-                      )}
-                    </span>
-                  </div>
-                )}
+                      {showAll ? "Show Less" : "Show All"}
+                    </button>
+                  )}
+                </div>
               </div>
 
-              <div className="mb-4 shadow rounded border p-4 bg-light text-primary">
-                <h4 className="mb-3 text-dark border-bottom pb-2">
+              <div className="bg-white p-[16px] w-[333px] rounded-xl">
+                <h3 className="font-semibold text-lg mb-3 text-gray-800">
                   Recent Posts
-                </h4>
-                <ul className="list-unstyled m-0">
-                  {blogs.slice(0, 4).map((blog, index) => (
-                    <li
-                      key={index}
-                      className="mb-2"
-                      style={{ backgroundColor: "white" }}
-                    >
-                      <Link
-                        to={`/blogpost/${blog.slug || blog._id}`}
-                        className="recent-post-item d-flex align-items-start text-decoration-none"
-                      >
+                </h3>
+                <ul className="space-y-4">
+                  {blogs.length > 0 ? (
+                    blogs.slice(0, 4).map((blog, index) => (
+                      <li key={index} className="flex items-center gap-3">
                         <img
                           src={
                             Array.isArray(blog.thumbnail) &&
@@ -310,27 +269,36 @@ const BlogPost = () => {
                               : blog.image ||
                                 "https://via.placeholder.com/50x40?text=No+Img"
                           }
-                          alt="recent"
-                          className="img-thumbnail"
+                          alt={blog.title}
+                          className="w-16 h-14 object-cover object-center rounded-md border border-gray-200"
                         />
-                        <div className="recent-post-text">
-                          <span className="title">
-                            {blog.title.slice(0, 25)}...
-                          </span>
-                          <span className="date">
+                        <div>
+                          <p
+                            onClick={() =>
+                              navigate(`/blogpost/${blog.slug || blog._id}`)
+                            }
+                            className="text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer line-clamp-2"
+                          >
+                            {blog.title}
+                          </p>
+                          <span className="text-xs text-gray-500">
                             {moment(blog.createdAt).format("LL")}
                           </span>
                         </div>
-                      </Link>
-                    </li>
-                  ))}
+                      </li>
+                    ))
+                  ) : (
+                    <p className="text-gray-500 text-sm">
+                      No recent posts found
+                    </p>
+                  )}
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <Footer />
+      </section>
+      {/* <Footer /> */}
     </>
   );
 };
