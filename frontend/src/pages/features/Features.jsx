@@ -280,7 +280,7 @@ const Features = () => {
   }, [images.length]);
 
   return (
-    <div >
+    <div>
       <NavBar />
 
       {/* hero section */}
@@ -298,7 +298,7 @@ const Features = () => {
         <motion.img
           src={float1}
           alt="Floating Icon 1"
-          className="absolute top-90 left-50 w-17 h-17 hidden md:block "
+          className="floating-icon floating-icon-1 "
           style={{ y: yLeft, x: xLeft }}
           animate={{
             x: [0, -5, 5, -5, 0],
@@ -311,7 +311,7 @@ const Features = () => {
         <motion.img
           src={float2}
           alt="Floating Icon 2"
-          className="absolute top-42 right-46 w-20 h-20 hidden md:block"
+          className="floating-icon floating-icon-2 "
           style={{ y: yRight, x: xRight }}
           animate={{
             x: [0, -4, 4, -4, 0],
@@ -324,7 +324,7 @@ const Features = () => {
         <motion.img
           src={float3}
           alt="Floating Icon 3"
-          className="absolute top-110 right-65 w-17 h-17 hidden md:block"
+          className="floating-icon floating-icon-3 "
           style={{ y: yCenter }}
           animate={{
             x: [0, -4, 4, -4, 0],
@@ -341,7 +341,7 @@ const Features = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="text-center space-y-3 flex flex-col items-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-[64px] font-medium leading-[140%] text-[#1C2B33]  mt-5 sm:mt-0">
+            <h1 className="text-3xl sm:text-4xl lg:text-[64px] font-medium leading-gap text-[#1C2B33]  mt-5 sm:mt-0">
               Everything You Need to <br />
               Run{" "}
               <span className="relative w-fit px-4 border-[3px] sm:border-[4px] border-blue-400 text-[#154583] bg-white">
@@ -365,7 +365,7 @@ const Features = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleClick}
-              className="flex gap-2 items-center text-[#007AFF] border-[2px] rounded-full px-6 py-3 border-blue-500 hover:bg-[#007AFF] transition-all duration-300 hover:text-white text-sm sm:text-base"
+              className="flex gap-2 items-center text-[#007AFF] border-[2px] rounded-full py-2 px-4 border-blue-500 hover:bg-[#007AFF] transition-all duration-300 hover:text-white text-sm sm:text-base"
             >
               Let’s Solve It Together <FaArrowRightLong />
             </motion.button>
@@ -376,66 +376,42 @@ const Features = () => {
         </motion.div>
 
         <motion.div
-          className="relative flex justify-center mt-10 sm:mt-16 mb-10 w-full"
+          className="dashboard-preview"
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img
-            src={HomeDesk}
-            alt="Dashboard preview"
-            className="w-full max-w-[1100px] h-auto"
-          />
+          {/* Background Dashboard Image */}
+          <div className="dashboard-wrapper">
+            <img
+              src={HomeDesk}
+              alt="Dashboard preview"
+              className="dashboard-img"
+            />
 
-          <div
-            className="
-            absolute 
-            top-[11%] left-[5.5%] w-[89%] h-[88%]   
-            md:top-[11.5%] md:left-[5.5%] md:w-[89%] md:h-[88%]  
-            lg:top-[10.3%] lg:left-[5.5%] lg:w-[89%] lg:h-[89%]      
-            xl:top-[10.3%] xl:left-[13.2%] xl:w-[73.9%] xl:h-[89%]      
-            2xl:top-[10.3%] 2xl:left-[22.5%] 2xl:w-[55%] 2xl:h-[90%]  
-            3xl:top-[9%] 3xl:left-[25%] 3xl:w-[48%] 3xl:h-[92%]  
-            flex justify-center items-center overflow-hidden
-            "
-          >
-            <Swiper
-              spaceBetween={30}
-              centeredSlides={true}
-              autoplay={{ delay: 2500, disableOnInteraction: false }}
-              // pagination={{ clickable: true }}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="w-full h-full"
-            >
-              <SwiperSlide>
-                <img
-                  src={hrms}
-                  alt="HRMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={ims}
-                  alt="IMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={lms}
-                  alt="LMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={sms}
-                  alt="SMS Slide"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-            </Swiper>
+            {/* Slider inside the screen */}
+            <div className="slider-container">
+              <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{ delay: 2500, disableOnInteraction: false }}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="w-100 h-100"
+              >
+                <SwiperSlide>
+                  <img src={hrms} alt="HRMS Slide" className="img-slide" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={ims} alt="IMS Slide" className="img-slide" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={lms} alt="LMS Slide" className="img-slide" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={sms} alt="SMS Slide" className="img-slide" />
+                </SwiperSlide>
+              </Swiper>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -462,4 +438,3 @@ const Features = () => {
 };
 
 export default Features;
-

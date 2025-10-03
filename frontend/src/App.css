@@ -1,42 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
-  
+}
+
+.font-heading {
+  font-family: "Noto Sans", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
-p{
+p {
   font-weight: 500;
 }
 
-.section_padding{
+.section_padding {
   padding: 0 150px;
 }
-@media (max-width: 1300px){
-  .section_padding{
+@media (max-width: 1300px) {
+  .section_padding {
     padding: 0 100px;
   }
 }
 
-@media (max-width: 1000px){
-  .section_padding{
+@media (max-width: 1000px) {
+  .section_padding {
     padding: 0 70px;
   }
 }
-@media (max-width: 775px){
-  .section_padding{
+@media (max-width: 775px) {
+  .section_padding {
     padding: 0 40px;
   }
 }
-@media (max-width: 400px){
-  .section_padding{
+@media (max-width: 400px) {
+  .section_padding {
     padding: 0 20px;
   }
 }
@@ -44,13 +47,10 @@ p{
 /* medlaysingh@gmail.com  */
 /* _bynh9n_NrE#-ju ........password */
 
-
-
-
 .badge-primary {
   background-color: rgb(34, 33, 33) !important;
   color: #007aff !important;
-  padding: .1rem .5rem !important;
-  font-size: .9rem !important;
+  padding: 0.1rem 0.5rem !important;
+  font-size: 0.9rem !important;
   border-radius: 5px;
- }
+}

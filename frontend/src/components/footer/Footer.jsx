@@ -28,22 +28,22 @@ const Footer = () => {
             <h3 className="font-medium text-gray-800 mb-3">Company</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link to="/about" className="hover:text-blue-500">
+                <Link to="/about" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/#product" className="hover:text-blue-500">
+                <Link to="/#product" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   Our Products
                 </Link>
               </li>
               <li>
-                <Link to="/blogs" className="hover:text-blue-500">
+                <Link to="/blogs" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   Blog
                 </Link>
               </li>
               <li>
-                {/* <Link to="/demo" className="hover:text-blue-500">
+                {/* <Link to="/demo" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   Get Free Demo
                 </Link> */}
               </li>
@@ -55,22 +55,22 @@ const Footer = () => {
             <h3 className="font-medium text-gray-800 mb-3">Products</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link to="/products/inventory" className="hover:text-blue-500">
+                <Link to="/products/inventory" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   Inventory
                 </Link>
               </li>
               <li>
-                <Link to="/products/leads" className="hover:text-blue-500">
+                <Link to="/products/leads" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   Lead
                 </Link>
               </li>
               <li>
-                <Link to="/products/hr" className="hover:text-blue-500">
+                <Link to="/products/hr" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   HRMS
                 </Link>
               </li>
               <li>
-                <Link to="/products/school" className="hover:text-blue-500">
+                <Link to="/products/school" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   School
                 </Link>
               </li>
@@ -80,7 +80,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h3 className="font-medium text-gray-800 mb-3">Head Office</h3>
-            <ul className="text-sm text-gray-600 space-y-3">
+            <ul className="text-sm text-gray-600 space-y-3 ">
               <li className="flex items-start gap-2">
                 <FaMapMarkerAlt size={26} className="mt-1 text-black" />
                 <span>
@@ -92,7 +92,7 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <FaPhone size={16} className="text-black" />
 
-                <a href="tel:8006236800" className="hover:text-black">
+                <a href="tel:8006236800" className="hover:text-blue-600 no-underline text-[#3E4247]">
                  +91 80062 36800
                 </a>
               </li>
@@ -100,7 +100,7 @@ const Footer = () => {
                 <IoIosMail size={20} className="text-black" />
                 <a
                   href="mailto:info@kasperinfotech.com"
-                  className="hover:text-blue-600"
+                  className="hover:text-blue-600 no-underline text-[#3E4247]"
                 >
                   info@kasperinfotech.com
                 </a>

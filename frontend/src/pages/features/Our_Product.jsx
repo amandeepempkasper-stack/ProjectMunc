@@ -68,9 +68,9 @@ const Our_Product = () => {
               className="
     p-4 sm:p-5 md:p-5 lg:p-6 xl:p-6 
     transition-all duration-300 bg-white 
-    max-h-none md:max-h-[80px] md:group-hover:max-h-[160px] 
+    max-h-none md:max-h-[100px] md:group-hover:max-h-[160px] 
     absolute z-10 bottom-0 left-0 right-0 
-    rounded-t-xl translate-y-0 md:translate-y-2 md:group-hover:translate-y-0 
+    rounded-t-xl translate-y-0 md:-translate-y-4 md:group-hover:translate-y-0 
     overflow-hidden
   "
             >
@@ -104,6 +104,7 @@ const Our_Product = () => {
         px-3 py-2 sm:px-3 sm:py-2 md:px-3 md:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2
         bg-[#007AFF] text-white text-center 
         rounded-md hover:bg-blue-700 transition
+        no-underline
       "
                 >
                   Try For Free →
@@ -114,7 +115,7 @@ const Our_Product = () => {
         text-[#007AFF] font-medium 
         text-[14px] sm:text-[11px] md:text-[11px] lg:text-[12px] xl:text-[12px]
         px-2 py-1 sm:px-3 sm:py-2 md:px-3 md:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2
-        hover:underline transition cursor-pointer
+         transition cursor-pointer
       "
                 >
                   Know More

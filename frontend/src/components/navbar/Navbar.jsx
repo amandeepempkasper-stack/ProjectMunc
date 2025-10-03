@@ -5,6 +5,7 @@ import Logo from "../../assets/HomeSection/logo.svg";
 import BlueButton from "../../UI/BlueButton";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa";
+import Contact from "./Contact";
 // import Contact from "./ProductDemo";
 
 const NavBar = () => {
@@ -23,10 +24,10 @@ const NavBar = () => {
   ];
 
   const productItems = [
-    { label: "HRMS", path: "/products/hr" },
-    { label: "LMS", path: "/products/leads" },
-    { label: "SMS", path: "/products/school" },
-    { label: "IMS", path: "/products/inventory" },
+    { label: "HRMS", path: "/products/human-resource-management-system" },
+    { label: "LMS", path: "/products/lead-management-system" },
+    { label: "SMS", path: "/products/school-management-system" },
+    { label: "IMS", path: "/products/inventory-management-system" },
   ];
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const NavBar = () => {
   return (
     <>
       <div className="fixed top-0 left-0 w-full z-50 md:bg-white md:backdrop-blur-sm bg-white shadow-sm">
-        <div className="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+        <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
           <div>
             <NavLink to="/">
@@ -211,7 +212,7 @@ const NavBar = () => {
           </div>
         )}
       </div>
-      {/* <Contact setShowForm={setShowForm} showForm={showForm} /> */}
+      <Contact setShowForm={setShowForm} showForm={showForm} />
     </>
   );
 };
