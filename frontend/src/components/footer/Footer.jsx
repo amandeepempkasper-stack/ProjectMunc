@@ -1,189 +1,154 @@
 import React from "react";
-import "./footer.css";
-import FooterLogo from "../../assets/footerlogo.png";
-import muncin from "../../assets/muncin.png";
-import kasperqr from "../../assets/kasperqr.png";
+import { Link } from "react-router";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
+import { FaPhone } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import { CiInstagram } from "react-icons/ci";
+import logo from "../../assets/HomeSection/logo.svg"; 
 
 const Footer = () => {
   return (
-    <footer className="section_padding">
-      <div className="footer-top">
-        <div className="footer-logo d-flex flex-column align-items-center ">
+    <footer className="bg-white border-t-[2px] border-gray-200 ">
+      <div className="max-w-9xl mx-auto py-6 ">
+        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+         
           <div>
-            <img src={FooterLogo} alt="" />
+            <img src={logo} alt="MUN-C Logo" className="h-8 mb-4" />
+            <p className="text-sm text-[#3E4247] leading-[120%]">
+              MUN-C is an all-in-one business management suite that simplifies
+              operations, saves time, and helps businesses grow.
+            </p>
           </div>
-          <div className="d-flex align-items-center gap-2">
-            <div>
-              <div style={{ height: "6rem", width: "6rem" }}>
-                <img
-                  style={{ height: "100%", width: "100%" }}
-                  src={muncin}
-                  alt=""
-                />
-              </div>
-            </div>
+
+          
+          <div>
+            <h3 className="font-medium text-gray-800 mb-3">Company</h3>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li>
+                <Link to="/about" className="hover:text-blue-500">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/#product" className="hover:text-blue-500">
+                  Our Products
+                </Link>
+              </li>
+              <li>
+                <Link to="/blogs" className="hover:text-blue-500">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                {/* <Link to="/demo" className="hover:text-blue-500">
+                  Get Free Demo
+                </Link> */}
+              </li>
+            </ul>
+          </div>
+
+          
+          <div>
+            <h3 className="font-medium text-gray-800 mb-3">Products</h3>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li>
+                <Link to="/products/inventory" className="hover:text-blue-500">
+                  Inventory
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/leads" className="hover:text-blue-500">
+                  Lead
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/hr" className="hover:text-blue-500">
+                  HRMS
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/school" className="hover:text-blue-500">
+                  School
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-medium text-gray-800 mb-3">Head Office</h3>
+            <ul className="text-sm text-gray-600 space-y-3">
+              <li className="flex items-start gap-2">
+                <FaMapMarkerAlt size={26} className="mt-1 text-black" />
+                <span>
+                  Kasper Infotech Pvt. Ltd. <br />
+                  Office Number 214, Tower B, The iThum Towers, Sector 62,
+                  Noida, Uttar Pradesh 201301
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <FaPhone size={16} className="text-black" />
+
+                <a href="tel:8006236800" className="hover:text-black">
+                 +91 80062 36800
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <IoIosMail size={20} className="text-black" />
+                <a
+                  href="mailto:info@kasperinfotech.com"
+                  className="hover:text-blue-600"
+                >
+                  info@kasperinfotech.com
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="footer-links">
-          <div className="sitemap text-center text-md-start">
-            <h4>Quick Links</h4>
-            <a className="link" href="#feature">
-              <p>Features</p>
-            </a>
-            <a className="link" href="#testimonial">
-              <p>Testimonial</p>
-            </a>
-            <a className="link" href="#mission">
-              <p>Mission</p>
-            </a>
-            <a className="link" href="#Product">
-              <p>Product</p>
-            </a>
-            {/* <a className="link" href="#Product">
-              <p>Product</p>
-            </a>
-            <a className="link" href="/privacy-policy">
-              <p>Privacy Policy</p>
-            </a>
-            <a className="link" href="/refund-policy">
-              <p>Refund Policy</p>
-            </a> */}
-            {/* <a className="link" href="https://munc.solutions/" target="_blank" rel="noopener noreferrer">
-  <p>Munc Solution</p>
-</a> */}
-          </div>
-          <div className="socials text-center text-md-start">
-            <h4>Social Media</h4>
+
+        {/* Bottom */}
+        <div className="max-w-7xl mx-auto px-6 py-5 border-t-[1px] border-gray-200 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+          <p>All rights reserved by Kasper Infotech Pvt. Ltd.</p>
+
+          {/* Social Icons */}
+          <div className="flex gap-4 mt-3 md:mt-0">
             <a
-              rel="noopener noreferrer"
+              className="bg-[#007AFF] p-2 rounded-full"
+              href="https://in.linkedin.com/company/mun-c?trk=similar-pages"
               target="_blank"
-              href="https://www.facebook.com/people/MUN-C/61573443763703/?rdid=ew3U1DxjXmOj9PJ5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1JXx7JGSXX%2F"
+              rel="noreferrer"
             >
-              Facebook
+              <FaLinkedin size={18} className="text-white" />
             </a>
             <a
-              rel="noopener noreferrer"
+              className="bg-[#007AFF] p-2 rounded-full"
+              href="https://x.com/mun_c1"
               target="_blank"
+              rel="noreferrer"
+            >
+              <FaXTwitter size={18} className="text-white" />
+            </a>
+            <a
+              className="bg-[#007AFF] p-2 rounded-full"
               href="https://www.instagram.com/munc_bms/"
+              target="_blank"
+              rel="noreferrer"
             >
-              Instagram
+              <CiInstagram size={18} className="text-white" />
             </a>
             <a
+              className="bg-[#007AFF] p-2 rounded-full"
+              href="https://www.facebook.com/people/MUN-C/61573443763703/?rdid=ew3U1DxjXmOj9PJ5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1JXx7JGSXX%2F"
               target="_blank"
-              rel="noopener noreferrer"
-              href="https://twitter.com/mun_c1"
+              rel="noreferrer"
             >
-              X / Twitter
-            </a>
-            <a target="_blank" rel="noopener noreferrer" href="">
-              LinkedIn
+              <FaFacebook size={18} className="text-white" />
             </a>
           </div>
         </div>
-        <div className="head-office text-center text-md-start">
-          <h4>Head Office</h4>
-          <h6 className="text-white my-0 mt-1">Kasper Infotech Pvt. Ltd.</h6>
-          <p className="my-0">
-            {" "}
-            Office Number 214, Tower B, The iThum Towers, Sector 62, Noida,
-            Uttar Pradesh 201301
-          </p>
-
-          {/* <div>
-            <div
-              className="mt-3 d-none d-md-flex"
-              style={{ height: "6rem", width: "6rem" }}
-            >
-              <img
-                style={{ height: "100%", width: "100%" }}
-                src={kasperqr}
-                alt=""
-              />
-            </div>
-            <div
-              className="mt-3 mx-auto d-flex d-md-none"
-              style={{ height: "6rem", width: "6rem" }}
-            >
-              <img
-                style={{ height: "100%", width: "100%" }}
-                src={kasperqr}
-                alt=""
-              />
-            </div>
-          </div> */}
-        </div>
-        <div className="contact-details text-center text-md-start">
-          <h4>Contact us</h4>
-          <p className="my-0 mt-1">
-            Email:{" "}
-            <a href="mailto:info@mymunc.in" className="text-white">
-              info@kasperinfotech.com
-            </a>
-          </p>
-          <p className="my-0 mt-1">
-            Mobile:{" "}
-            <a href="tel:8006236800" className="text-white">
-              +91 800-6236-800
-            </a>
-          </p>
-          <div>
-            <div
-              className="mt-3 d-none d-md-flex"
-              style={{ height: "6rem", width: "6rem" }}
-            >
-              <img
-                style={{ height: "100%", width: "100%" }}
-                src={kasperqr}
-                alt=""
-              />
-            </div>
-            <div
-              className="mt-3 mx-auto d-flex d-md-none"
-              style={{ height: "6rem", width: "6rem" }}
-            >
-              <img
-                style={{ height: "100%", width: "100%" }}
-                src={kasperqr}
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* <div className="head-office text-center text-md-start">
-          <h4>Head Office</h4>
-          <h6 className="text-white my-0">Kasper Infotech Pvt. Ltd.</h6>
-          <p className="my-0">
-            {" "}
-            Office Number 214, Tower B, The iThum Towers, Sector 62, Noida,
-            Uttar Pradesh 201301
-          </p>
-          <div>
-            <div
-              className="mt-3 d-none d-md-flex"
-              style={{ height: "6rem", width: "6rem" }}
-            >
-              <img
-                style={{ height: "100%", width: "100%" }}
-                src={kasperqr}
-                alt=""
-              />
-            </div>
-            <div
-              className="mt-3 mx-auto d-flex d-md-none"
-              style={{ height: "6rem", width: "6rem" }}
-            >
-              <img
-                style={{ height: "100%", width: "100%" }}
-                src={kasperqr}
-                alt=""
-              />
-            </div>
-          </div>
-        </div> */}
-      </div>
-      <div className="footer-bottom">
-        <p>All rights reserved by kasper infotech pvt.ltd</p>
       </div>
     </footer>
   );
