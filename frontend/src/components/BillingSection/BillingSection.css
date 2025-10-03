@@ -1,0 +1,53 @@
+
+  .biling-card {
+    background: #f5f3f3;
+    color: rgb(26, 25, 25);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    
+  }
+  
+  /* Dynamic glow effect centered on mouse */
+  .biling-card::before {
+    content: "";
+    position: absolute;
+    top: var(--glow-y, 50%);
+    left: var(--glow-x, 50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 122, 255, .2) 5%, transparent 100%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease-in-out;
+  }
+  
+  .biling-card:hover::before {
+    opacity: .8;
+  }
+  
+  
+  /* Tick Items */
+  .tick-bx {
+    margin-top: 10px;
+  }
+  
+  .tick-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .tick-items span {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+  

@@ -1,0 +1,31 @@
+.custom-blog-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 10px;
+    min-height: 370px; 
+    max-width: 320px; 
+    margin: auto;
+  }
+  
+  .custom-blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .custom-blog-card .card-img-top {
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .text-truncate-3 {
+    display: -webkit-box;
+   
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  

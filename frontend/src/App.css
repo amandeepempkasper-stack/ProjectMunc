@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  
+}
+
+html {
+  scroll-behavior: smooth;
+}
+p{
+  font-weight: 500;
+}
+
+.section_padding{
+  padding: 0 150px;
+}
+@media (max-width: 1300px){
+  .section_padding{
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 1000px){
+  .section_padding{
+    padding: 0 70px;
+  }
+}
+@media (max-width: 775px){
+  .section_padding{
+    padding: 0 40px;
+  }
+}
+@media (max-width: 400px){
+  .section_padding{
+    padding: 0 20px;
+  }
+}
+
+/* medlaysingh@gmail.com  */
+/* _bynh9n_NrE#-ju ........password */
+
+
+
+
+.badge-primary {
+  background-color: rgb(34, 33, 33) !important;
+  color: #007aff !important;
+  padding: .1rem .5rem !important;
+  font-size: .9rem !important;
+  border-radius: 5px;
+ }

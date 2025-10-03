@@ -1,0 +1,35 @@
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination .page-item .page-link {
+    color: #007bff;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pagination .page-item .page-link:hover {
+    background: #007bff;
+    color: white;
+}
+
+.pagination .page-item.active .page-link {
+    background: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.pagination .page-item.disabled .page-link {
+    opacity: 0.6;
+    pointer-events: none;
+}   
+.blogpost_detail span {
+    font-size: 12px;
+}

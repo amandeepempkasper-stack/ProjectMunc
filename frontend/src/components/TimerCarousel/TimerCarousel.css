@@ -1,0 +1,127 @@
+.carousel-container {
+  width: 100%;
+  max-width: 1100px;
+  height: fit-content;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+
+}
+
+/* Titles */
+.carousel-titles {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+
+.title {
+  padding-bottom: 10px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.title.active {
+  color: #007AFF;
+}
+
+.progress-line {
+  height: 3px;
+  background-color: #007aff;
+  width: 0%;
+  transition: width 0.03s linear; /* Smooth animation */
+}
+
+/* Content */
+.carousel-content {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+  margin-top: 20px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+}
+
+.image-container {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
+  will-change: transform;
+  
+}
+
+.image-slide {
+  min-width: 100%;
+  max-height: fit-content;
+  min-height: fit-content !important;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+.carousel-text {
+  text-align: left;
+  padding: 10px;
+  border-radius: 5px;
+}
+.image-slide img {
+  width: 300px;
+  max-height: 90%;
+}
+.carousel-text p {
+  margin-top: 20px;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 800px) {
+  .title {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .image-slide img {
+     width: 250px;
+  }
+}
+@media (max-width: 600px) {
+  .carousel-content {
+    height: 400px;
+  }
+  .image-slide {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .carousel-text {
+    padding: 0;
+  }
+  .carousel-text p {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .image-slide img {
+    width: 200px;
+  }
+}
+@media (max-width: 400px) {
+  .title {
+    font-size: 15px;
+  }
+}
+
+.active {
+  color: #007aff;
+  font-weight: bold;
+  border-bottom: 2px solid #007aff;
+  padding-bottom: 2px;
+}

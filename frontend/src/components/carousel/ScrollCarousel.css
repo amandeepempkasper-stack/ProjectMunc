@@ -1,0 +1,126 @@
+/* Wrapper for carousel & scrollbar */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+}
+
+/* Left-side scrollbar */
+.scrollbar {
+  width: 8px; /* Slimmer design */
+  height: 30vh; /* Adjust based on layout */
+  background-color: #e0e0e0; /* Softer background */
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
+}
+
+/* Scrollbar thumb */
+.scrollbar-thumb {
+  width: 100%;
+  height: calc(100% / 4); /* Dynamic height based on 4 sections */
+  background: linear-gradient(
+    45deg,
+    #5eaeff,
+    #0e7ccf
+  ); /* Gradient for better look */
+  position: absolute;
+  border-radius: 10px;
+  transition: top 0.1s ease-in-out, background 0.2s ease-in-out;
+}
+
+/* Hover effect for better interaction */
+.scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #666, #444);
+}
+
+/* Scroll container */
+.scroll-container {
+  width: 100%;
+  height: 55vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-left: 30px;
+}
+
+/* Hide default scrollbar */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.itemScroll {
+  border: 1px solid red;
+}
+
+/* Scroll Items */
+.scroll-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  padding-left: 30px;
+}
+
+/* Content inside each section */
+.scroll-item .content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Text side */
+.scroll-item .content .text {
+  flex: 1;
+  padding: 20px;
+}
+.scroll-item .content .text h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.scroll-item .content .text h2 {
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.scroll-item .content img {
+  width: 40%;
+}
+
+@media (max-width: 1100px) {
+  .scroll-item .content .text h2 {
+    font-size: 35px;
+  }
+  .scroll-item .content {
+    flex-direction: column;
+  }
+}
+@media (max-width: 900px) {
+  .carousel-wrapper {
+    gap: 15px;
+  }
+  .scroll-item .content img {
+    width: 70%;
+  }
+  .scroll-container {
+    height: 100vh;
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 650px) {
+  .carousel-wrapper {
+    display: none;
+  }
+}

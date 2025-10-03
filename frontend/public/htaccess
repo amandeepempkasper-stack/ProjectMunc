@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Agar direct file ya folder exist karta hai to use serve karo
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Baki sabko index.html pe bhej do
+  RewriteRule . /index.html [L]
+</IfModule>

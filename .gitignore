@@ -1,0 +1,77 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+logs
+*.log
+*.log.*
+*.out
+*.err
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+.vite/
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.*  
+!.env.example   # Keep only example env
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+*.swm
+
+# IDE / Editor configs
+.vscode/
+.idea/
+*.iml
+
+# Coverage / Testing
+coverage/
+.nyc_output/
+jest-coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database / cache
+*.sqlite
+*.sqlite-journal
+db/*.db
+cache/
+*.bak
+
+# Docker / containers
+docker-compose.override.yml
+.docker/
+
+# Parent project specific ignores
+# Monorepo packages
+packages/*/node_modules/
+packages/*/dist/
+packages/*/build/
+
+# Generated docs
+docs-build/
+

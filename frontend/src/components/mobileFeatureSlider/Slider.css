@@ -1,0 +1,121 @@
+.slider-container {
+  width: 100%;
+  max-width: 650px;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+  display: none;
+}
+
+.slider-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.5s ease-in-out;
+}
+
+.text-content {
+  margin-bottom: 15px;
+}
+
+.text-content h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.text-content h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.text-content p {
+  font-size: 14px;
+  color: #555;
+}
+
+.image-content img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Pagination Controls */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.pagination button {
+  background: white;
+  font-size: 30px;
+  outline: none;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #007bff;
+}
+.pagination button .prev-icon, .pagination button .next-icon{
+  transform: scale(2,2);
+}
+.pagination button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+/* Slide-in Animation */
+.slider-content {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive for Mobile */
+@media screen and (max-width: 650px) {
+  .slider-container {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+  }
+
+  .text-content h3 {
+    font-size: 16px;
+  }
+
+  .text-content h2 {
+    font-size: 20px;
+  }
+
+  .text-content p {
+    font-size: 15px;
+  }
+
+}
