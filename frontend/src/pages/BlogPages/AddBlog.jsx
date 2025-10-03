@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import JoditEditor from "jodit-react";
 import BASE_URL from "../Config/config";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // import { Editor } from "@tinymce/tinymce-react";
 

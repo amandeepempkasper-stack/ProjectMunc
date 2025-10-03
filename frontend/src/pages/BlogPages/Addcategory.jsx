@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import BASE_URL from "../Config/config";
 import "./addcategory.css"
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const id = localStorage.getItem("userId");
 
