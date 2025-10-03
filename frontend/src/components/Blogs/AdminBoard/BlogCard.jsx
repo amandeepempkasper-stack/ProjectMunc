@@ -3,9 +3,7 @@ import DOMPurify from "dompurify";
 import parse from "html-react-parser";
 import { useNavigate } from "react-router-dom";
 import { MdEdit, MdDelete } from "react-icons/md";
-import ThumbnailPlaceholder from '../../../assets/thumb.jpg'
-
-import "./blogcard.css";
+import ThumbnailPlaceholder from "../../../assets/thumb.jpg";
 
 const BlogCard = ({
   title,
@@ -18,7 +16,8 @@ const BlogCard = ({
   isUser,
   handleDelete,
   slug,
-  previewOnly = false, // This prop is used for controlling the preview
+  previewOnly = false,
+  icon,
 }) => {
   const navigate = useNavigate();
 
@@ -30,88 +29,89 @@ const BlogCard = ({
     navigate(`/blogpost/${slug}`);
   };
 
-  // Clean and sanitize the description
+  // Clean description
   const cleanHTML = DOMPurify.sanitize(description, {
     FORBID_ATTR: ["style", "width", "height", "float"],
   });
 
-  // Handle the main image (either from thumbnail or image prop)
+  const shortDescription =
+    cleanHTML.length > 150 ? cleanHTML.slice(0, 150) + "..." : cleanHTML;
+
+  // Handle main image
   const getMainImage = () => {
     if (thumbnail && Array.isArray(thumbnail) && thumbnail.length > 0) {
       const cleanThumbnail = thumbnail[0].startsWith("/")
         ? thumbnail[0].slice(1)
         : thumbnail[0];
-      return `${cleanThumbnail}`;
+      return cleanThumbnail;
     }
-    // If there's no thumbnail, fall back to the `image` prop
     return image && image.trim() ? image : ThumbnailPlaceholder;
   };
-console.log(getMainImage());
-
-  // Truncate the description for preview, limiting to 2 lines
-  const shortDescription =
-    cleanHTML.length > 150 ? cleanHTML.slice(0, 150) + "..." : cleanHTML;
 
   return (
-    <div className="simple-blog-card">
-      <div className="blog-header">
+    <div
+      className="bg-white rounded-2xl shadow-md overflow-hidden 
+      border-[2px] border-transparent hover:border-[#007AFF] 
+      transition duration-300 p-[10px]"
+    >
+      {/* Image + User tag */}
+      <div className="relative">
+        <img
+          src={getMainImage()}
+          alt={title}
+          onClick={handleView}
+          className="w-full h-48 object-cover rounded-2xl cursor-pointer"
+        />
 
-        {/* username and time */}
+        <span className="absolute bottom-2 left-2 flex items-center gap-1 bg-white border text-[#007AFF] px-[8px] py-[4px] rounded-full text-xs font-medium shadow">
+          {icon}
+          {username}
+        </span>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <div
-            style={{
-              backgroundColor: "#f44336",
-              color: "white",
-              width: "35px",
-              height: "35px",
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: "bold",
-              fontSize: "16px",
-            }}
-          >
-            {username ? username.charAt(0).toUpperCase() : ""}
-          </div>
-          <div>
-            <div style={{ fontWeight: "bold" }}>{username}</div>
-            <div style={{ fontSize: "12px", color: "gray" }}>
-              {time ? new Date(time).toLocaleDateString() : ""}
-            </div>
-          </div>
-        </div>
-
-
-
+        {/* Actions for Owner */}
         {isUser && (
-          <div className="actions">
-            <MdEdit onClick={handleEdit} title="Edit Blog" className="icon edit" />
-            <MdDelete onClick={() => handleDelete(slug)} title="Delete Blog" className="icon delete" />
+          <div className="absolute top-2 right-2 flex gap-2">
+            <MdEdit
+              onClick={handleEdit}
+              title="Edit Blog"
+              className="cursor-pointer text-blue-500 bg-white rounded-full p-1 w-6 h-6 shadow"
+            />
+            <MdDelete
+              onClick={() => handleDelete(slug || id)}
+              title="Delete Blog"
+              className="cursor-pointer text-red-500 bg-white rounded-full p-1 w-6 h-6 shadow"
+            />
           </div>
         )}
       </div>
 
-      {/* Display a single thumbnail image */}
-      <img src={getMainImage()} alt={title} className="blog-thumbnail" />
+      {/* Content */}
+      <div className="py-2">
+        <span className="block text-[10px] leading-[120%] text-[#7D7D7D] mb-1">
+          {time
+            ? new Date(time).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })
+            : "No date available"}
+        </span>
 
-      <div className="blogpreview-title">{title}</div>
+        <h3 className="text-base font-medium text-gray-800">{title}</h3>
 
-      {/* If it's a preview, show only 2 lines of description */}
-      <div className="blog-description">
-        {previewOnly ? parse(shortDescription) : parse(cleanHTML)}
-      </div>
+        <p className="text-sm text-[#7D7D7D] mt-2 line-clamp-2 leading-[120%]">
+          {previewOnly ? parse(shortDescription) : parse(cleanHTML)}
+        </p>
 
-      {/* If it's a preview, show the "read more" button */}
-      {previewOnly && (
-        <div className="read-more-wrapper">
-          <div className="read-more-btn" onClick={handleView} title="Read Full Blog">
+        {previewOnly && (
+          <button
+            onClick={handleView}
+            className="text-[#007AFF] text-sm font-normal leading-[100%] mt-3 inline-block hover:underline"
+          >
             Read More
-          </div>
-        </div>
-      )}
-
+          </button>
+        )}
+      </div>
     </div>
   );
 };

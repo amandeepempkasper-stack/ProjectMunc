@@ -5,10 +5,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import AdminSidebar from "../../components/Blogs/AdminBoard/AdminSidebar";
 import TopMobileNavbar from "../../components/Blogs/AdminBoard/TopMobileNavbar";
-import "./blogdetails.css";
+// import "./blogdetails.css";
 // import Header from "../../components/Blogs/AdminBoard/Header";
 import BASE_URL from "../Config/config";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const config = {
   readonly: false,
@@ -66,6 +66,8 @@ const BlogDetails = () => {
       console.log(error);
     }
   };
+
+  
   
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
