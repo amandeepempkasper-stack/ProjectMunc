@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import slugify from "slugify";
 import "./blog_pagination.css";
 import Pagination from "../pagination/Pagination"; // Import Pagination component
-
+import BASE_URL from "../../pages/Config/config";
 import axios from "axios";
 import moment from "moment";
 import DOMPurify from "dompurify";
@@ -142,7 +142,7 @@ const Blog_pagination = () => {
                         src={
                           Array.isArray(post.thumbnail) &&
                             post.thumbnail.length > 0
-                            ? `http://localhost:8080/${post.thumbnail[0].startsWith("/")
+                            ? `http://${BASE_URL}/${post.thumbnail[0].startsWith("/")
                               ? post.thumbnail[0].slice(1)
                               : post.thumbnail[0]
                             }`

@@ -306,7 +306,7 @@ export default BlogHome;
 //                           src={
 //                             Array.isArray(post.thumbnail) &&
 //                             post.thumbnail.length > 0
-//                               ? `http://localhost:8080/${
+//                               ? `${BASE_URL}/${
 //                                   post.thumbnail[0].startsWith("/")
 //                                     ? post.thumbnail[0].slice(1)
 //                                     : post.thumbnail[0]

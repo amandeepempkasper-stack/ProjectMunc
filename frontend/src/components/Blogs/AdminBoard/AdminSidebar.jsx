@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Header from "../AdminBoard/Header";
-
 import {
   Box,
   Drawer,
@@ -10,7 +9,7 @@ import {
   useMediaQuery,
   IconButton,
 } from "@mui/material";
-import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // Icons
@@ -21,10 +20,10 @@ import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import CategoryIcon from "@mui/icons-material/Category";
 import CreateIcon from "@mui/icons-material/Create";
 import { BoxIcon, Phone } from "lucide-react";
-// import BASE_URL from "../../../Pages/Config/config";
 
 const AdminLayouts = () => {
   const [selectedTab, setSelectedTab] = useState("blogs");
+  const [profile, setProfile] = useState(localStorage.getItem("profile"));
 
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("name");
@@ -33,13 +32,9 @@ const AdminLayouts = () => {
 
   const isLogin = useSelector((state) => state.auth.isLogin);
   const isUserLogin = isLogin || token || userId;
-
-  // const isTablet = useMediaQuery("(max-width: 1200px)");
-  // const isMobile = useMediaQuery("(max-width: 768px)");
   const isCompact = useMediaQuery("(max-width: 768px)");
-
   const location = useLocation();
-  // const isCompactPage = (location.pathname.includes("addblog") || location.pathname.includes("blogs")) ;
+
   const isCompactPage = [
     "addblog",
     "blogs",
@@ -52,22 +47,18 @@ const AdminLayouts = () => {
   ].some((page) => location.pathname.includes(page));
 
   const base = "/adminsidebar";
-
-  const iconNavItems = [
-    { icon: <HomeIcon />, path: "/home", key: "home" },
-    { icon: <PersonIcon />, path: `${base}/profile`, key: "profile" },
-    { icon: <ArticleIcon />, path: `${base}/blogs`, key: "blogs" },
-    { icon: <FeaturedPlayListIcon />, path: `${base}/my-blogs`, key: "my-blogs" },
-    { icon: <CategoryIcon />, path: `${base}/addcategory`, key: "addcategory" },
-    { icon: <CreateIcon />, path: `${base}/addblog`, key: "addblog" },
-    { icon: <Phone />, path: `${base}/contact-list`, key: "contact" },
-    { icon: <BoxIcon />, path: `${base}/product-demo-list`, key: "product" },
-  ];
-
-  // const drawerWidth = isTablet ? 130 : 260;
   const drawerWidth = isCompact ? 0 : 260;
 
-  const [profile, setProfile] = useState(localStorage.getItem("profile"));
+  const menuItems = [
+    { label: "Home", path: "/", key: "home", icon: <HomeIcon /> },
+    { label: "Profile", path: `${base}/profile`, key: "profile", icon: <PersonIcon /> },
+    { label: "Blogs", path: `${base}/blogs`, key: "blogs", icon: <ArticleIcon /> },
+    { label: "My Blogs", path: `${base}/my-blogs`, key: "my-blogs", icon: <FeaturedPlayListIcon /> },
+    { label: "Categories", path: `${base}/addcategory`, key: "addcategory", icon: <CategoryIcon /> },
+    { label: "Create Blog", path: `${base}/addblog`, key: "addblog", icon: <CreateIcon /> },
+    { label: "Contacts", path: `${base}/contact-list`, key: "contact", icon: <Phone /> },
+    { label: "Product Demos", path: `${base}/product-demo-list`, key: "product", icon: <BoxIcon /> },
+  ];
 
   useEffect(() => {
     const storedProfile = localStorage.getItem("profile");
@@ -75,12 +66,12 @@ const AdminLayouts = () => {
       setProfile(storedProfile);
     }
   }, [location.pathname]);
+
   return (
     <>
       <Header />
       <Box sx={{ display: "flex" }}>
-
-        {/* Hide sidebar if on AddBlog page and on mobile */}
+        {/* Sidebar - Hidden on mobile for compact pages */}
         {!(isCompact && isCompactPage) && (
           <Drawer
             variant="permanent"
@@ -90,204 +81,103 @@ const AdminLayouts = () => {
               "& .MuiDrawer-paper": {
                 width: drawerWidth,
                 boxSizing: "border-box",
-                backgroundColor: "#08325B",
+                backgroundColor: "grey.900",
                 color: "white",
-                padding: 2,
+                padding: 3,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-evenly",
-                alignItems: "center",
+                gap: 4,
                 position: "fixed",
-                top: "60px",
+                top: "64px",
                 left: 0,
-                height: "calc(100vh - 65px)",
+                height: "calc(100vh - 64px)",
                 overflowY: "auto",
                 "&::-webkit-scrollbar": { display: "none" },
                 scrollbarWidth: "none",
-                msOverflowStyle: "none",
+                border: "none",
               },
             }}
           >
+            {/* User Profile Section */}
             {isUserLogin ? (
-              <Box
-                sx={{
-                  textAlign: "center",
-                  width: "100%",
-                  mt: isCompact ? "42px" : "0px",
-                  mb: 4,
-                }}
-              >
+              <Box sx={{ textAlign: "center", width: "100%" }}>
                 <Avatar
                   src={
                     profile
                       ? `${profile}`
                       : "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-male-user-profile-vector-illustration-isolated-background-man-profile-sign-business-concept_157943-38764.jpg"
                   }
-                  sx={{ width: 90, height: 90, mx: "auto", mb: 1 }}
-                />
-                <Typography variant="h6">{username}</Typography>
-                <Typography
-                  variant="body2"
-                  color="gray"
-                  sx={{
-                    fontSize: isCompact ? "10px" : "14px",
+                  sx={{ 
+                    width: 80, 
+                    height: 80, 
+                    mx: "auto", 
+                    mb: 2,
+                    border: "2px solid",
+                    borderColor: "grey.700"
                   }}
-                >
+                />
+                <Typography variant="h6" fontWeight="300" gutterBottom>
+                  {username}
+                </Typography>
+                <Typography variant="body2" color="grey.400">
                   {email}
                 </Typography>
               </Box>
             ) : (
-              <Typography variant="h6" color="gray" sx={{ textAlign: "center" }}>
-                Please log in to access the admin panel.
+              <Typography variant="body1" color="grey.400" textAlign="center">
+                Please log in to access admin panel
               </Typography>
             )}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 2,
-                width: "100%",
-              }}
-            >
-              <Button
-                component={Link}
-                to="/"
-                fullWidth
-                variant={selectedTab === "home" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("home")}
-                sx={{
-                  mb: 2,
-                  p: 1,
-                  borderRadius: "22px",
-                  backgroundColor: "#35c0ca",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#3ca8ad",color: "#ffffff99" },
-                }}
-              >
-                Home
-              </Button>
 
-              <Button
-                component={Link}
-                to={`${base}/profile`}
-                fullWidth
-                variant={selectedTab === "profile" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("profile")}
-                sx={{
-                  backgroundColor: "#1976D2",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#1565C0",color: "#ffffff99" },
-                }}
-              >
-                Profile
-              </Button>
-
-              <Button
-                component={Link}
-                to={`${base}/blogs`}
-                fullWidth
-                variant={selectedTab === "blogs" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("blogs")}
-                sx={{
-                  backgroundColor: "#388E3C",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#2E7D32",color: "#ffffff99" },
-                }}
-              >
-                Blogs
-              </Button>
-              <Button
-                component={Link}
-                to={`${base}/my-blogs`}
-                fullWidth
-                variant={selectedTab === "my-blogs" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("my-blogs")}
-                sx={{
-                  backgroundColor: "#F57C00",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#E65100",color: "#ffffff99" },
-                }}
-              >
-                My Blogs
-              </Button>
-
-              <Button
-                component={Link}
-                to={`${base}/addcategory`}
-                fullWidth
-                variant={selectedTab === "addcategory" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("addcategory")}
-                sx={{
-                  backgroundColor: "#b0b00e",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#66660b",color: "#ffffff99" },
-                }}
-              >
-                Add Category
-              </Button>
-
-              <Button
-                component={Link}
-                to={`${base}/addblog`}
-                fullWidth
-                variant={selectedTab === "addblog" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("addblog")}
-                sx={{
-                  backgroundColor: "#faaf00",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#f99f00",color: "#ffffff99" },
-                }}
-              >
-                Create Blog
-              </Button>
-              <Button
-                component={Link}
-                to={`${base}/contact-list`}
-                fullWidth
-                variant={selectedTab === "contact-list" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("contact-list")}
-                sx={{
-                  backgroundColor: "#ff5da5",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#ff3da5",color: "#ffffff99" },
-                }}
-              >
-                Contact List
-              </Button>
-              <Button
-                component={Link}
-                to={`${base}/product-demo-list`}
-                fullWidth
-                variant={selectedTab === "product-demo-list" ? "contained" : "outlined"}
-                onClick={() => setSelectedTab("product-demo-list")}
-                sx={{
-                  backgroundColor: "#D32F2F",
-                  color: "white",
-                  "&:hover": { backgroundColor: "#C62828",color: "#ffffff99" },
-                }}
-              >
-                Product Demo List
-              </Button>
+            {/* Navigation Menu */}
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+              {menuItems.map((item) => (
+                <Button
+                  key={item.key}
+                  component={Link}
+                  to={item.path}
+                  fullWidth
+                  startIcon={item.icon}
+                  variant={selectedTab === item.key ? "contained" : "text"}
+                  onClick={() => setSelectedTab(item.key)}
+                  sx={{
+                    justifyContent: "flex-start",
+                    padding: "10px 16px",
+                    borderRadius: 1,
+                    textTransform: "none",
+                    fontSize: "0.9rem",
+                    fontWeight: selectedTab === item.key ? "500" : "400",
+                    backgroundColor: selectedTab === item.key ? "grey.800" : "transparent",
+                    color: selectedTab === item.key ? "white" : "grey.300",
+                    border: selectedTab === item.key ? "1px solid" : "none",
+                    borderColor: "grey.700",
+                    "&:hover": {
+                      backgroundColor: "grey.800",
+                      color: "white",
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
+              ))}
             </Box>
           </Drawer>
         )}
 
-        {/* <Box component="main" sx={{ flexGrow: 1, p: 3 
-        , width: "100%",
-        ml: isCompact ? 0 : `${drawerWidth}px`,
-           marginTop: '64px' 
-      }}> */}
-
+        {/* Main Content */}
         <Box
           component="main"
           sx={{
             flexGrow: 1,
             p: 3,
             width: "100%",
-            paddingLeft: isCompact || isCompactPage ? 0 : `${drawerWidth}px`,
+            marginLeft: isCompact || isCompactPage ? 0 : `${drawerWidth}px`,
             marginTop: "64px",
+            backgroundColor: "grey.50",
+            minHeight: "calc(100vh - 64px)",
           }}
         >
+          {/* Mobile Navigation Bar */}
           {(isCompact && isCompactPage) && (
             <Box
               sx={{
@@ -296,25 +186,28 @@ const AdminLayouts = () => {
                 overflowX: "auto",
                 whiteSpace: "nowrap",
                 gap: 1,
-                px: 1,
-                backgroundColor: "#08325B",
-                mb: 2,
-                "&::-webkit-scrollbar": {
-                  display: "none",
-                },
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
+                px: 2,
+                py: 1,
+                backgroundColor: "grey.900",
+                mb: 3,
+                borderRadius: 1,
+                "&::-webkit-scrollbar": { display: "none" },
               }}
             >
-              {iconNavItems.map((item) => (
+              {menuItems.map((item) => (
                 <IconButton
                   key={item.key}
                   component={Link}
                   to={item.path}
                   onClick={() => setSelectedTab(item.key)}
                   sx={{
-                    color: selectedTab === item.key ? "#35c0ca" : "white",
+                    color: selectedTab === item.key ? "white" : "grey.400",
+                    backgroundColor: selectedTab === item.key ? "grey.700" : "transparent",
                     flex: "0 0 auto",
+                    "&:hover": {
+                      backgroundColor: "grey.700",
+                      color: "white",
+                    },
                   }}
                 >
                   {item.icon}
@@ -323,21 +216,30 @@ const AdminLayouts = () => {
             </Box>
           )}
 
-
+          {/* Welcome Message for Profile Page */}
           {location.pathname.includes("profile") && (
-            <>
-              <Typography variant="h4" color="#08325b" sx={{ textAlign: "center" }}>
-                Welcome to Admin Panel
+            <Box sx={{ textAlign: "center", mb: 4 }}>
+              <Typography variant="h4" fontWeight="300" color="grey.800" gutterBottom>
+                Admin Dashboard
               </Typography>
-              <Typography
-                color="#08325b"
-                sx={{ textAlign: "center", fontSize: "12px" }}
-              >
-                Select an option from the sidebar.
+              <Typography variant="body1" color="grey.600">
+                Manage your content and settings
               </Typography>
-            </>
+            </Box>
           )}
-          <Outlet />
+
+          {/* Page Content */}
+          <Box
+            sx={{
+              backgroundColor: "white",
+              borderRadius: 2,
+              border: "1px solid",
+              borderColor: "grey.200",
+              overflow: "hidden",
+            }}
+          >
+            <Outlet />
+          </Box>
         </Box>
       </Box>
     </>

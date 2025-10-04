@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ContactImg from "../../assets/HomeSection/ContactSec/SideImg.png";
+import BASE_URL from "../Config/config";
 
 const Contact = () => {
   const [storeData, setStoreData] = useState({
@@ -21,7 +22,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/contact", {
+      const response = await fetch(`${BASE_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(storeData),
@@ -53,7 +54,7 @@ const Contact = () => {
 
   const fetchContacts = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/contact");
+      const res = await fetch(`${BASE_URL}/api/contact`);
       const data = await res.json();
       setContacts(data);
     } catch (err) {
