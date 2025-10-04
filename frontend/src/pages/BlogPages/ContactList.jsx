@@ -4,14 +4,14 @@ const ContactList = () => {
   const [contacts, setContacts] = useState([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [contactsPerPage] = useState(5);
+  const [contactsPerPage] = useState(10);
   const [selectedContact, setSelectedContact] = useState(null);
 
   // Fetch contacts from backend
 
   const fetchContacts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/contact");
+      const res = await fetch("http://localhost:8080/api/contact");
       const json = await res.json();
       // Handle backend response whether it's { data: [...] } or just array
       const contactsArray = Array.isArray(json)
@@ -33,7 +33,7 @@ const ContactList = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this contact?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const res = await fetch(`http://localhost:8080/api/contact/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();

@@ -432,7 +432,7 @@ const Features = () => {
 
       <Contact />
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
