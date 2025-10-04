@@ -49,7 +49,7 @@ const FAQ = () => {
               key={f.id}
               onMouseEnter={() => setActive(f.id)}
               onMouseLeave={() => setActive(null)}
-              className="py-4 px-4 cursor-pointer transition-all duration-300 border-b border-[#AEAEAE]"
+              className="py-2 px-2 cursor-pointer transition-all duration-300 border-b border-[#AEAEAE]"
             >
               <div className="flex items-center justify-between">
                 <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-[#1C2B33]">

@@ -9,6 +9,7 @@ const Contact = () => {
     phone: "",
     description: "",
     queryType: "",
+    designation: "", 
   });
 
   const handleChange = (e) => {
@@ -28,6 +29,7 @@ const Contact = () => {
       phone: "",
       description: "",
       queryType: "",
+      designation: "", 
     });
   };
 
@@ -54,6 +56,8 @@ const Contact = () => {
 
             <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
+
                 <input
                   id="name"
                   name="name"
@@ -72,72 +76,60 @@ const Contact = () => {
                   placeholder="Company Name"
                   className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
                 />
-
-                <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-4">
                 <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={storeData.email}
+                  id="designation"
+                  name="designation" 
+                  type="text"
+                  value={storeData.designation} 
                   onChange={handleChange}
-                  placeholder="Enter your email"
-                  className="
-      h-12 w-full rounded-lg border border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]
-      placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm lg:placeholder:text-xs 2xl:placeholder:text-sm
-    "
+                  placeholder="Your Designation"
+                  className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
                 />
+                </div>
 
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={storeData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter your phone"
-                  className="
-      h-12 w-full rounded-lg border border-black/10 px-2 outline-none focus:ring-2 focus:ring-[#727272]
-      placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-base lg:placeholder:text-xs 2xl:placeholder:text-xl
-    "
-                />
-
-                
-                <div className="relative w-full">
-                  <select
-                    id="queryType"
-                    name="queryType"
-                    value={storeData.queryType}
+                <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={storeData.email}
                     onChange={handleChange}
-                    className="
-      h-12 w-full rounded-lg border border-black/10 px-1.5 pr-6 outline-none 
-      focus:ring-2 focus:ring-[#727272] text-[#727272] appearance-none
-      text-sm sm:text-base md:text-lg 
-    "
-                  >
-                    <option value="" disabled hidden>
-                     Our Products
-                    </option>
-                    <option value="LMS">Lead Management</option>
-                    <option value="IMS">Inventory Management </option>
-                    <option value="SMS">School Management</option>
-                    <option value="HRMS">HR Management</option>
-                  </select>
+                    placeholder="Enter your email"
+                    className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272] placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm lg:placeholder:text-xs 2xl:placeholder:text-sm"
+                  />
 
-                  <span className="absolute inset-y-0 right-0.5 flex items-center pointer-events-none text-gray-500">
-                    ▼
-                  </span>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={storeData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your phone"
+                    className="h-12 w-full rounded-lg border border-black/10 px-2 outline-none focus:ring-2 focus:ring-[#727272] placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-base lg:placeholder:text-xs 2xl:placeholder:text-xl"
+                  />
+                  <div className="relative w-full">
+                    <select
+                      id="queryType"
+                      name="queryType"
+                      value={storeData.queryType}
+                      onChange={handleChange}
+                      className="h-12 w-full rounded-lg border border-black/10 px-1.5 pr-6 outline-none focus:ring-2 focus:ring-[#727272] text-[#727272] appearance-none text-sm sm:text-base md:text-lg"
+                    >
+                      <option value="" disabled hidden>
+                        Our Products
+                      </option>
+                      <option value="LMS">Lead Management</option>
+                      <option value="IMS">Inventory Management</option>
+                      <option value="SMS">School Management</option>
+                      <option value="HRMS">HR Management</option>
+                    </select>
+
+                    <span className="absolute inset-y-0 right-0.5 flex items-center pointer-events-none text-gray-500">
+                      ▼
+                    </span>
+                  </div>
                 </div>
               </div>
-              </div>
-
-              {/* <textarea
-                id="description"
-                name="description"
-                rows={4}
-                value={storeData.description}
-                onChange={handleChange}
-                placeholder="How can we help you?"
-                className="mt-1 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 py-2 outline-none resize-y focus:ring-2 focus:ring-[#727272]"
-              /> */}
 
               <div className="flex items-center justify-end gap-3 pt-2">
                 <button

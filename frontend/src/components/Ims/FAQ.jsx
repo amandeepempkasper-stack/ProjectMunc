@@ -60,7 +60,7 @@ const FAQ = () => {
             key={f.id}
             onMouseEnter={() => setActive(f.id)}
             onMouseLeave={() => setActive(null)}
-            className={`py-4 px-4 cursor-pointer transition-all duration-300 border-b border-[#AEAEAE]`}
+            className={`py-2 px-2 cursor-pointer transition-all duration-300 border-b border-[#AEAEAE]`}
           >
             <div className="flex items-center justify-between">
              

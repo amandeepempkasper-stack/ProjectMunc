@@ -17,8 +17,8 @@
 /* Icon 1 */
 .floating-icon-1 {
   position: absolute;
-  top: 30%; /* matches top-90 */
-  left: 10%; /* matches left-50 */
+  top: 35%; /* matches top-90 */
+  left: 20%; /* matches left-50 */
   width: 68px; /* matches w-17 → 17*4 */
   height: 68px; /* matches h-17 */
 }
@@ -27,7 +27,7 @@
 .floating-icon-2 {
   position: absolute;
   top: 150px; /* matches top-42 */
-  right: 340px; /* matches right-46 */
+  right: 150px; /* matches right-46 */
   width: 80px; /* matches w-20 */
   height: 80px; /* matches h-20 */
 }
@@ -35,8 +35,8 @@
 /* Icon 3 */
 .floating-icon-3 {
   position: absolute;
-  bottom: 55%; /* matches top-110 */
-  right: 450px; /* matches right-65 */
+  bottom: 59%; /* matches top-110 */
+  right: 300px; /* matches right-65 */
   width: 68px; /* matches w-17 */
   height: 68px;
 }
