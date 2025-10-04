@@ -7,7 +7,7 @@ import "./hrms.css";
 
 const HrmsSection1 = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#035ACD] to-[#003172] overflow-hidden relative flex items-center">
+    <div  id="header-section" className="min-h-screen bg-gradient-to-r from-[#035ACD] to-[#003172] overflow-hidden relative flex items-center">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 gap-8 w-full">
         <div className="text-white flex flex-col justify-start max-w-2xl text-left">
           <div className="space-y-4">

@@ -26,6 +26,8 @@ import SmsProduct from "./components/SMS/SmsProduct";
 import About from "./pages/about/About";
 import ProductDemoList from "./pages/BlogPages/ProductDemoList";
 import ContactList from "./pages/BlogPages/ContactList";
+import ScrollToTop from "./components/ScrollToTop";
+import Contact from "./components/Contact";
 
 const App = () => {
   useEffect(() => {
@@ -38,37 +40,50 @@ const App = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Features />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/blogpage" element={<Blog_pagination />} />
-        <Route path="/blogpost/:slugOrId" element={<BlogPost />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/products/inventory-management-system" element={<ImsProduct />} />
-        <Route path="/products/lead-management-system" element={<LmsProduct />} />
-        <Route
-          path="/products/human-resource-management-system"
-          element={<HrmsProduct />}
-        />
-        <Route path="/products/school-management-system" element={<SmsProduct />} />
-      </Route>
+    <>
+        <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Features />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blogpage" element={<Blog_pagination />} />
+          <Route path="/blogpost/:slugOrId" element={<BlogPost />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route
+            path="/products/inventory-management-system"
+            element={<ImsProduct />}
+          />
+          <Route
+            path="/products/lead-management-system"
+            element={<LmsProduct />}
+          />
+          <Route
+            path="/products/human-resource-management-system"
+            element={<HrmsProduct />}
+          />
+          <Route
+            path="/products/school-management-system"
+            element={<SmsProduct />}
+          />
+        </Route>
 
-      {/* Blog Auth/Login */}
-      <Route path="/register" element={<Register />} />
-      <Route path="login" element={<Login />} />
+        {/* Blog Auth/Login */}
+        <Route path="/register" element={<Register />} />
+        <Route path="login" element={<Login />} />
 
-      {/* Admin Routes with Nested Children */}
-      <Route path="adminsidebar" element={<AdminLayouts />}>
-        <Route path="profile" element={<Profile />} />
-        <Route path="blogs" element={<Blogs />} />
-        <Route path="my-blogs" element={<UserBlogs />} />
-        <Route path="addcategory" element={<Addcategory />} />
-        <Route path="addblog" element={<AddBlog />} />
-        <Route path="product-demo-list" element={<ProductDemoList />} />
-        <Route path="contact-list" element={<ContactList />} />
-      </Route>
-    </Routes>
+        {/* Admin Routes with Nested Children */}
+        <Route path="adminsidebar" element={<AdminLayouts />}>
+          <Route path="profile" element={<Profile />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="my-blogs" element={<UserBlogs />} />
+          <Route path="addcategory" element={<Addcategory />} />
+          <Route path="addblog" element={<AddBlog />} />
+          <Route path="product-demo-list" element={<ProductDemoList />} />
+          <Route path="contact-list" element={<ContactList />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

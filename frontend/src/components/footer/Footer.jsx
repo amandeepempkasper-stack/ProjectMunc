@@ -7,14 +7,13 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { CiInstagram } from "react-icons/ci";
-import logo from "../../assets/HomeSection/logo.svg"; 
+import logo from "../../assets/HomeSection/logo.svg";
 
 const Footer = () => {
   return (
     <footer className="bg-white border-t-[2px] border-gray-200 ">
       <div className="max-w-9xl mx-auto py-6 ">
         <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
-         
           <div>
             <img src={logo} alt="MUN-C Logo" className="h-8 mb-4" />
             <p className="text-sm text-[#3E4247] leading-[120%]">
@@ -23,23 +22,31 @@ const Footer = () => {
             </p>
           </div>
 
-          
-          <div>
-            <h3 className="font-medium text-gray-800 mb-3">Company</h3>
+          <div className="">
+            <h3 className="font-medium  text-gray-800 mb-3">Company</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link to="/about" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                <Link
+                  to="/about"
+                  className="hover:text-blue-500 no-underline text-[#3E4247]"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/products/human-resource-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
-                  Our Products
+                <Link
+                  to="/products/human-resource-management-system"
+                  className="hover:text-blue-500 no-underline text-[#3E4247]"
+                >
+                  Product Details
                 </Link>
               </li>
               <li>
-                <Link to="/blogs" className="hover:text-blue-500 no-underline text-[#3E4247]">
-                  Blog
+                <Link
+                  to="/blogs"
+                  className="hover:text-blue-500 no-underline text-[#3E4247]"
+                >
+                  Blogs
                 </Link>
               </li>
               <li>
@@ -50,37 +57,48 @@ const Footer = () => {
             </ul>
           </div>
 
-          
-          <div>
-            <h3 className="font-medium text-gray-800 mb-3">Products</h3>
+          <div className="flex flex-col justify-start items-center mx-auto">
+            <h3 className="font-medium text-gray-800 mb-3">Our Products</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link to="/products/inventory-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                <Link
+                  to="/products/inventory-management-system"
+                  className="hover:text-blue-500 no-underline text-[#3E4247]"
+                >
                   Inventory management
                 </Link>
               </li>
               <li>
-                <Link to="/products/lead-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                <Link
+                  to="/products/lead-management-system"
+                  className="hover:text-blue-500 no-underline text-[#3E4247]"
+                >
                   Lead-management
                 </Link>
               </li>
               <li>
-                <Link to="/products/human-resource-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                <Link
+                  to="/products/human-resource-management-system"
+                  className="hover:text-blue-500 no-underline text-[#3E4247]"
+                >
                   Human resource management
                 </Link>
               </li>
               <li>
-                <Link to="/products/school-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
-                School management
+                <Link
+                  to="/products/school-management-system"
+                  className="hover:text-blue-500 no-underline text-[#3E4247]"
+                >
+                  School management
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="font-medium text-gray-800 mb-3">Head Office</h3>
-            <ul className="text-sm text-gray-600 space-y-3 ">
+          <div className=" flex flex-col justify-start items-center mx-auto">
+            <h3 className="font-medium text-gray-800 mb-2">Head Office</h3>
+            <ul className="text-sm text-gray-600 space-y-3">
               <li className="flex items-start gap-2">
                 <FaMapMarkerAlt size={26} className="mt-1 text-black" />
                 <span>
@@ -91,9 +109,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <FaPhone size={16} className="text-black" />
-
-                <a href="tel:8006236800" className="hover:text-blue-600 no-underline text-[#3E4247]">
-                 +91 80062 36800
+                <a
+                  href="tel:8006236800"
+                  className="hover:text-blue-600 no-underline text-[#3E4247]"
+                >
+                  +91 80062 36800
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -110,7 +130,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="max-w-7xl mx-auto px-6 py-5 border-t-[1px] border-gray-200 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+        <div className="max-w-7xl mx-auto px-6 py-2 border-t-[1px] border-gray-200 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
           <p>All rights reserved by Kasper Infotech Pvt. Ltd.</p>
 
           {/* Social Icons */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/HomeSection/logo.svg";
@@ -6,20 +6,18 @@ import BlueButton from "../../UI/BlueButton";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa";
 import Contact from "./Contact";
-// import Contact from "./ProductDemo";
 
 const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
-
   const [showForm, setShowForm] = useState(false);
 
   const links = [
     { label: "Home", path: "/" },
     { label: "Products", path: "#", dropdown: true },
     { label: "About", path: "/about" },
-    { label: "Contact Us", path: "/#contact", scroll: true },
+    { label: "Contact Us", path: "/contact", scroll: false },  // Change scroll to false here
     { label: "Blogs", path: "/blogs" },
   ];
 
@@ -29,17 +27,6 @@ const NavBar = () => {
     { label: "SMS", path: "/products/school-management-system" },
     { label: "IMS", path: "/products/inventory-management-system" },
   ];
-
-  useEffect(() => {
-    if (showForm) {
-      document.body.style.overflow = "hidden"; // disable scroll
-    } else {
-      document.body.style.overflow = "auto"; // restore scroll
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [showForm]);
 
   return (
     <>
@@ -54,11 +41,11 @@ const NavBar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex gap-10">
-            <ul className="flex gap-8 text-[#3E4247] relative my-auto ">
+            <ul className="flex gap-8 text-[#3E4247] relative my-auto">
               {links.map((el, idx) => (
                 <li
                   key={idx}
-                  className="list-none relative "
+                  className="list-none relative"
                   onMouseEnter={() => el.dropdown && setShowDropdown(true)}
                   onMouseLeave={() => el.dropdown && setShowDropdown(false)}
                 >
@@ -98,7 +85,7 @@ const NavBar = () => {
 
                   {/* Dropdown Menu */}
                   {el.dropdown && showDropdown && (
-                    <div className="absolute left-0 mt-0 w-48 bg-white shadow-lg rounded-md z-50">
+                    <div className="absolute left-0 mt-0.9 w-48 bg-white shadow-lg rounded-md z-50">
                       {productItems.map((item, i) => (
                         <NavLink
                           key={i}

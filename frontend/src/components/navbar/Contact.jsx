@@ -3,7 +3,7 @@ import ContactImg from "../../assets/HomeSection/ContactSec/SideImg.png";
 import { useNavigate } from "react-router";
 
 const Contact = ({ setShowForm, showForm }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [storeData, setStoreData] = useState({
     name: "",
     company: "",
@@ -11,6 +11,7 @@ const Contact = ({ setShowForm, showForm }) => {
     phone: "",
     description: "",
     queryType: "",
+    designation: "", 
   });
 
   const handleChange = (e) => {
@@ -24,13 +25,14 @@ const Contact = ({ setShowForm, showForm }) => {
     alert("Form submitted & data saved in localStorage ✅");
     console.log("Saved:", storeData);
 
-    setStoreData({
+   setStoreData({
       name: "",
       company: "",
       email: "",
       phone: "",
       description: "",
       queryType: "",
+      designation: "", 
     });
 
     setShowForm(false);
@@ -70,24 +72,36 @@ const Contact = ({ setShowForm, showForm }) => {
 
           <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={storeData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
-              />
-              <input
-                id="company"
-                name="company"
-                type="text"
-                value={storeData.company}
-                onChange={handleChange}
-                placeholder="Company Name"
-                className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
-              />
+              <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={storeData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
+                />
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  value={storeData.company}
+                  onChange={handleChange}
+                  placeholder="Company Name"
+                  className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
+                />
+                
+                <input
+                  id="designation"
+                  name="designation"
+                  type="text"
+                  value={storeData.designation}
+                  onChange={handleChange}
+                  placeholder="Your Designation"
+                  className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
+                />
+              </div>
 
               <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
                 <input
@@ -99,7 +113,7 @@ const Contact = ({ setShowForm, showForm }) => {
                   placeholder="Enter your email"
                   className="
       h-12 w-full rounded-lg border border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]
-      placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm lg:placeholder:text-xs 2xl:placeholder:text-sm
+      placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm lg:placeholder:text-xs 
     "
                 />
 
