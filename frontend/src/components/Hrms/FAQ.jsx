@@ -43,7 +43,7 @@ const FAQ = () => {
           FAQs
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((f) => (
             <div
               key={f.id}
@@ -66,7 +66,7 @@ const FAQ = () => {
               
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  active === f.id ? "max-h-40 mt-2" : "max-h-0"
+                  active === f.id ? "max-h-30 mt-1" : "max-h-0"
                 }`}
               >
                 <p className="text-sm sm:text-base md:text-lg lg:text-[16px] font-normal text-[#3E4247]">

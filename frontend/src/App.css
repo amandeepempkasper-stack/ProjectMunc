@@ -3,9 +3,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
+  /* box-sizing: border-box; */
+  font-family: "Noto Sans", sans-serif;
+  /* font-style: normal; */
 }
 
 .font-heading {
@@ -47,10 +47,4 @@ p {
 /* medlaysingh@gmail.com  */
 /* _bynh9n_NrE#-ju ........password */
 
-.badge-primary {
-  background-color: rgb(34, 33, 33) !important;
-  color: #007aff !important;
-  padding: 0.1rem 0.5rem !important;
-  font-size: 0.9rem !important;
-  border-radius: 5px;
-}
+
