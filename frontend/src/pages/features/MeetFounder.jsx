@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import MaleFounder from "../../assets/HomeSection/OurFounder/Kishor Sir.png";
 import Lakshmi from "../../assets/HomeSection/OurFounder/Lakshmi.jpg"
+import './features.css'
 
 const MeetFounder = () => {
   const testimonials = [
@@ -41,7 +42,7 @@ const MeetFounder = () => {
           >
             {testimonials.map((item) => (
               <SwiperSlide key={item.id}>
-                <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-xl p-8  ">
+                <div className="flex flex-col md:flex-row items-center justify-start gap-8 bg-white rounded-xl p-8  ">
                   {/* Founder Image */}
                   <img
                     src={item.image}
@@ -50,7 +51,7 @@ const MeetFounder = () => {
                   />
 
                   {/* Content */}
-                  <div className="text-center md:text-left">
+                  <div className=" founder-desc">
                     <p className="text-[#7D7D7D] text-base font-normal leading-[120%] mb-4">
                       {item.text}
                     </p>

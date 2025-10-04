@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ContactImg from "../../assets/HomeSection/ContactSec/SideImg.png";
 
 const Contact = () => {
@@ -11,25 +11,60 @@ const Contact = () => {
     queryType: "",
   });
 
+  const [contacts, setContacts] = useState([]); // store fetched contacts
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setStoreData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.setItem("contactForm", JSON.stringify(storeData));
-    alert("Form submitted & data saved in localStorage ✅");
-    console.log("Saved:", storeData);
-    setStoreData({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      description: "",
-      queryType: "",
-    });
+    try {
+      const response = await fetch("http://localhost:8080/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(storeData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.message);
+        setStoreData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          description: "",
+          queryType: "",
+        });
+
+        // Refresh the list of contacts after submission
+        fetchContacts();
+      } else {
+        alert(data.message || "Something went wrong");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error submitting form");
+    }
   };
+
+  const fetchContacts = async () => {
+    try {
+      const res = await fetch("http://localhost:8080/api/contact");
+      const data = await res.json();
+      setContacts(data);
+    } catch (err) {
+      console.error("Error fetching contacts:", err);
+    }
+  };
+
+  // Fetch contacts on component mount
+  useEffect(() => {
+    fetchContacts();
+  }, []);
 
   return (
     <div id="contact" className="bg-[#F0FDFF]">
@@ -53,7 +88,7 @@ const Contact = () => {
             </p>
 
             <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <input
                   id="name"
                   name="name"
@@ -73,7 +108,7 @@ const Contact = () => {
                   className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
                 />
 
-                <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-4">
+                <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
                 <input
                   id="email"
                   name="email"
@@ -142,7 +177,7 @@ const Contact = () => {
               <div className="flex items-center justify-end gap-3 pt-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center cursor-pointer rounded-full px-4 py-3 text-base font-medium text-white bg-[#007AFF] hover:bg-[#0070f3] w-full transition"
+                  className="inline-flex items-center justify-center cursor-pointer rounded-full px-4 py-2 text-base font-medium text-white bg-[#007AFF] hover:bg-[#0070f3] w-full transition"
                 >
                   Submit
                 </button>

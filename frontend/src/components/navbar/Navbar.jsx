@@ -43,8 +43,8 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-50 md:bg-white md:backdrop-blur-sm bg-white shadow-sm">
-        <div className="flex justify-between items-center max-w-7xl mx-auto py-2">
+      <div className="fixed top-0 left-0 w-full z-50 md:bg-white md:backdrop-blur-sm bg-white">
+        <div className="flex justify-between items-center max-w-5xl mx-auto px-4 py-3 lg:py-5">
           {/* Logo */}
           <div>
             <NavLink to="/">
@@ -68,7 +68,11 @@ const NavBar = () => {
                       className={({ isActive }) =>
                         `relative cursor-pointer transition-colors duration-300 
                         hover:text-blue-500 no-underline hover:underline 
-                        ${isActive ? "text-blue-500 underline font-medium" : "text-gray-800"}`
+                        ${
+                          isActive
+                            ? "text-blue-500 underline font-medium"
+                            : "text-gray-800"
+                        }`
                       }
                     >
                       {el.label}
@@ -102,7 +106,11 @@ const NavBar = () => {
                           className={({ isActive }) =>
                             `block px-4 py-2 text-sm transition-colors duration-300 
                             hover:bg-blue-50 hover:text-blue-600 no-underline
-                            ${isActive ? "text-blue-600 underline font-medium" : "text-gray-700"}`
+                            ${
+                              isActive
+                                ? "text-blue-600 underline font-medium"
+                                : "text-gray-700"
+                            }`
                           }
                         >
                           {item.label}
@@ -113,18 +121,22 @@ const NavBar = () => {
                 </li>
               ))}
             </ul>
-            <BlueButton Addname="Try a Demo" handleForm={() => setShowForm(true)} />
+            <button
+              onClick={() => setShowForm(true)}
+              className="px-3 py-2 bg-[#007aff] text-white rounded-full hover:scale-105 transition-all duration-300 ease-in"
+            >
+              Try Demo
+            </button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-3 md:hidden">
-            <BlueButton
-              Addname="Try For Free"
-              handleForm={() => {
-                setShowForm(true);
-                setMobileMenuOpen(false);
-              }}
-            />
+            <button
+              onClick={() => setShowForm(true)}
+              className="px-3 py-2 bg-[#007aff] text-white rounded-full hover:scale-105 transition-all duration-300 ease-in"
+            >
+              Try Demo
+            </button>
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? (
                 <HiX className="w-7 h-7 text-gray-700" />
@@ -145,7 +157,7 @@ const NavBar = () => {
               </button>
             </div>
 
-            <div className="mt-6 flex flex-col gap-3">
+            <div className="pt-2 flex flex-col gap-3">
               {links.map((el, idx) => (
                 <div key={idx}>
                   {!el.dropdown && !el.scroll ? (
@@ -153,8 +165,12 @@ const NavBar = () => {
                       to={el.path}
                       className={({ isActive }) =>
                         `block py-2 transition-colors duration-300 
-                        hover:text-blue-500 hover:underline 
-                        ${isActive ? "text-blue-500 underline font-medium" : "text-gray-800"}`
+                        hover:text-blue-500 no-underline hover:underline 
+                        ${
+                          isActive
+                            ? "text-blue-500 !underline font-medium"
+                            : "text-gray-800"
+                        }`
                       }
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -164,7 +180,7 @@ const NavBar = () => {
                     <HashLink
                       smooth
                       to={el.path}
-                      className="block py-2 text-gray-800 hover:text-blue-500 hover:underline"
+                      className="block py-2 text-gray-800 no-underline hover:text-blue-500 hover:underline"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {el.label}
@@ -172,7 +188,9 @@ const NavBar = () => {
                   ) : (
                     <>
                       <button
-                        onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                        onClick={() =>
+                          setMobileDropdownOpen(!mobileDropdownOpen)
+                        }
                         className="flex justify-between items-center w-full py-2 text-gray-800 hover:text-blue-500 hover:underline"
                       >
                         <span>{el.label}</span>
@@ -191,8 +209,12 @@ const NavBar = () => {
                               to={item.path}
                               className={({ isActive }) =>
                                 `block py-1 text-sm transition-colors duration-300 
-                                hover:text-blue-600 hover:underline 
-                                ${isActive ? "text-blue-600 underline font-medium" : "text-gray-800"}`
+                                hover:text-blue-600 no-underline 
+                                ${
+                                  isActive
+                                    ? "text-blue-600 underline font-medium"
+                                    : "text-gray-800"
+                                }`
                               }
                               onClick={() => {
                                 setMobileMenuOpen(false);

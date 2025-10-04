@@ -23,6 +23,9 @@ import ImsProduct from "./components/Ims/ImsProductSection1";
 import LmsProduct from "./components/Lms/LmsProduct";
 import HrmsProduct from "./components/Hrms/HrmsProduct";
 import SmsProduct from "./components/SMS/SmsProduct";
+import About from "./pages/about/About";
+import ProductDemoList from "./pages/BlogPages/ProductDemoList";
+import ContactList from "./pages/BlogPages/ContactList";
 
 const App = () => {
   useEffect(() => {
@@ -38,7 +41,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Features />} />
-        {/* <Route path="blogpost" element={<Features />} /> */}
+        <Route path="/about" element={<About />} />
         <Route path="/blogpage" element={<Blog_pagination />} />
         <Route path="/blogpost/:slugOrId" element={<BlogPost />} />
         <Route path="/blogs" element={<Blogs />} />
@@ -62,6 +65,8 @@ const App = () => {
         <Route path="my-blogs" element={<UserBlogs />} />
         <Route path="addcategory" element={<Addcategory />} />
         <Route path="addblog" element={<AddBlog />} />
+        <Route path="product-demo-list" element={<ProductDemoList />} />
+        <Route path="contact-list" element={<ContactList />} />
       </Route>
     </Routes>
   );

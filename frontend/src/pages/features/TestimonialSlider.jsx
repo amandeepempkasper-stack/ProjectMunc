@@ -70,7 +70,7 @@ const TestimonialSlider = () => {
 
       <div className="relative w-full max-w-[700px]  h-auto min-h-[200px] lg:h-[180px] rotate-3 translate-y-0">
         <div className="absolute inset-0 bg-white rounded-xl shadow-md rotate-7 translate-y-4"></div>
-        <div className="absolute inset-0 bg-white rounded-xl shadow-md -rotate-9 translate-y-1"></div>
+        <div className="absolute inset-0 bg-white rounded-xl shadow-md -rotate-7 translate-y-1"></div>
 
         <div className="relative h-full">
           <AnimatePresence mode="wait">
@@ -85,20 +85,20 @@ const TestimonialSlider = () => {
               <img
                 src={testimonials[index].logo}
                 alt={`${testimonials[index].name} logo`}
-                className="!w-[75px] sm:w-11 h-full object-cover md:mb-2"
+                className="!w-[75px] sm:w-11 h-10 md:h-16 lg:h-36 object-cover md:mb-2"
               />
 
               <p className="text-[#5C5C5C] text-xs sm:text-sm font-medium leading-[120%] flex-1">
                 {testimonials[index].text}
               </p>
 
-              <div className="flex items-center gap-3 md:mt-2">
+              <div className="flex items-start gap-3 md:mt-2">
                 <img
                   src={testimonials[index].image}
                   alt={testimonials[index].name}
                   className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
                 />
-                <div>
+                <div className="flex flex-col">
                   <h4 className="font-medium text-sm">
                     {testimonials[index].name}
                   </h4>

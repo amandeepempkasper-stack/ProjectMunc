@@ -1,5 +1,5 @@
 .leading-gap {
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 /* Shared floating icon styles */
@@ -26,8 +26,8 @@
 /* Icon 2 */
 .floating-icon-2 {
   position: absolute;
-  top: 100px; /* matches top-42 */
-  right: 300px; /* matches right-46 */
+  top: 150px; /* matches top-42 */
+  right: 340px; /* matches right-46 */
   width: 80px; /* matches w-20 */
   height: 80px; /* matches h-20 */
 }
@@ -85,3 +85,13 @@
 
 
 /* ========================================== Our Product ===================================== */
+
+.founder-desc {
+  text-align: center !important;
+}
+
+@media (min-width: 768px) {
+    .founder-desc {
+        text-align: left !important;
+    }
+}

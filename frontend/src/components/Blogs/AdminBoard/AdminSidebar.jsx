@@ -20,6 +20,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import CategoryIcon from "@mui/icons-material/Category";
 import CreateIcon from "@mui/icons-material/Create";
+import { BoxIcon, Phone } from "lucide-react";
 // import BASE_URL from "../../../Pages/Config/config";
 
 const AdminLayouts = () => {
@@ -45,7 +46,9 @@ const AdminLayouts = () => {
     "my-blogs",
     "addcategory",
     "profile",
-    "home"
+    "home",
+    "contact-list",
+    "product-demo-list"
   ].some((page) => location.pathname.includes(page));
 
   const base = "/adminsidebar";
@@ -57,6 +60,8 @@ const AdminLayouts = () => {
     { icon: <FeaturedPlayListIcon />, path: `${base}/my-blogs`, key: "my-blogs" },
     { icon: <CategoryIcon />, path: `${base}/addcategory`, key: "addcategory" },
     { icon: <CreateIcon />, path: `${base}/addblog`, key: "addblog" },
+    { icon: <Phone />, path: `${base}/contact-list`, key: "contact" },
+    { icon: <BoxIcon />, path: `${base}/product-demo-list`, key: "product" },
   ];
 
   // const drawerWidth = isTablet ? 130 : 260;
@@ -156,7 +161,7 @@ const AdminLayouts = () => {
                   borderRadius: "22px",
                   backgroundColor: "#35c0ca",
                   color: "white",
-                  "&:hover": { backgroundColor: "#3ca8ad" },
+                  "&:hover": { backgroundColor: "#3ca8ad",color: "#ffffff99" },
                 }}
               >
                 Home
@@ -171,7 +176,7 @@ const AdminLayouts = () => {
                 sx={{
                   backgroundColor: "#1976D2",
                   color: "white",
-                  "&:hover": { backgroundColor: "#1565C0" },
+                  "&:hover": { backgroundColor: "#1565C0",color: "#ffffff99" },
                 }}
               >
                 Profile
@@ -186,7 +191,7 @@ const AdminLayouts = () => {
                 sx={{
                   backgroundColor: "#388E3C",
                   color: "white",
-                  "&:hover": { backgroundColor: "#2E7D32" },
+                  "&:hover": { backgroundColor: "#2E7D32",color: "#ffffff99" },
                 }}
               >
                 Blogs
@@ -200,7 +205,7 @@ const AdminLayouts = () => {
                 sx={{
                   backgroundColor: "#F57C00",
                   color: "white",
-                  "&:hover": { backgroundColor: "#E65100" },
+                  "&:hover": { backgroundColor: "#E65100",color: "#ffffff99" },
                 }}
               >
                 My Blogs
@@ -215,7 +220,7 @@ const AdminLayouts = () => {
                 sx={{
                   backgroundColor: "#b0b00e",
                   color: "white",
-                  "&:hover": { backgroundColor: "#66660b" },
+                  "&:hover": { backgroundColor: "#66660b",color: "#ffffff99" },
                 }}
               >
                 Add Category
@@ -228,12 +233,40 @@ const AdminLayouts = () => {
                 variant={selectedTab === "addblog" ? "contained" : "outlined"}
                 onClick={() => setSelectedTab("addblog")}
                 sx={{
-                  backgroundColor: "#D32F2F",
+                  backgroundColor: "#faaf00",
                   color: "white",
-                  "&:hover": { backgroundColor: "#C62828" },
+                  "&:hover": { backgroundColor: "#f99f00",color: "#ffffff99" },
                 }}
               >
                 Create Blog
+              </Button>
+              <Button
+                component={Link}
+                to={`${base}/contact-list`}
+                fullWidth
+                variant={selectedTab === "contact-list" ? "contained" : "outlined"}
+                onClick={() => setSelectedTab("contact-list")}
+                sx={{
+                  backgroundColor: "#ff5da5",
+                  color: "white",
+                  "&:hover": { backgroundColor: "#ff3da5",color: "#ffffff99" },
+                }}
+              >
+                Contact List
+              </Button>
+              <Button
+                component={Link}
+                to={`${base}/product-demo-list`}
+                fullWidth
+                variant={selectedTab === "product-demo-list" ? "contained" : "outlined"}
+                onClick={() => setSelectedTab("product-demo-list")}
+                sx={{
+                  backgroundColor: "#D32F2F",
+                  color: "white",
+                  "&:hover": { backgroundColor: "#C62828",color: "#ffffff99" },
+                }}
+              >
+                Product Demo List
               </Button>
             </Box>
           </Drawer>
