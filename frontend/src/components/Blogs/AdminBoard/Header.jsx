@@ -1,128 +1,152 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { IoWater } from "react-icons/io5";
 import {
   Box,
   AppBar,
   Toolbar,
   Button,
   Typography,
-  Tabs,
-  Tab,
-  Divider,
+  Chip,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../../redux/store";
-import { blueGrey } from "@mui/material/colors";
-//import "./header.css"
+import logo from "../../../assets/logo.png"
 
 const Header = () => {
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("name");
   const userId = localStorage.getItem("userId");
 
-  const isLogin = useSelector((state) => state.auth.isLogin); // Get `isLogin` from the Redux store
+  const isLogin = useSelector((state) => state.auth.isLogin);
   const isUserLogin = isLogin || token || userId;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //logout
+  // Logout handler
   const handleLogout = () => {
     try {
       dispatch(authActions.logout());
-      toast.success("Logout successfully");
+      toast.success("Logged out successfully");
       navigate("/login");
       localStorage.clear();
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
-    <>
-      <AppBar
-        position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, width: "100%" }}
-      >
-        <Toolbar>
+    <AppBar
+      position="fixed"
+      sx={{ 
+        zIndex: (theme) => theme.zIndex.drawer + 1, 
+        backgroundColor: "grey.900",
+        boxShadow: "none",
+        borderBottom: "1px solid",
+        borderColor: "grey.800",
+      }}
+    >
+      <Toolbar sx={{ minHeight: "64px!important" }}>
+        {/* Logo */}
+        <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
           <img
-            src="/favicon.png"
+            src={logo}
             alt="Kasper Logo"
-            style={{ width: 30, height: 30 }}
+            style={{ 
+              width: 100, 
+              height: 32,
+              borderRadius: "4px"
+            }}
           />
           <Typography
-            variant="h4"
-            textTransform={"uppercase"}
-            paddingLeft={1}
-            paddingRight={1}
-            lineHeight={2}
-            fontWeight={600}
-            color="whitesmoke"
-            fontSize={25}
+            variant="h6"
+            sx={{
+              marginLeft: 1,
+              fontWeight: "300",
+              color: "white",
+              letterSpacing: "0.5px",
+            }}
           >
-            Kasper
+            {/* Kasper */}
           </Typography>
-          {/* links */}
+        </Box>
 
-          <Box display={"flex"} marginLeft="auto">
-            {/* //LIKE A container */}
-            {!isUserLogin || !token ? (
-              <>
-                <Button
-                  sx={{ margin: 1, color: "white" }}
-                  LinkComponent={Link}
-                  to="/login"
-                >
-                  Login
-                </Button>
-                <Button
-                  sx={{ margin: 1, color: "white" }}
-                  LinkComponent={Link}
-                  to="/register"
-                >
-                  Register
-                </Button>
-              </>
-            ) : (
-              <>
-                <div
-                  className="btn btn-primary"
-                  style={{
-                    margin: "6px",
-                    color: "white",
-                    display: "inline-block",
-                    visibility: "visible",
-                    textTransform: "capitalize",
-                    cursor: "default",
-                    height: "40px",
-                    backgroundColor: "#1976D2",
-                    transition: "none",
-                    pointerEvents: "none",
-                    borderRadius: "8px",
-                    border: "none",
-                    boxShadow: "none",
-                    outline: "none",
-                    appearance: "none",
-                    fontSize: " 19px",
-                    fontWeight: "600px",
-                  }}
-                >
-                  {username?.split(" ")[0]}
-                </div>
-
-                <Button
-                  onClick={handleLogout}
-                  sx={{ margin: 1, color: "white" }}
-                >
-                  Logout
-                </Button>
-              </>
-            )}
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </>
+        {/* Auth Buttons */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          {!isUserLogin || !token ? (
+            <>
+              <Button
+                component={Link}
+                to="/login"
+                sx={{
+                  color: "white",
+                  textTransform: "none",
+                  fontWeight: "400",
+                  fontSize: "0.9rem",
+                  "&:hover": {
+                color: "#fff", // ✅ Keep text white on hover
+                backgroundColor: "gray.800", // ✅ Darker hover background
+              },
+                  padding: "6px 16px",
+                }}
+              >
+                Sign In
+              </Button>
+              <Button
+                component={Link}
+                to="/register"
+                variant="outlined"
+                sx={{
+                  color: "white",
+                  borderColor: "grey.600",
+                  textTransform: "none",
+                  fontWeight: "400",
+                  fontSize: "0.9rem",
+                  "&:hover": {
+                    backgroundColor: "grey.800",
+                    borderColor: "grey.500",
+                    color: "#fff",
+                  },
+                  padding: "6px 16px",
+                }}
+              >
+                Create Account
+              </Button>
+            </>
+          ) : (
+            <>
+              <Chip
+                label={username?.split(" ")[0]}
+                sx={{
+                  color: "white",
+                  backgroundColor: "grey.700",
+                  fontWeight: "400",
+                  "& .MuiChip-label": {
+                    paddingX: 2,
+                  },
+                }}
+              />
+              <Button
+                onClick={handleLogout}
+                sx={{
+                  color: "white",
+                  textTransform: "none",
+                  fontWeight: "400",
+                  fontSize: "0.9rem",
+                  "&:hover": {
+                    backgroundColor: "grey.800",
+                  },
+                  padding: "6px 16px",
+                }}
+              >
+                Logout
+              </Button>
+            </>
+          )}
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 

@@ -8,27 +8,24 @@ import { BrowserRouter } from "react-router-dom";
 import BlogDeleteProvider from "./BlogContext/BlogDeleteContext";
 import { BlogProvider } from "./BlogContext/BlogContext";
 import { Provider } from "react-redux";
-import { store } from './redux/store';
+import { store } from "./redux/store";
+import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        {" "}
-        {/* Redux Provider */}
         <BlogDeleteProvider>
           <BlogProvider>
-            {" "}
-            {/* Custom Blog Context Provider */}
-            <App />
+            <HelmetProvider>
+              <App />
+            </HelmetProvider>
           </BlogProvider>
         </BlogDeleteProvider>
       </Provider>
     </BrowserRouter>
-    {/* <BrowserRouter>
-      <App />
-    </BrowserRouter> */}
+
     <Toaster
       position="top-center"
       reverseOrder={false}
@@ -36,14 +33,12 @@ root.render(
       containerClassName=""
       containerStyle={{}}
       toastOptions={{
-        // Define default options
         className: "",
         duration: 5000,
         style: {
           background: "#363636",
           color: "#fff",
         },
-
         success: {
           duration: 3000,
           theme: {
@@ -52,6 +47,6 @@ root.render(
           },
         },
       }}
-    />{" "}
+    />
   </React.StrictMode>
 );

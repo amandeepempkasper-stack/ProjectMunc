@@ -1,5 +1,6 @@
-import React, { Children, useState } from "react";
-import { Box, Typography, TextField, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, TextField, Button, IconButton, InputAdornment } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -10,29 +11,41 @@ import BASE_URL from "../Config/config";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  //state
+  
+  // State
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
-  //handle input change
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  // Handle input change
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-  //handle form
+
+  // Toggle password visibility
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    
     try {
       const { data } = await axios.post(`${BASE_URL}/api/v1/user/login`, {
         email: inputs.email,
         password: inputs.password,
       });
+      
       if (data.success) {
-        localStorage.setItem("userId", data?.user._id); //
+        localStorage.setItem("userId", data?.user._id);
         localStorage.setItem("token", data?.token);
         localStorage.setItem("name", data?.name);
         localStorage.setItem("email", data?.user?.email);
@@ -40,82 +53,168 @@ const Login = () => {
         localStorage.setItem("username", JSON.stringify(data.username));
         localStorage.setItem("profile", data?.user?.profile);
 
-        //console.log(data?.user?.email)
-
-        //console.log(data.user._id);
-        //console.log(data);
         dispatch(authActions.login());
-        toast.success("user login successfully");
+        toast.success("Login successful");
         navigate("/adminsidebar/my-blogs");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Login failed. Please try again.");
+      toast.error("Login failed. Please check your credentials.");
+    } finally {
+      setLoading(false);
     }
-    // console.log(inputs);
   };
+
   return (
-    <>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      minHeight="100vh"
+      sx={{ 
+        backgroundColor: "grey.50",
+        padding: 2
+      }}
+    >
       <form onSubmit={handleSubmit}>
         <Box
           display="flex"
-          flexDirection={"column"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          maxWidth={450}
-          margin={"auto"}
-          marginTop={5}
-          padding={3}
-          borderRadius={5}
-          boxShadow="10px 10px 20px #ccc"
+          flexDirection="column"
+          width="100vh"
+          maxWidth={400}
+          padding={4}
+          borderRadius={2}
+          sx={{
+            backgroundColor: "white",
+            boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+            border: "1px solid",
+            borderColor: "grey.200",
+          }}
         >
-          <Typography
-            variant="h4"
-            sx={{ textTransform: "uppercase" }}
-            padding={2}
-            textAlign={"center"}
-          >
-            Login
-          </Typography>
+          {/* Header */}
+          <Box textAlign="center" mb={3}>
+            <Typography 
+              variant="h4" 
+              component="h1" 
+              fontWeight="300"
+              color="grey.800"
+              gutterBottom
+            >
+              Welcome Back
+            </Typography>
+            <Typography 
+              variant="body2" 
+              color="grey.600"
+            >
+              Sign in to your account
+            </Typography>
+          </Box>
 
+          {/* Email Field */}
           <TextField
-            placeholder="email"
+            fullWidth
+            label="Email Address"
+            variant="outlined"
             value={inputs.email}
             onChange={handleChange}
             name="email"
-            margin="normal"
-            type={"email"}
+            type="email"
             required
-            sx={{ height: 40, "& input": { padding: "10px 14px" } }}
+            margin="normal"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+              }
+            }}
           />
+
+          {/* Password Field */}
           <TextField
-            placeholder="password"
+            fullWidth
+            label="Password"
+            variant="outlined"
             value={inputs.password}
             onChange={handleChange}
             name="password"
-            margin="normal"
-            type={"password"}
+            type={showPassword ? "text" : "password"}
             required
-            sx={{ height: 40, "& input": { padding: "10px 14px" } }}
+            margin="normal"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+              }
+            }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                    size="small"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
+
+          {/* Submit Button */}
           <Button
             type="submit"
-            sx={{ borderRadius: 3, marginTop: 3 }}
+            fullWidth
             variant="contained"
-            color="primary"
+            size="large"
+            disabled={loading}
+            sx={{
+              marginTop: 3,
+              marginBottom: 2,
+              borderRadius: 1,
+              padding: 1.5,
+              textTransform: "none",
+              fontSize: "1rem",
+              backgroundColor: "grey.900",
+              '&:hover': {
+                backgroundColor: "grey.800",
+              },
+              '&:disabled': {
+                backgroundColor: "grey.300",
+              }
+            }}
           >
-            Submit
+            {loading ? "Signing In..." : "Sign In"}
           </Button>
-          <Button
-            onClick={() => navigate("/register")}
-            sx={{ borderRadius: 3, marginTop: 1 }}
-          >
-            {" "}
-            Not a user ? Please Register.
-          </Button>
+
+          {/* Register Link */}
+          <Box textAlign="center">
+            <Typography 
+              variant="body2" 
+              color="grey.600"
+              sx={{ marginBottom: 1 }}
+            >
+              Don't have an account?
+            </Typography>
+            <Button
+              onClick={() => navigate("/register")}
+              variant="text"
+              size="small"
+              sx={{
+                textTransform: "none",
+                color: "grey.700",
+                fontWeight: "500",
+                '&:hover': {
+                  backgroundColor: "transparent",
+                  color: "grey.900",
+                }
+              }}
+            >
+              Create an account
+            </Button>
+          </Box>
         </Box>
       </form>
-    </>
+    </Box>
   );
 };
 
