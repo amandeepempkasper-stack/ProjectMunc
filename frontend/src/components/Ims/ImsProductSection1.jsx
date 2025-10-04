@@ -14,13 +14,13 @@ const ImsProduct = () => {
     <>
       <div className="min-h-screen bg-gradient-to-r from-[#035ACD] to-[#003172] overflow-hidden relative flex items-center">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 gap-8 w-full">
-          <div className="text-white flex flex-col justify-center max-w-2xl text-center md:text-left">
+          <div className="text-white flex flex-col justify-start max-w-2xl text-left">
             <div className="space-y-4">
-              <div className="py-2 px-4 bg-[#E2F1FF] text-center rounded-full w-fit mx-auto md:mx-0">
-                <p className="text-[#00439B] text-xs sm:text-sm md:text-base font-medium">
-                  Simplify Stock, Sales & Supply Chain
-                </p>
-              </div>
+              {/* <div className="py-0.5 px-4 bg-[#E2F1FF] text-center rounded-full w-fit mx-auto md:mx-0"> */}
+              <p className="text-[#00439B] text-xs sm:text-sm md:text-base font-medium py-0.5 px-4 bg-[#E2F1FF] text-center rounded-full w-fit md:mx-0">
+                Simplify Stock, Sales & Supply Chain
+              </p>
+              {/* </div> */}
               <h1 className="font-semibold text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
                 Smart Inventory Management System
               </h1>
@@ -31,20 +31,9 @@ const ImsProduct = () => {
                 platform. Save time, reduce costs, and grow your business
                 smarter.
               </p>
-              {/* CTA Button */}
-              {/* <div className="mt-8">
-                <button className="px-6 py-3 bg-white text-[#00439B] font-medium rounded-full hover:bg-blue-600 hover:text-white hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center gap-2">
-                  Try for free
-                  <FaArrowRightLong />
-                </button>
-                <i className="text-xs mt-2 text-white">
-                  *No credit card required.
-                </i>
-              </div> */}
             </div>
           </div>
 
-          
           <div className="mt-8 md:mt-0 flex justify-center md:justify-end w-full md:w-1/2">
             <img
               src={ImsImg}
@@ -54,14 +43,13 @@ const ImsProduct = () => {
           </div>
         </div>
 
-        
         <motion.div
           className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
           onClick={() => {
             window.scrollTo({
-              top: window.scrollY + 500, 
+              top: window.scrollY + 500,
               behavior: "smooth",
             });
           }}

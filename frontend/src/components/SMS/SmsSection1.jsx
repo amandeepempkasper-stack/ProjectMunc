@@ -10,13 +10,13 @@ const SmsSection1 = () => {
       <div className="min-h-screen bg-gradient-to-r from-[#035ACD] to-[#003172] overflow-hidden relative flex items-center">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 gap-8 w-full">
           
-          <div className="text-white flex flex-col justify-center max-w-2xl text-center md:text-left">
+          <div className="text-white flex flex-col justify-start max-w-2xl text-left">
             <div className="space-y-4">
-              <div className="py-2 px-4 bg-[#E2F1FF] text-center rounded-full w-fit mx-auto md:mx-0">
-                <p className="text-[#00439B] text-xs sm:text-sm md:text-base font-medium">
+              {/* <div className="py-0.5 px-4 bg-[#E2F1FF] text-center rounded-full w-fit mx-auto md:mx-0"> */}
+                <p className="text-[#00439B] text-xs sm:text-sm md:text-base font-medium py-0.5 px-4 bg-[#E2F1FF] text-center rounded-full w-fit md:mx-0">
                   Simplify Learning & Administration
                 </p>
-              </div>
+              {/* </div> */}
               <h1 className="font-semibold text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
                 School Management Software
               </h1>

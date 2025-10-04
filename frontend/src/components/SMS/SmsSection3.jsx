@@ -21,7 +21,7 @@ const SmsSection3 = () => {
   return (
     <div className="bg-[#F0FDFF] px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 2xl:px-40">
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto py-6 sm:py-12 lg:py-16">
-        <h1 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-[#1C2B33] text-center mb-6 sm:mb-10">
+        <h1 className="font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#1C2B33] text-center mb-6 sm:mb-10">
           Key Features
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">

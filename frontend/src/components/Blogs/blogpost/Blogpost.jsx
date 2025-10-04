@@ -162,9 +162,10 @@ const BlogPost = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <section className="bg-[#F0FDFF] py-12 px-6 md:px-20">
+      <section className="bg-[#F0FDFF] py-24 px-6 md:px-20">
         <div className="row h-100">
-          <div className="text-[28px] md:text-[36px] font-semibold leading-[130%] text-[#1C2B33]">
+
+          <div className="text-[20px] md:text-[30px] font-semibold leading-[100%] text-[#1C2B33]">
             <h3 className="mb-3 tittle">{blog.title}</h3>
           </div>
 
