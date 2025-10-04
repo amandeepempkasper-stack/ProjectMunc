@@ -180,12 +180,15 @@ import BASE_URL from "../../pages/Config/config"
 import axios from "axios";
 
 const Contact = ({ setShowForm, showForm }) => {
+  // const navigate = useNavigate();
   const [storeData, setStoreData] = useState({
     name: "",
     companyName: "", // match backend "companyName"
     email: "",
     phone: "",
-    product: "", // match backend "product"
+    description: "",
+    queryType: "",
+    designation: "", 
   });
   const [message, setMessage] = useState("");
 
@@ -196,42 +199,21 @@ const Contact = ({ setShowForm, showForm }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage("Sending...");
+    localStorage.setItem("contactForm", JSON.stringify(storeData));
+    alert("Form submitted & data saved in localStorage ✅");
+    console.log("Saved:", storeData);
 
-    try {
-      const res = await fetch(`${BASE_URL}/api/demo`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(storeData),
-      });
+   setStoreData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      description: "",
+      queryType: "",
+      designation: "", 
+    });
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-
-      const data = await res.json();
-
-      setMessage(data.message || "Demo request submitted successfully ✅");
-
-      // reset form
-      setStoreData({
-        name: "",
-        companyName: "",
-        email: "",
-        phone: "",
-        product: "",
-      });
-
-      setTimeout(() => {
-        setShowForm(false);
-        setMessage("");
-      }, 2500);
-    } catch (err) {
-      console.error(err);
-      setMessage("❌ Failed to send demo request. Try again.");
-    }
+    setShowForm(false);
   };
 
   if (!showForm) return null;
@@ -267,26 +249,37 @@ const Contact = ({ setShowForm, showForm }) => {
           </p>
 
           <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4s">
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={storeData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                required
-                className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
-              />
-              <input
-                id="companyName"
-                name="companyName"
-                type="text"
-                value={storeData.companyName}
-                onChange={handleChange}
-                placeholder="Company Name"
-                className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={storeData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
+                />
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  value={storeData.company}
+                  onChange={handleChange}
+                  placeholder="Company Name"
+                  className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
+                />
+                
+                <input
+                  id="designation"
+                  name="designation"
+                  type="text"
+                  value={storeData.designation}
+                  onChange={handleChange}
+                  placeholder="Your Designation"
+                  className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
+                />
+              </div>
 
               <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-4">
                 <input
@@ -296,8 +289,10 @@ const Contact = ({ setShowForm, showForm }) => {
                   value={storeData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
-                  required
-                  className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272] placeholder:text-sm"
+                  className="
+      h-12 w-full rounded-lg border border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]
+      placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm lg:placeholder:text-xs 
+    "
                 />
 
                 <input
