@@ -344,12 +344,12 @@ const Features = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-[64px] font-medium leading-gap text-[#1C2B33]  mt-5 sm:mt-0">
               Everything You Need to <br />
               Run{" "}
-              <span className="relative w-fit px-4 border-[3px] sm:border-[4px] border-blue-400 text-[#154583] bg-white">
+              <span className="relative w-fit px-4 border-[2.5px] sm:border-[4px] border-blue-400 text-[#154583] bg-white">
                 Your Business
-                <div className="absolute -top-2 -left-2 w-3 h-3 bg-blue-400"></div>
-                <div className="absolute -top-2 -right-2 w-3 h-3 bg-blue-400"></div>
-                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-blue-400"></div>
-                <div className="absolute -bottom-2 -right-2 w-3 h-3 bg-blue-400"></div>
+                <div className="absolute -top-1 -left-1 w-1.5 h-1.5 md:-top-2 md:-left-2 md:w-3 md:h-3 bg-blue-400"></div>
+                <div className="absolute -top-1 -right-1 w-1.5 h-1.5 md:-top-2 md:-right-2 md:w-3 md:h-3 bg-blue-400"></div>
+                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 md:-bottom-2 md:-left-2 md:w-3 md:h-3 bg-blue-400"></div>
+                <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 md:-bottom-2 md:-right-2 md:w-3 md:h-3 bg-blue-400"></div>
               </span>
             </h1>
 

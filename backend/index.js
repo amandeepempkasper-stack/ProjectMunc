@@ -17,6 +17,9 @@ const categoryRoutes = require('./routes/categoryRoutes');
 const commentRoutes = require('./routes/commentRoutes');
 const likeRoutes = require('./routes/likeRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const  demoRoutes = require ("./routes/demo.js");
+const  contactRoutes = require  ("./routes/contactRoutes.js"); // ✅ ES module import with .js extension
+
 
 //mongodb connection
 connectDB();
@@ -39,7 +42,8 @@ app.use("/api/v1/comment",commentRoutes);
 app.use("/api/v1/like",likeRoutes);
 app.use("/api/v1/admin",adminRoutes);
 
-
+app.use("/api/demo", demoRoutes);
+app.use("/api/contact", contactRoutes);
 
 
 const PORT= process.env.PORT || 8080

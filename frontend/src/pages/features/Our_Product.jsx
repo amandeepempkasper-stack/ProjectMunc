@@ -46,7 +46,7 @@ const Our_Product = () => {
         Our Products
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-2  justify-items-center">
         {products.map((product) => (
           <div
             key={product.id}
@@ -87,7 +87,7 @@ const Our_Product = () => {
                   className="
         font-normal text-[#6A7982] mt-1 
         text-[13.6px] sm:text-[11px] md:text-[11px] lg:text-[12px] xl:text-[12px]
-        transition-all duration-300 md:group-hover:text-[#1C2B33]
+        transition-all duration-300 md:group-hover:text-[#1C2B33] line-clamp-2
       "
                 >
                   {product.description}
@@ -114,7 +114,7 @@ const Our_Product = () => {
         text-[#007AFF] font-medium 
         text-[14px] sm:text-[11px] md:text-[11px] lg:text-[12px] xl:text-[12px]
         px-2 py-1 sm:px-3 sm:py-2 md:px-3 md:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2
-         transition cursor-pointer
+         transition cursor-pointer whitespace-nowrap
       "
                 >
                   Know More

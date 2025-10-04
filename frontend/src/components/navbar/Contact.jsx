@@ -69,7 +69,7 @@ const Contact = ({ setShowForm, showForm }) => {
           </p>
 
           <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <input
                 id="name"
                 name="name"
@@ -89,7 +89,7 @@ const Contact = ({ setShowForm, showForm }) => {
                 className="h-12 w-full rounded-lg border placeholder:text-sm border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]"
               />
 
-              <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-4">
+              <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
                 <input
                   id="email"
                   name="email"
@@ -116,7 +116,6 @@ const Contact = ({ setShowForm, showForm }) => {
     "
                 />
 
-                
                 <div className="relative w-full">
                   <select
                     id="queryType"
@@ -124,13 +123,13 @@ const Contact = ({ setShowForm, showForm }) => {
                     value={storeData.queryType}
                     onChange={handleChange}
                     className="
-      h-12 w-full rounded-lg border border-black/10 px-1.5 pr-6 outline-none 
+      h-12 w-full rounded-lg border border-black/10 px-1.5 pr-3 outline-none 
       focus:ring-2 focus:ring-[#727272] text-[#999999] appearance-none
       text-sm
     "
                   >
                     <option value="" disabled hidden>
-                     Our Products
+                      Our Products
                     </option>
                     <option value="LMS">Lead Management</option>
                     <option value="IMS">Inventory Management </option>
@@ -138,7 +137,7 @@ const Contact = ({ setShowForm, showForm }) => {
                     <option value="HRMS">HR Management</option>
                   </select>
 
-                  <span className="absolute inset-y-0 right-1 flex items-center pointer-events-none text-gray-500">
+                  <span className="absolute inset-y-0 right-1 text-xs flex items-center pointer-events-none text-gray-500">
                     ▼
                   </span>
                 </div>
@@ -160,7 +159,7 @@ const Contact = ({ setShowForm, showForm }) => {
             <div className="flex items-center justify-end gap-3 pt-2">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center cursor-pointer rounded-full px-4 py-3 text-base font-medium text-white bg-[#007AFF] hover:bg-[#0070f3] w-full transition"
+                className="inline-flex items-center justify-center cursor-pointer rounded-full px-4 py-2   text-base font-medium text-white bg-[#007AFF] hover:bg-[#0070f3] w-full transition"
               >
                 Submit
               </button>
