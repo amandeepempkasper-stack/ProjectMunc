@@ -7,9 +7,9 @@ const LmsSec2 = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <h1
             className="
-            text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
-            leading-snug md:leading-snug lg:leading-tight
-            font-medium text-[#3E4247]
+             text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 
+             tracking-tight !leading-[120%]
+            font-semibold text-[#3E4247]
           "
           >
             Manage your sales pipeline, assign leads, set follow-ups, and boost
@@ -18,8 +18,8 @@ const LmsSec2 = () => {
 
           <p
             className="
-            mt-4 sm:mt-6
-            text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl
+            mt-3 sm:mt-4 md:mt-6 lg:mt-8
+            text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 
             leading-relaxed
             font-normal text-[#3E4247]
           "

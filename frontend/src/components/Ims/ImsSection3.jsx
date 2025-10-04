@@ -27,7 +27,7 @@ const FeaturesGrid = () => {
     <div className="bg-[#F0FDFF] px-4 sm:px-6 md:px-12 lg:px-20 xl:px-20 2xl:px-40">
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto py-6 sm:py-12 lg:py-10">
         
-        <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-[36px] text-[#1C2B33] text-center mb-8">
+        <h1 className="font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#1C2B33] text-center mb-6 sm:mb-10">
           Key Features
         </h1>
 

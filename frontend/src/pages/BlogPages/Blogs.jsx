@@ -91,7 +91,7 @@ const Blogs = () => {
   };
 
   return (
-    <section className="bg-[#F0FDFF] py-12 px-6 md:px-20 mt-15">
+    <section className="bg-[#F0FDFF] py-24 px-6 md:px-20 mt-15">
       {/* Heading + Search */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <div>

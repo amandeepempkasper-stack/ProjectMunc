@@ -1,0 +1,13 @@
+/* custom.css */
+
+/* Default (for small screens, text will be centered) */
+.custom-text-align {
+  text-align: center;
+}
+
+/* Medium screens and above (text will align to the left) */
+@media (min-width: 768px) {
+  .custom-text-align {
+    text-align: left;
+  }
+}
