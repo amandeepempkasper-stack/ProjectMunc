@@ -5,7 +5,7 @@ const ProductDemoList = () => {
   const [demos, setDemos] = useState([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [limit] = useState(5); // items per page
+  const [limit] = useState(10); // items per page
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
 
@@ -13,7 +13,7 @@ const ProductDemoList = () => {
   const fetchDemos = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/demo`, {
+      const res = await axios.get(`http://localhost:8080/api/demo`, {
         params: { search, page, limit },
       });
 
@@ -41,7 +41,7 @@ const ProductDemoList = () => {
     if (!window.confirm("Are you sure you want to delete this demo?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/demo/${id}`);
+      await axios.delete(`http://localhost:8080/api/demo/${id}`);
       alert("Deleted successfully ✅");
       fetchDemos();
     } catch (err) {
