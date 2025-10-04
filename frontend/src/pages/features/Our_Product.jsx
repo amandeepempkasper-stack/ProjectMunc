@@ -12,7 +12,7 @@ const Our_Product = () => {
       name: "Inventory Management Software",
       description: "Track, manage, and optimize inventory in real time.",
       img: IMS,
-      slug: "inventory",
+      slug: "inventory-management-system",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const Our_Product = () => {
       description:
         "HRMS streamlines payroll, attendance, and employee management.",
       img: HRMS,
-      slug: "hr",
+      slug: "human-resource-management-system",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Our_Product = () => {
       description:
         "LMS helps capture, track, and manage leads to boost sales efficiency.",
       img: LMS,
-      slug: "leads",
+      slug: "lead-management-system",
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const Our_Product = () => {
       description:
         "SMS simplifies admissions, attendance, fees, exams, and communication in one platform.",
       img: SMS,
-      slug: "school",
+      slug: "school-management-system",
     },
   ];
 

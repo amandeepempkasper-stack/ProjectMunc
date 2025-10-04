@@ -33,7 +33,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/#product" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                <Link to="/products/human-resource-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
                   Our Products
                 </Link>
               </li>
@@ -55,23 +55,23 @@ const Footer = () => {
             <h3 className="font-medium text-gray-800 mb-3">Products</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link to="/products/inventory" className="hover:text-blue-500 no-underline text-[#3E4247]">
-                  Inventory
+                <Link to="/products/inventory-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                  Inventory management
                 </Link>
               </li>
               <li>
-                <Link to="/products/leads" className="hover:text-blue-500 no-underline text-[#3E4247]">
-                  Lead
+                <Link to="/products/lead-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                  Lead-management
                 </Link>
               </li>
               <li>
-                <Link to="/products/hr" className="hover:text-blue-500 no-underline text-[#3E4247]">
-                  HRMS
+                <Link to="/products/human-resource-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                  Human resource management
                 </Link>
               </li>
               <li>
-                <Link to="/products/school" className="hover:text-blue-500 no-underline text-[#3E4247]">
-                  School
+                <Link to="/products/school-management-system" className="hover:text-blue-500 no-underline text-[#3E4247]">
+                School management
                 </Link>
               </li>
             </ul>
