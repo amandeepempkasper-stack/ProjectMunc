@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContactImg from "../../assets/HomeSection/ContactSec/SideImg.png";
 import axios from "axios";
-import BASE_URL from "../../pages/Config/config"; // Your backend base URL
+import BASE_URL from "../../pages/Config/config";
 import toast from "react-hot-toast";
+import "./navbar.css";
 
 const Contact = ({ setShowForm, showForm }) => {
   const [storeData, setStoreData] = useState({
@@ -14,28 +15,76 @@ const Contact = ({ setShowForm, showForm }) => {
     product: "",
   });
 
-  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [countryCode, setCountryCode] = useState("+91"); // Default India
+  const [countries, setCountries] = useState([]);
 
-  // Handle Input Change
+  // ✅ Fetch Country Codes from API
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get(
+          "https://restcountries.com/v3.1/all?fields=idd,name,flags"
+        );
+
+        // Filter countries with calling codes
+        const countryList = response.data
+          .filter((country) => country.idd && country.idd.root)
+          .map((country) => {
+            const code = `${country.idd.root}${
+              country.idd.suffixes ? country.idd.suffixes[0] : ""
+            }`;
+            return {
+              name: country.name.common,
+              code,
+              flag: country.flags?.png,
+            };
+          })
+          .sort((a, b) => a.name.localeCompare(b.name)); // sort alphabetically
+
+        setCountries(countryList);
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
+  // ✅ Disable background scroll when modal is open
+  useEffect(() => {
+    if (showForm) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showForm]);
+
+  // ✅ Handle Input Change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setStoreData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false); // ✅ loading state
-  // Submit Form
+  // ✅ Submit Form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // ✅ Start loading
+    setLoading(true);
+
+    const payload = {
+      ...storeData,
+      phone: `${countryCode}-${storeData.phone}`, // attach country code
+    };
 
     try {
-      const response = await axios.post(`${BASE_URL}/api/demo`, storeData);
+      const response = await axios.post(`${BASE_URL}/api/demo`, payload);
 
       if (response.data.success) {
-        toast.success("Demo request submitted! Please check your email.");        // console.log("Saved to DB:", response.data.data);
-
-        // Reset form
+        toast.success("Demo request submitted successfully!");
         setStoreData({
           name: "",
           companyName: "",
@@ -44,375 +93,175 @@ const Contact = ({ setShowForm, showForm }) => {
           product: "",
           designation: "",
         });
+        setCountryCode("+91");
 
-        // Close popup after 2 seconds
-        setTimeout(() => {
-          setShowForm(false);
-          setMessage("");
-        }, 2000);
-              setLoading(false); // ✅ Stop loading
-
+        // Close modal after short delay
+        setTimeout(() => setShowForm(false), 2000);
       } else {
-        toast.error("❌ Failed to submit the demo request!");
+        toast.error("Failed to submit demo request!");
       }
-
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("❌ Server error, please try again later.");
+      toast.error("Server error. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
   if (!showForm) return null;
 
   return (
-    <div className="fixed inset-0  bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 sm:px-6">
-      <div className="w-full max-w-6xl h-[55vh] mx-auto flex flex-col md:flex-row justify-evenly items-center gap-8 sm:gap-10 bg-white ring-1 rounded-2xl ring-black/10 p-4 sm:p-6 md:p-8 lg:p-12 relative shadow-xl overflow-y-auto max-h-[100vh]">
-        {/* Close Button */}
+    <div
+      className="
+    fixed inset-0 z-50 flex items-center justify-center 
+    bg-black/30 backdrop-blur-sm px-4 sm:px-6
+    animate-fadeIn
+  "
+    >
+      <div
+        className=" relative 
+      w-full max-w-4xl bg-white rounded-2xl shadow-lg 
+      flex flex-col md:flex-row overflow-hidden
+      transition-all duration-300
+    "
+      >
+        {/* ✕ Close */}
         <button
           type="button"
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl font-bold"
           onClick={() => setShowForm(false)}
+          className="absolute top-2 right-3 text-gray-400 hover:text-gray-600 text-2xl"
         >
-          ✕
+          &times;
         </button>
 
-        {/* Left Image */}
-        <div className="bg-[#F0FDFF] w-full md:w-1/2 h-48 sm:h-64 md:h-80 lg:h-[450px] rounded-xl flex items-center justify-center">
+        {/* Illustration */}
+        <div className="hidden md:flex w-1/2 bg-[#F5FAFF] items-center justify-center">
           <img
             src={ContactImg}
             alt="Contact Illustration"
-            className="max-h-full max-w-full object-contain"
+            className="w-4/5 object-contain"
           />
         </div>
 
+        {/* Form Section */}
+        <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
+          <h2 className="text-2xl font-semibold text-gray-900">Try a Demo</h2>
+          <p className="text-gray-500 text-sm mt-2 leading-relaxed">
+            Your business matters to us. Get in touch for product demos or
+            partnerships.
+          </p>
 
-<div className="w-full md:w-1/2  flex flex-col justify-center">
-      <h2 className="text-xl sm:text-2xl lg:text-4xl font-medium text-gray-900">
-        Try a Demo
-      </h2>
-      <p className="text-sm sm:text-base text-[#7D7D7D]  sm:mt-3">
-        Your business matters to us. Contact our team anytime for support,
-        demos, or partnerships.
-      </p>
+          <form onSubmit={handleSubmit} className="mt-5 space-y-4">
+            {/* Name */}
+            <input
+              name="name"
+              type="text"
+              value={storeData.name}
+              onChange={(e) => {
+                const value = e.target.value;
+                // ✅ Allow only alphabets (A-Z, a-z) and spaces
+                if (/^[a-zA-Z\s]*$/.test(value)) {
+                  handleChange(e);
+                }
+              }}
+              placeholder="Your Name *"
+              required
+              maxLength={50} // optional: restrict max length
+              pattern="[A-Za-z\s]{2,50}" // ✅ ensures only letters + spaces, min 2 max 50
+              title="Name should only contain letters (A–Z or a–z)."
+              className="w-full h-11 rounded-lg border border-gray-200 px-3 text-sm focus:ring-1 focus:ring-[#007AFF] outline-none"
+            />
 
-      <form
-  className="mt-4 space-y-4 overflow-y-auto max-h-[420px] px-1 pt-2 pb-4"
-  onSubmit={handleSubmit}
->
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <input
-      id="name"
-      name="name"
-      type="text"
-      value={storeData.name}
-      onChange={handleChange}
-      placeholder="Your Name"
-      required
-      className="h-12 w-full rounded-lg border border-gray-300 px-3 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] transition"
-    />
+            {/* Company Name */}
+            <input
+              name="companyName"
+              type="text"
+              value={storeData.companyName}
+              onChange={handleChange}
+              placeholder="Company Name *"
+              required
+              className="w-full h-11 rounded-lg border border-gray-200 px-3 text-sm focus:ring-1 focus:ring-[#007AFF] outline-none"
+            />
 
-    <input
-      id="companyName"
-      name="companyName"
-      type="text"
-      value={storeData.companyName}
-      onChange={handleChange}
-      placeholder="Company Name"
-      required
-      className="h-12 w-full rounded-lg border border-gray-300 px-4 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] transition"
-    />
+            {/* Designation */}
+            <input
+              name="designation"
+              type="text"
+              value={storeData.designation}
+              onChange={handleChange}
+              placeholder="Your Designation"
+              className="w-full h-11 rounded-lg border border-gray-200 px-3 text-sm focus:ring-1 focus:ring-[#007AFF] outline-none"
+            />
 
-    <input
-      id="designation"
-      name="designation"
-      type="text"
-      value={storeData.designation}
-      onChange={handleChange}
-      placeholder="Your Designation"
-      className="h-12 w-full rounded-lg border border-gray-300 px-3 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] transition"
-    />
+            {/* Email */}
+            <input
+              name="email"
+              type="email"
+              value={storeData.email}
+              onChange={handleChange}
+              placeholder="Email Address *"
+              required
+              className="w-full h-11 rounded-lg border border-gray-200 px-3 text-sm focus:ring-1 focus:ring-[#007AFF] outline-none"
+            />
 
-    <input
-      id="email"
-      name="email"
-      type="email"
-      value={storeData.email}
-      onChange={handleChange}
-      placeholder="Enter your email"
-      required
-      className="h-12 w-full rounded-lg border border-gray-300 px-3 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] transition"
-    />
+            {/* Phone + Country */}
+            <div className="flex">
+              <select
+                value={countryCode}
+                onChange={(e) => setCountryCode(e.target.value)}
+                className="h-11 w-24 border border-gray-200 rounded-l-lg px-2 text-sm bg-gray-50 outline-none"
+              >
+                {countries.map((c, index) => (
+                  <option key={index} value={c.code}>
+                    {c.name} {c.code}
+                  </option>
+                ))}
+              </select>
 
-    <input
-      id="phone"
-      name="phone"
-      type="tel"
-      value={storeData.phone}
-      onChange={handleChange}
-      placeholder="Enter your phone"
-      required
-      className="h-12 w-full rounded-lg border border-gray-300 px-3 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] transition"
-    />
+              <input
+                name="phone"
+                type="tel"
+                value={storeData.phone}
+                onChange={handleChange}
+                placeholder="Phone Number *"
+                required
+                className="flex-1 h-11 rounded-r-lg border border-gray-200 px-3 text-sm focus:ring-1 focus:ring-[#007AFF] outline-none"
+              />
+            </div>
 
-   
-    <div className="relative w-full">
-  <select
-    id="product"
-    name="product"
-    value={storeData.product}
-    onChange={handleChange}
-    required
-    className="h-12 w-full rounded-lg border border-gray-300 px-3 pr-8 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] appearance-none text-gray-700 bg-white transition"
-  >
-    <option value="" disabled hidden className="bg-white text-gray-700">
-      Our Products
-    </option>
-    <option value="LMS" className="bg-white text-gray-700">Lead Management</option>
-    <option value="IMS" className="bg-white text-gray-700">Inventory Management</option>
-    <option value="ChatApp" className="bg-white text-gray-700">ChatApp</option>
-    <option value="HRMS" className="bg-white text-gray-700">HR Management</option>
-  </select>
-  <span className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-500 text-sm">
-    ▼
-  </span>
-</div>
-
-  </div>
-
-  <div className="flex items-center justify-end pt-4">
-
-        <button
-                  type="submit"
-                  disabled={loading}
-                  className={`inline-flex items-center justify-center rounded-full px-4 py-3 text-base font-medium text-white w-full transition ${
-                    loading
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-[#007AFF] hover:bg-[#0070f3] cursor-pointer"
-                  }`}
-                >
-                  {loading ? (
-                    <div className="flex items-center gap-2">
-                      <svg
-                        className="animate-spin h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 010 16v-4l-3 3 3 3v-4a8 8 0 01-8-8z"
-                        ></path>
-                      </svg>
-                      Submitting...
-                    </div>
-                  ) : (
-                    "Submit"
-                  )}
-                </button>
-  
-  </div>
-
-  
-</form>
-
-
-      {/* <form className="mt-4 space-y-4 overflow-y-auto" onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={storeData.name}
-            onChange={handleChange}
-            placeholder="Your Name"
-            required
-            className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-          />
-          <input
-            id="companyName"
-            name="companyName"
-            type="text"
-            value={storeData.companyName}
-            onChange={handleChange}
-            placeholder="Company Name"
-            required
-            className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-          />
-          <input
-            id="designation"
-            name="designation"
-            type="text"
-            value={storeData.designation}
-            onChange={handleChange}
-            placeholder="Your Designation"
-            className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-          />
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={storeData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            required
-            className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-          />
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            value={storeData.phone}
-            onChange={handleChange}
-            placeholder="Enter your phone"
-            required
-            className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-          />
-
-          <div className="relative w-full col-span-2">
+            {/* Product */}
             <select
-              id="product"
               name="product"
               value={storeData.product}
               onChange={handleChange}
               required
-              className="h-12 w-full rounded-lg border border-black/10 px-3 pr-8 outline-none focus:ring-2 focus:ring-[#007AFF] text-[#727272] appearance-none text-sm"
+              className="w-full h-11 rounded-lg border border-gray-200 px-3 text-sm text-gray-600 bg-white focus:ring-1 focus:ring-[#007AFF] outline-none"
             >
               <option value="" disabled hidden>
-                Our Products
+                Our Products *
               </option>
               <option value="LMS">Lead Management</option>
               <option value="IMS">Inventory Management</option>
-              <option value="ChatApp">School Management</option>
+              <option value="ChatApp">Chat Application</option>
               <option value="HRMS">HR Management</option>
             </select>
-            <span className="absolute inset-y-0 right-2 flex items-center pointer-events-none text-gray-500">
-              ▼
-            </span>
-          </div>
-        </div>
 
-        <div className="flex items-center justify-end gap-3 pt-2">
-          <button
-            type="submit"
-            className="inline-flex items-center justify-center cursor-pointer rounded-full px-4 py-3 text-base font-medium text-white bg-[#007AFF] hover:bg-[#0070f3] w-full transition"
-          >
-            Submit
-          </button>
-        </div>
-      </form> */}
-    </div>
-  
-        {/* Right Form */}
-        {/* <div className="w-full md:w-1/2">
-          <h2 className="text-xl sm:text-2xl lg:text-4xl font-medium text-gray-900">
-            Try a Demo
-          </h2>
-          <p className="text-sm sm:text-base text-[#7D7D7D] mt-2 sm:mt-3">
-            Your business matters to us. Contact our team anytime for support,
-            demos, or partnerships.
-          </p>
-
-          <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={storeData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  required
-                  className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-                />
-                <input
-                  id="companyName"
-                  name="companyName"
-                  type="text"
-                  value={storeData.companyName}
-                  onChange={handleChange}
-                  placeholder="Company Name"
-                  required
-                  className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-                />
-                <input
-                  id="designation"
-                  name="designation"
-                  type="text"
-                  value={storeData.designation}
-                  onChange={handleChange}
-                  placeholder="Your Designation"
-                  className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-                />
-              </div>
-
-              <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-4">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={storeData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  required
-                  className="h-12 w-full rounded-lg border border-black/10 px-3 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-                />
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={storeData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter your phone"
-                  required
-                  className="h-12 w-full rounded-lg border border-black/10 px-2 outline-none placeholder:text-sm focus:ring-2 focus:ring-[#007AFF]"
-                />
-
-                <div className="relative w-full">
-                  <select
-                    id="product"
-                    name="product"
-                    value={storeData.product}
-                    onChange={handleChange}
-                    required
-                    className="h-12 w-full rounded-lg border border-black/10 px-3 pr-8 outline-none focus:ring-2 focus:ring-[#007AFF] text-[#727272] appearance-none text-sm"
-                  >
-                    <option value="" disabled hidden>
-                      Our Products
-                    </option>
-                    <option value="LMS">Lead Management</option>
-                    <option value="IMS">Inventory Management</option>
-                    <option value="ChatApp">School Management</option>
-                    <option value="HRMS">HR Management</option>
-                  </select>
-                  <span className="absolute inset-y-0 right-2 flex items-center pointer-events-none text-gray-500">
-                    ▼
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-end gap-3 pt-2">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center cursor-pointer rounded-full px-4 py-3 text-base font-medium text-white bg-[#007AFF] hover:bg-[#0070f3] w-full transition"
-              >
-                Submit
-              </button>
-            </div>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full h-11 rounded-lg text-white font-medium text-sm 
+            transition-all duration-200 
+            ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-[#007AFF] hover:bg-[#0063CC]"
+            }`}
+            >
+              {loading ? "Submitting..." : "Submit"}
+            </button>
           </form>
-
-          
-        </div> */}
+        </div>
       </div>
     </div>
   );
