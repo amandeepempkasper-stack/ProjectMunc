@@ -24,13 +24,20 @@ const MeetFounder = () => {
       image:Lakshmi
     },
   ];
+
+  // Meet Our Founder
   return (
-    <div>
-      <div>
-        <h1 className="text-[36px] text-[#1C2B33] font-medium text-center py-8">
-          Meet Our Founder
-        </h1>
-      </div>
+    <div className="mt-15">
+      <div className="text-center mt-10 sm:mt-10 md:mt-15">
+          <h1
+            className="
+      text-2xl sm:text-3xl md:text-4xl lg:text-4xl
+      font-medium text-[#1C2B33] leading-snug
+    "
+          >
+            Meet Our Founder
+          </h1>
+        </div>
       <div>
         <div className="max-w-6xl mx-auto py-12 px-6">
           <Swiper

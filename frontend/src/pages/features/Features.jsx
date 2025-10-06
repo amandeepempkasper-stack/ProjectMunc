@@ -341,11 +341,24 @@ const Features = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="text-center space-y-3 flex flex-col items-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-[64px] font-medium leading-gap text-[#1C2B33]  mt-5 sm:mt-0">
+            <h1
+              className="
+    text-[29px] sm:text-[40px] md:text-[52px] lg:text-[64px]
+    font-medium leading-tight text-[#1C2B33]
+    mt-4 sm:mt-0
+  "
+            >
               Everything You Need to <br />
               Run{" "}
-              <span className="relative w-fit px-4 border-[2.5px] sm:border-[4px] border-blue-400 text-[#154583] bg-white">
+              <span
+                className="
+      relative w-fit px-2 sm:px-3 md:px-4
+      border-[2px] sm:border-[2.5px] md:border-[3px] lg:border-[4px]
+      border-blue-400 text-[#154583] bg-white inline-block
+    "
+              >
                 Your Business
+                {/* Corner Squares */}
                 <div className="absolute -top-1 -left-1 w-1.5 h-1.5 md:-top-2 md:-left-2 md:w-3 md:h-3 bg-blue-400"></div>
                 <div className="absolute -top-1 -right-1 w-1.5 h-1.5 md:-top-2 md:-right-2 md:w-3 md:h-3 bg-blue-400"></div>
                 <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 md:-bottom-2 md:-left-2 md:w-3 md:h-3 bg-blue-400"></div>

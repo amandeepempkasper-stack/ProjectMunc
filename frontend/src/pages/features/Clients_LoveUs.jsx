@@ -8,12 +8,17 @@ const Clients_LoveUs = () => {
   return (
     <div className="my-10">
       <div className="bg-[#F0FDFF] pt-[50px] pb-[32px] px-6 md:px-24 lg:px-24px xl:px-24">
-       
-        <div className="text-center text-3xl md:text-4xl font-medium text-[#1C2B33]">
-          <h1>Why Our Clients Love Us ?</h1>
+        <div className="text-center mt-6 sm:mt-8 md:mt-10">
+          <h1
+            className="
+      text-2xl sm:text-3xl md:text-4xl lg:text-4xl
+      font-medium text-[#1C2B33] leading-snug
+    "
+          >
+            Why Our Clients <span className="">Love Us?</span>
+          </h1>
         </div>
 
-        
         <div className="flex flex-col gap-[16px] mt-10">
           {/* 1 */}
           <div className="ring-2 ring-black/10 rounded-xl bg-white flex flex-col md:flex-row justify-between items-center gap-10 p-8">

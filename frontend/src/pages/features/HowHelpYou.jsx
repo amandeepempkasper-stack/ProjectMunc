@@ -37,14 +37,19 @@ const HowHelpYou = () => {
   ];
 
   const [active, setActive] = useState(1);
-
+// How we can help you ?
   return (
     <div className=" ">
-      <div>
-        <h1 className="mb-10 text-3xl md:text-4xl text-center font-medium text-[#1C2B33]">
-          How we can help you ?
-        </h1>
-      </div>
+     <div className="text-center mt-8 sm:mt-8 md:mt-10">
+          <h1
+            className="
+      text-2xl sm:text-3xl md:text-4xl lg:text-4xl
+      font-medium text-[#1C2B33] leading-snug
+    "
+          >
+           How we can help you <span className=""></span>
+          </h1>
+        </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-10 sm:px-20 md:px-20 ">
         <div className="flex flex-col divide-y divide-gray-200 w-full">
