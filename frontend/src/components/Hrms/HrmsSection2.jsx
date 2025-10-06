@@ -12,8 +12,8 @@ const HrmsSection2 = () => {
             font-semibold text-[#3E4247]
           "
         >
-          Manage employees, track attendance, handle leaves, and improve
-          workforce productivity in one system.
+          Manage your entire workforce in one powerful system — from Attendance
+          and Leave tracking to Payroll and Performance management.
         </h1>
 
         {/* Subtext */}
@@ -25,7 +25,7 @@ const HrmsSection2 = () => {
             font-normal text-[#3E4247]
           "
         >
-          Simplify HR processes from payroll to performance.
+          Simplify every HR process, from payroll to performance management.
         </p>
       </div>
     </div>

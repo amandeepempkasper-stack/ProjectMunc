@@ -45,9 +45,19 @@ const MeetTeam = () => {
 
   return (
     <div className="mb-5">
-      <h1 className="text-[36px] text-[#1C2B33] font-medium text-center py-8">
+      <h1
+        className="
+    text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px]
+    text-[#1C2B33]
+    font-medium
+    text-center
+    py-6 sm:py-8
+    leading-snug
+  "
+      >
         Meet Our Team
       </h1>
+
       <div className="slider relative overflow-hidden w-full h-[200px] bg-white">
         <div className="slide-track flex">
           {images.concat(images).map((src, i) => (
@@ -73,4 +83,3 @@ const MeetTeam = () => {
 };
 
 export default MeetTeam;
-

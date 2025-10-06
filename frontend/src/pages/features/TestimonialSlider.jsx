@@ -69,8 +69,8 @@ const TestimonialSlider = () => {
       </div>
 
       <div className="relative w-full max-w-[700px]  h-auto min-h-[200px] lg:h-[180px] rotate-3 translate-y-0">
-        <div className="absolute inset-0 bg-white rounded-xl shadow-md rotate-7 translate-y-4"></div>
-        <div className="absolute inset-0 bg-white rounded-xl shadow-md -rotate-7 translate-y-1"></div>
+        <div className="absolute inset-0 bg-white rounded-xl shadow-md rotate-10 translate-y-8"></div>
+        <div className="absolute inset-0 bg-white rounded-xl shadow-md -rotate-7 translate-y-7"></div>
 
         <div className="relative h-full">
           <AnimatePresence mode="wait">
@@ -80,15 +80,15 @@ const TestimonialSlider = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -60, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="absolute inset-1 bg-white w-full max-w-[700px] h-44 overflow-hidden min-h-[200px] lg:h-[180px] rounded-xl shadow-xl px-4 sm:px-7 py-1 flex flex-col justify-between"
+              className="absolute inset-1 bg-white w-full max-w-[700px] h-46 overflow-hidden min-h-[210px] lg:h-[180px] rounded-xl shadow-xl px-3 sm:px-7 py-1.5 flex flex-col justify-between"
             >
               <img
                 src={testimonials[index].logo}
                 alt={`${testimonials[index].name} logo`}
-                className="!w-[75px] sm:w-11 h-10 md:h-16 lg:h-36 object-cover md:mb-2"
+                className="!w-[75px] mb-2 sm:w-11 h-10 md:h-14 lg:h-30 object-cover md:mb-2"
               />
 
-              <p className="text-[#5C5C5C] text-xs sm:text-sm font-medium leading-[120%] flex-1">
+              <p className="text-[#5C5C5C] text-sm sm:text-md font-medium leading-[120%] flex-1">
                 {testimonials[index].text}
               </p>
 

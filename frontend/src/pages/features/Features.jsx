@@ -367,7 +367,7 @@ const Features = () => {
             </h1>
 
             <p className="text-sm sm:text-lg lg:text-2xl text-[#3E4247] max-w-5xl">
-              Four powerful systems – School, Inventory, HR, and Lead Management
+              Four powerful systems – School Management, Inventory, HR, and Lead Management –
               – combined <br />
               into one seamless platform.
             </p>
