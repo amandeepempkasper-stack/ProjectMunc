@@ -60,6 +60,8 @@ const ContactList = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editContact),
       });
+
+      console.log(res)
       const data = await res.json();
       if (data.success) {
         alert("Contact updated successfully");
@@ -87,7 +89,7 @@ const ContactList = () => {
   const rows = filteredContacts.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <div className="max-w-7xl mx-auto border p-6">
+    <div className="max-w-7xl mx-auto py-6">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-light text-gray-800 mb-2">Contact Inquiries</h1>
