@@ -110,59 +110,58 @@ const Contact = () => {
                 />
 
                 <div className="col-span-1 sm:col-span-2 flex flex-col sm:flex-row gap-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={storeData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  className="
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={storeData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email"
+                    className="
       h-12 w-full rounded-lg border border-black/10 px-3 outline-none focus:ring-2 focus:ring-[#727272]
       placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm lg:placeholder:text-xs 2xl:placeholder:text-sm
     "
-                />
+                  />
 
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={storeData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter your phone"
-                  className="
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={storeData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your phone"
+                    className="
       h-12 w-full rounded-lg border border-black/10 px-2 outline-none focus:ring-2 focus:ring-[#727272]
       placeholder:text-sm sm:placeholder:text-sm md:placeholder:text-sm
     "
-                />
+                  />
 
-                
-                <div className="relative w-full">
-                  <select
-                    id="queryType"
-                    name="queryType"
-                    value={storeData.queryType}
-                    onChange={handleChange}
-                    className="
+                  <div className="relative w-full">
+                    <select
+                      id="queryType"
+                      name="queryType"
+                      value={storeData.queryType}
+                      onChange={handleChange}
+                      className="
       h-12 w-full rounded-lg border border-black/10 px-1.5 pr-6 outline-none 
       focus:ring-2 focus:ring-[#727272] text-[#999999]
       text-sm sm:text-sm
     "
-                  >
-                    <option value="" disabled hidden>
-                     Our Products
-                    </option>
-                    <option value="LMS">Lead Management</option>
-                    <option value="IMS">Inventory Management </option>
-                    <option value="SMS">School Management</option>
-                    <option value="HRMS">HR Management</option>
-                  </select>
+                    >
+                      <option value="" disabled hidden>
+                        Our Products
+                      </option>
+                      <option value="LMS">Lead Management</option>
+                      <option value="IMS">Inventory Management </option>
+                      <option value="SMS">ChatApp</option>
+                      <option value="HRMS">HR Management</option>
+                    </select>
 
-                  <span className="absolute inset-y-0 right-0.5 flex items-center pointer-events-none text-gray-500">
-                    ▼
-                  </span>
+                    <span className="absolute inset-y-0 right-0.5 flex items-center pointer-events-none text-gray-500">
+                      ▼
+                    </span>
+                  </div>
                 </div>
-              </div>
               </div>
 
               {/* <textarea

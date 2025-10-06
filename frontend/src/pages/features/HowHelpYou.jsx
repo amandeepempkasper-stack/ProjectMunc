@@ -8,7 +8,7 @@ const HowHelpYou = () => {
   const features = [
     {
       id: 1,
-      title: "Manage Payroll with Ease",
+      title: "Manage payroll with ease",
       desc: "Simplify payroll like never before. Track attendance, calculate salaries, and pay your team on time, every time.",
       // knowmore: "Know More",
       image: Payroll,
@@ -37,7 +37,7 @@ const HowHelpYou = () => {
   ];
 
   const [active, setActive] = useState(1);
-// How we can help you ?
+
   return (
     <div className=" ">
      <div className="text-center mt-8 sm:mt-8 md:mt-10">
@@ -47,7 +47,7 @@ const HowHelpYou = () => {
       font-medium text-[#1C2B33] leading-snug
     "
           >
-           How we can help you <span className=""></span>
+           How Can We Help You? <span className=""></span>
           </h1>
         </div>
 

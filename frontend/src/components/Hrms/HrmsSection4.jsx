@@ -4,7 +4,7 @@ import Two from "../../assets/HrmsImg/Icons/Comp2.svg";
 import Three from "../../assets/HrmsImg/Icons/Comp3.svg";
 import Four from "../../assets/HrmsImg/Icons/Comp4.svg";
 import Five from "../../assets/HrmsImg/Icons/Comp5.svg";
-import "./hrms.css"
+import "./hrms.css";
 
 const HrmsSection4 = () => {
   const features = [
@@ -33,7 +33,7 @@ const HrmsSection4 = () => {
   return (
     <div className="bg-[#F0FDFF] py-12">
       <h2 className="text-3xl font-medium text-center text-[#1C2B33] mb-10">
-        Why Choose Us
+        Why Choose MUN-C for Your HR Management
       </h2>
 
       <div className="grid px-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">

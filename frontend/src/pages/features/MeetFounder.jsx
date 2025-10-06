@@ -4,8 +4,8 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import MaleFounder from "../../assets/HomeSection/OurFounder/Kishor Sir.png";
-import Lakshmi from "../../assets/HomeSection/OurFounder/Lakshmi.jpg"
-import './features.css'
+import Lakshmi from "../../assets/HomeSection/OurFounder/Lakshmi.jpg";
+import "./features.css";
 
 const MeetFounder = () => {
   const testimonials = [
@@ -13,15 +13,15 @@ const MeetFounder = () => {
       id: 1,
       name: "Kishor Kumar",
       title: "Founder Of Kasper Infotech Pvt. Ltd.",
-      text: "From the very beginning, our mission at MUNC has been clear—to empower businesses with tools that simplify complexity. We believe no business should struggle with scattered software, so we built an all-in-one suite that brings everything together. With MUNC, organizations of every size can manage operations, boost teamwork, and grow smarter, faster, and more efficiently.",
+      text: "From the very beginning, our mission at MUN-C has been clear — to empower businesses withtools that make complexity simple. We believe no business should struggle with scatteredsystems, so we built an all-in-one suite that brings everything together. With MUN-C,businesses of all sizes can manage operations, boost teamwork, and grow smarter, faster, andmore efficiently.",
       image: MaleFounder,
     },
     {
       id: 2,
       name: "Lakshmi Mittal",
       title: "Director & Founder Of Kasper Infotech Pvt. Ltd.",
-      text: "At MUNC, we see technology as an enabler, not a barrier. Our vision is to create simple, powerful solutions that help every business grow smarter, faster, and with greater ease.",
-      image:Lakshmi
+      text: "At MUNC, we see technology as an enabler, not a barrier. Our vision is to create simple,powerful solutions that help every business grow Smarter, Faster, and with greater ease.",
+      image: Lakshmi,
     },
   ];
 
@@ -29,22 +29,22 @@ const MeetFounder = () => {
   return (
     <div className="mt-15">
       <div className="text-center mt-10 sm:mt-10 md:mt-15">
-          <h1
-            className="
+        <h1
+          className="
       text-2xl sm:text-3xl md:text-4xl lg:text-4xl
       font-medium text-[#1C2B33] leading-snug
     "
-          >
-            Meet Our Founder
-          </h1>
-        </div>
+        >
+          Meet Our Founder
+        </h1>
+      </div>
       <div>
-        <div className="max-w-6xl mx-auto py-12 px-6">
+        <div className="max-w-6xl mx-auto py-10 px-6">
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={40}
             slidesPerView={1}
-            autoplay={{ delay: 2000 }}
+            autoplay={{ delay: 5000 }}
             pagination={{ clickable: true }}
           >
             {testimonials.map((item) => (

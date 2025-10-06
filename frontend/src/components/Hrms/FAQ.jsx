@@ -8,31 +8,31 @@ const FAQ = () => {
       id: 1,
       question: "Q1. What is HRMS?",
       answer:
-        "HRMS (Human Resource Management System) is a software that automates employee management, payroll, leaves, attendance, performance, and more.",
+        "HRMS (Human Resource Management System) is a software that automates employee management, Payroll, Leaves, Attendance, Performance, and More.",
     },
     {
       id: 2,
       question: "Q2. Can it handle payroll automatically?",
       answer:
-        "Yes, HRMS can calculate and process payroll automatically, saving time and reducing errors.",
+        "Yes, HRMS can calculate and process Payroll Automatically, Saving time and Reducing Errors.",
     },
     {
       id: 3,
       question: "Q3. Does it support attendance tracking?",
       answer:
-        "Yes, employees can check in/out, and attendance records can be managed digitally via biometric, web, or mobile devices.",
+        "Yes, Employees can check In/Out, and Attendance Records can be Managed Digitally Via Biometric, Web, or Mobile Devices.",
     },
     {
       id: 4,
       question: "Q4. Can employees access their details?",
       answer:
-        "Yes, HRMS provides employees with self-service portals where they can access payslips, leave balance, and personal information.",
+        "Yes, HRMS provides employees with self-service portals where they can access Payslips, Leave Balance, and Personal Information.",
     },
     {
       id: 5,
       question: "Q5. Is it suitable for small businesses?",
       answer:
-        "Yes, HRMS is scalable and fits businesses of all sizes, from startups to large enterprises.",
+        "Yes, HRMS is Scalable and Fits Businesses of All Sizes, from Startups to Large Enterprises.",
     },
   ];
 

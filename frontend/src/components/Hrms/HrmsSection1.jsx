@@ -7,7 +7,10 @@ import "./hrms.css";
 
 const HrmsSection1 = () => {
   return (
-    <div  id="header-section" className="min-h-screen bg-gradient-to-r from-[#035ACD] to-[#003172] overflow-hidden relative flex items-center">
+    <div
+      id="header-section"
+      className="min-h-screen bg-gradient-to-r from-[#035ACD] to-[#003172] overflow-hidden relative flex items-center"
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 gap-8 w-full">
         <div className="text-white flex flex-col justify-start max-w-2xl text-left">
           <div className="space-y-4">
@@ -20,11 +23,11 @@ const HrmsSection1 = () => {
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base leading-relaxed font-normal text-gray-100">
-              Manage your workforce smarter with our all-in-one HR Management
-              Software (HRMS). From attendance tracking and payroll processing
-              to leave management, performance reviews, and employee records —
-              everything is automated in one platform. Save time, cut costs, and
-              keep your team engaged with ease.
+              Manage your workforce more efficiently with our all-in-one HRMS.
+              From attendance tracking and payroll processing to Leave
+              Management, Performance Reviews, and Employee Records — everything
+              you need is automated in one powerful platform. Save time, reduce
+              costs, and keep your team productive and engaged with ease.
             </p>
           </div>
         </div>

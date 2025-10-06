@@ -164,7 +164,7 @@ const Contact = () => {
                       onChange={handleChange}
     className="h-12 w-full rounded-lg border border-gray-300 px-3 pr-8 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] appearance-none text-gray-700 bg-white transition"
                     >
-                      <option value="">Our Products</option>
+                      <option  value="" disabled hidden className="bg-white text-gray-700">Our Products</option>
                       <option value="LMS" className="bg-white text-gray-700">Lead Management</option>
                       <option value="IMS" className="bg-white text-gray-700">Inventory Management</option>
                       <option value="SMS" className="bg-white text-gray-700"> ChatApp</option>
