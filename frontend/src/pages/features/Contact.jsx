@@ -247,7 +247,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className={`inline-flex items-center justify-center rounded-lg px-4 py-3 text-base font-medium text-white w-full transition
+                className={`inline-flex items-center justify-center rounded-full px-4 py-3 text-base font-medium text-white w-full transition
                   ${
                     loading
                       ? "bg-gray-400 cursor-not-allowed"

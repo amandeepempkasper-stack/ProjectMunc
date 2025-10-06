@@ -367,7 +367,7 @@ const Features = () => {
             </h1>
 
             <p className="text-sm sm:text-lg lg:text-2xl text-[#3E4247] max-w-5xl">
-              Four powerful systems – School Management, Inventory, HR, and Lead Management –
+              Our powerful systems – Lead, Inventory, Customer Relationship, Human Resource, School Management System and Chat App and   –
               – combined <br />
               into one seamless platform.
             </p>
@@ -382,9 +382,9 @@ const Features = () => {
             >
               Let’s Solve It Together <FaArrowRightLong />
             </motion.button>
-            <span className="text-[10px] sm:text-[12px] leading-[120%] text-[#3E4247]">
+            {/* <span className="text-[10px] sm:text-[12px] leading-[120%] text-[#3E4247]">
               <i>*No credit card required.</i>
-            </span>
+            </span> */}
           </div>
         </motion.div>
 
