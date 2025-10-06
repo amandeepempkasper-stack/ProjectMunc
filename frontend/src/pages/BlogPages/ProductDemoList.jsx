@@ -110,7 +110,7 @@ const ProductDemoList = () => {
   );
 
   return (
-    <div className="relative max-w-7xl mx-auto py-6 rounded-lg bg-white">
+    <div className="relative max-w-7xl mx-auto p-6 rounded-lg bg-white">
       <div className="mb-8">
         <h2 className="text-2xl font-light text-gray-800 mb-2">
           Product Demos
@@ -187,7 +187,7 @@ const ProductDemoList = () => {
                     <td className="px-6 py-4 text-sm text-gray-900">
                       {demo.designation}
                     </td>
-                    <td className="px-6 py-4 text-sm space-x-4">
+                    <td className="px-6 py-4 text-sm space-x-4 flex">
                       <button
                         onClick={() => handleEdit(demo)}
                         className="text-blue-600 hover:text-blue-800 font-medium"
@@ -295,7 +295,7 @@ const ProductDemoList = () => {
       )}
 
       {/* Toast Notification */}
-      {toast && (
+      {/* {toast && (
         <div
           className={`fixed bottom-6 right-6 px-4 py-2 rounded-lg shadow-lg text-white text-sm transition-all duration-500 ${
             toast.type === "success" ? "bg-green-600" : "bg-red-600"
@@ -303,7 +303,7 @@ const ProductDemoList = () => {
         >
           {toast.message}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -19,7 +19,7 @@ const ContactList = () => {
     try {
       const res = await fetch(`${BASE_URL}/api/contact`);
       const json = await res.json();
-      setContacts(json.success ? json.contacts : []);
+      setContacts(json);
     } catch (err) {
       console.error("Error fetching contacts:", err);
       setContacts([]);
@@ -89,7 +89,7 @@ const ContactList = () => {
   const rows = filteredContacts.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <div className="max-w-7xl mx-auto py-6">
+    <div className="max-w-7xl mx-auto p-6">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-light text-gray-800 mb-2">Contact Inquiries</h1>

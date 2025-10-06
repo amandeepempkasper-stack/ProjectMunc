@@ -43,7 +43,7 @@ const AdminLayouts = () => {
     "profile",
     "home",
     "contact-list",
-    "product-demo-list"
+    "product-demo-list",
   ].some((page) => location.pathname.includes(page));
 
   const base = "/adminsidebar";
@@ -51,13 +51,48 @@ const AdminLayouts = () => {
 
   const menuItems = [
     { label: "Home", path: "/", key: "home", icon: <HomeIcon /> },
-    { label: "Profile", path: `${base}/profile`, key: "profile", icon: <PersonIcon /> },
-    { label: "Blogs", path: `${base}/blogs`, key: "blogs", icon: <ArticleIcon /> },
-    { label: "My Blogs", path: `${base}/my-blogs`, key: "my-blogs", icon: <FeaturedPlayListIcon /> },
-    { label: "Categories", path: `${base}/addcategory`, key: "addcategory", icon: <CategoryIcon /> },
-    { label: "Create Blog", path: `${base}/addblog`, key: "addblog", icon: <CreateIcon /> },
-    { label: "Contacts", path: `${base}/contact-list`, key: "contact", icon: <Phone /> },
-    { label: "Product Demos", path: `${base}/product-demo-list`, key: "product", icon: <BoxIcon /> },
+    {
+      label: "Profile",
+      path: `${base}/profile`,
+      key: "profile",
+      icon: <PersonIcon />,
+    },
+    {
+      label: "Blogs",
+      path: `${base}/blogs`,
+      key: "blogs",
+      icon: <ArticleIcon />,
+    },
+    {
+      label: "My Blogs",
+      path: `${base}/my-blogs`,
+      key: "my-blogs",
+      icon: <FeaturedPlayListIcon />,
+    },
+    {
+      label: "Categories",
+      path: `${base}/addcategory`,
+      key: "addcategory",
+      icon: <CategoryIcon />,
+    },
+    {
+      label: "Create Blog",
+      path: `${base}/addblog`,
+      key: "addblog",
+      icon: <CreateIcon />,
+    },
+    {
+      label: "Contacts",
+      path: `${base}/contact-list`,
+      key: "contact",
+      icon: <Phone />,
+    },
+    {
+      label: "Product Demos",
+      path: `${base}/product-demo-list`,
+      key: "product",
+      icon: <BoxIcon />,
+    },
   ];
 
   useEffect(() => {
@@ -65,6 +100,19 @@ const AdminLayouts = () => {
     if (storedProfile) {
       setProfile(storedProfile);
     }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const path = location.pathname;
+
+    if (path.includes("my-blogs")) setSelectedTab("my-blogs");
+    else if (path.includes("addblog")) setSelectedTab("addblog");
+    else if (path.includes("addcategory")) setSelectedTab("addcategory");
+    else if (path.includes("profile")) setSelectedTab("profile");
+    else if (path.includes("contact-list")) setSelectedTab("contact");
+    else if (path.includes("product-demo-list")) setSelectedTab("product");
+    else if (path === "/" || path.includes("home")) setSelectedTab("home");
+    else setSelectedTab("blogs");
   }, [location.pathname]);
 
   return (
@@ -107,13 +155,13 @@ const AdminLayouts = () => {
                       ? `${profile}`
                       : "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-male-user-profile-vector-illustration-isolated-background-man-profile-sign-business-concept_157943-38764.jpg"
                   }
-                  sx={{ 
-                    width: 80, 
-                    height: 80, 
-                    mx: "auto", 
+                  sx={{
+                    width: 80,
+                    height: 80,
+                    mx: "auto",
                     mb: 2,
                     border: "2px solid",
-                    borderColor: "grey.700"
+                    borderColor: "grey.700",
                   }}
                 />
                 <Typography variant="h6" fontWeight="300" gutterBottom>
@@ -147,7 +195,8 @@ const AdminLayouts = () => {
                     textTransform: "none",
                     fontSize: "0.9rem",
                     fontWeight: selectedTab === item.key ? "500" : "400",
-                    backgroundColor: selectedTab === item.key ? "grey.800" : "transparent",
+                    backgroundColor:
+                      selectedTab === item.key ? "grey.800" : "transparent",
                     color: selectedTab === item.key ? "white" : "grey.300",
                     border: selectedTab === item.key ? "1px solid" : "none",
                     borderColor: "grey.700",
@@ -178,7 +227,7 @@ const AdminLayouts = () => {
           }}
         >
           {/* Mobile Navigation Bar */}
-          {(isCompact && isCompactPage) && (
+          {isCompact && isCompactPage && (
             <Box
               sx={{
                 display: "flex",
@@ -202,7 +251,8 @@ const AdminLayouts = () => {
                   onClick={() => setSelectedTab(item.key)}
                   sx={{
                     color: selectedTab === item.key ? "white" : "grey.400",
-                    backgroundColor: selectedTab === item.key ? "grey.700" : "transparent",
+                    backgroundColor:
+                      selectedTab === item.key ? "grey.700" : "transparent",
                     flex: "0 0 auto",
                     "&:hover": {
                       backgroundColor: "grey.700",
@@ -219,7 +269,12 @@ const AdminLayouts = () => {
           {/* Welcome Message for Profile Page */}
           {location.pathname.includes("profile") && (
             <Box sx={{ textAlign: "center", mb: 4 }}>
-              <Typography variant="h4" fontWeight="300" color="grey.800" gutterBottom>
+              <Typography
+                variant="h4"
+                fontWeight="300"
+                color="grey.800"
+                gutterBottom
+              >
                 Admin Dashboard
               </Typography>
               <Typography variant="body1" color="grey.600">

@@ -101,7 +101,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="bg-[#F0FDFF] px-4 pt-24 pb-4 sm:py-22 lg:py-24 border-5"
+      className="bg-[#F0FDFF] px-4 pt-24 pb-4 sm:py-22 lg:py-24"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10 bg-white rounded-2xl ring-1 ring-black/10 p-4 sm:p-6 md:p-8 lg:p-12 overflow-hidden">
         {/* Left Image */}

@@ -6,6 +6,7 @@ import BlueButton from "../../UI/BlueButton";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa";
 import Contact from "./Contact";
+import { ChevronDown } from "lucide-react";
 
 const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -17,7 +18,7 @@ const NavBar = () => {
     { label: "Home", path: "/" },
     { label: "Products", path: "#", dropdown: true },
     { label: "About", path: "/about" },
-    { label: "Contact Us", path: "/contact", scroll: false },  // Change scroll to false here
+    { label: "Contact Us", path: "/contact", scroll: false }, // Change scroll to false here
     { label: "Blogs", path: "/blogs" },
   ];
 
@@ -41,7 +42,7 @@ const NavBar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex gap-10">
-            <ul className="flex gap-8 text-[#3E4247] relative my-auto">
+            <ul className="flex gap-8 text-[#3E4247] relative item-center my-auto">
               {links.map((el, idx) => (
                 <li
                   key={idx}
@@ -75,34 +76,38 @@ const NavBar = () => {
                   ) : (
                     <span className="relative cursor-pointer flex items-center gap-1 text-gray-800 hover:text-blue-500 hover:underline transition-colors duration-300">
                       {el.label}
-                      <FaChevronDown
+                      <ChevronDown
                         className={`ml-1 transition-transform duration-300 ${
                           showDropdown ? "rotate-180" : "rotate-0"
-                        }`}
+                        }`} 
+                        strokeWidth={1} 
+                        size={20}
                       />
                     </span>
                   )}
 
                   {/* Dropdown Menu */}
                   {el.dropdown && showDropdown && (
-                    <div className="absolute left-0 mt-0.9 w-48 bg-white shadow-lg rounded-md z-50">
-                      {productItems.map((item, i) => (
-                        <NavLink
-                          key={i}
-                          to={item.path}
-                          className={({ isActive }) =>
-                            `block px-4 py-2 text-sm transition-colors duration-300 
-                            hover:bg-blue-50 hover:text-blue-600 no-underline
+                    <div className="">
+                      <div className="absolute left-0 w-48 border bg-white shadow-lg rounded-md overflow-hidden z-50">
+                        {productItems.map((item, i) => (
+                          <NavLink
+                            key={i}
+                            to={item.path}
+                            className={({ isActive }) =>
+                              `block px-4 py-2 text-sm transition-colors duration-300 
+                            hover:bg-blue-50 hover:border-l-4 border-[#007aff] hover:text-blue-600 !no-underline
                             ${
                               isActive
-                                ? "text-blue-600 underline font-medium"
+                                ? "text-blue-600 font-medium "
                                 : "text-gray-700"
                             }`
-                          }
-                        >
-                          {item.label}
-                        </NavLink>
-                      ))}
+                            }
+                          >
+                            {item.label}
+                          </NavLink>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </li>

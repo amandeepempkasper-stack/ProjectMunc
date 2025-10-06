@@ -250,7 +250,7 @@ const Contact = ({ setShowForm, showForm }) => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full h-11 rounded-lg text-white font-medium text-sm 
+              className={`w-full h-11 rounded-full text-white font-medium text-sm 
             transition-all duration-200 
             ${
               loading

@@ -164,25 +164,23 @@ const BlogPost = () => {
       {/* <Navbar /> */}
       <section className="bg-[#F0FDFF] py-24 px-6 md:px-20">
         <div className="row h-100">
-
-          <div className="text-[20px] md:text-[30px] font-semibold leading-[100%] text-[#1C2B33]">
-            <h3 className="mb-3 tittle">{blog.title}</h3>
-          </div>
-
           <div className="row h-100">
             {/* Main Blog Post */}
-            <div className="blog-main-section col-lg-9 d-flex flex-column">
-              
-
+            <div className="blog-main-section col-lg-9 d-flex flex-column rounded-md">
+            <div className="text-[20px] md:text-[30px] font-semibold leading-[100%] text-[#1C2B33]">
+              <h3 className="mb-3 tittle">{blog.title}</h3>
+            </div>
               <div className="blog-img-section">
                 <img src={imageUrl} className="img-fluid mb-4" alt="Blog" />
               </div>
-              
+
               <p className="text-muted text-sm text-gray-500 mb-3">
                 {moment(blog.createdAt).format("LL")}
               </p>
 
-              <div className="parsed-content   max-h-[400px] overflow-y-auto pr-2 space-y-3 text-gray-700 leading-relaxed prose prose-lg max-w-none scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-100 rounded">{parsedContent}</div>
+              <div className="parsed-content   max-h-[400px] overflow-y-auto pr-2 space-y-3 text-gray-700 leading-relaxed prose prose-lg max-w-none scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-100 rounded">
+                {parsedContent}
+              </div>
 
               {/* Author and Social Section */}
               <div className=" pt-4 border-top  align-items-center flex-wrap gap-2">
@@ -199,7 +197,7 @@ const BlogPost = () => {
             {/* Sidebar */}
             <div className="side-blogcontainer col-lg-3 d-none d-lg-block">
               {toc.length > 0 && (
-                <div className="bg-white p-4 rounded-xl shadow mb-6">
+                <div className="bg-white p-4 rounded-md mb-6 w-[333px]">
                   <h3 className="font-semibold text-lg mb-3 text-gray-800 border-b pb-2">
                     Table of Contents
                   </h3>
@@ -217,7 +215,7 @@ const BlogPost = () => {
                 </div>
               )}
 
-              <div className="bg-white p-[16px] w-[333px] rounded-xl mb-2">
+              <div className="bg-white p-[16px] w-[333px] rounded-md mb-2">
                 <h3 className="font-semibold text-lg mb-3 text-gray-800">
                   Category
                 </h3>
@@ -250,7 +248,7 @@ const BlogPost = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-[16px] w-[333px] rounded-xl">
+              <div className="bg-white p-[16px] w-[333px] rounded-md">
                 <h3 className="font-semibold text-lg mb-3 text-gray-800">
                   Recent Posts
                 </h3>
