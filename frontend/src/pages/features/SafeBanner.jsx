@@ -9,7 +9,7 @@ const SafeBanner = () => {
         alt="Safe Banner"
         className="
           w-full object-cover object-center md:rounded-xl
-          h-[60px] sm:h-[120px] md:h-[240px] lg:h-[230px]
+          h-[74px] sm:h-[120px] md:h-[210px] lg:h-[220px]
         "
       />
     </div>
