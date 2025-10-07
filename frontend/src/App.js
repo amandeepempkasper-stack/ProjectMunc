@@ -28,6 +28,7 @@ import ProductDemoList from "./pages/BlogPages/ProductDemoList";
 import ContactList from "./pages/BlogPages/ContactList";
 import ScrollToTop from "./components/ScrollToTop";
 import Contact from "./components/Contact";
+import FirstVisitPopup from "./components/popup/FirstVisitPopup"
 
 const App = () => {
   useEffect(() => {
@@ -41,7 +42,8 @@ const App = () => {
 
   return (
     <>
-        <ScrollToTop />
+      <FirstVisitPopup></FirstVisitPopup>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Features />} />

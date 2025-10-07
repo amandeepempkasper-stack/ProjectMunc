@@ -15,7 +15,7 @@ const SmsSection1 = () => {
           <div className="text-white flex flex-col justify-start max-w-2xl text-left">
             <div className="space-y-4">
               {/* <div className="py-0.5 px-4 bg-[#E2F1FF] text-center rounded-full w-fit mx-auto md:mx-0"> */}
-              <p className="text-[#00439B] text-xs sm:text-sm md:text-base font-medium py-0.5 px-4 bg-[#E2F1FF] text-center rounded-full w-fit md:mx-0">
+              <p className="text-[#00439B] text-xs sm:text-sm md:text-base font-medium py-0.5 px-4 whitespace-nowrap bg-[#E2F1FF] text-center rounded-full w-fit md:mx-0">
                 Simplify Learning, Administration &amp; Communication
               </p>
               {/* </div> */}

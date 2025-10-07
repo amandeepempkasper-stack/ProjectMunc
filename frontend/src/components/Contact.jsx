@@ -73,7 +73,7 @@ const Contact = () => {
       });
 
       const data = await response.json();
-      console.log(data)
+      console.log(data);
 
       if (response.ok) {
         toast.success(data.message || "Form submitted successfully");
@@ -202,10 +202,19 @@ const Contact = () => {
                   name="phone"
                   type="tel"
                   value={storeData.phone}
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    // Only allow digits and max 15 chars
+                    if (/^\d{0,15}$/.test(value)) {
+                      handleChange(e);
+                    }
+                  }}
                   placeholder="Phone Number *"
                   required
-                  className="flex-1 h-12 rounded-r-lg border border-gray-300 border-l-0 px-3 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] transition"
+                  maxLength={15} // ✅ HTML safeguard
+                  pattern="[0-9]{7,15}" // ✅ Regex: between 7 and 15 digits
+                  title="Phone number should contain only numbers (7–15 digits)."
+                  className="flex-1 h-12 w-full rounded-r-lg border border-gray-300 border-l-0 px-3 text-sm outline-none focus:ring-2 focus:ring-[#007AFF] focus:border-[#007AFF] transition"
                 />
               </div>
 
