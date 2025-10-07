@@ -8,29 +8,29 @@ const HowHelpYou = () => {
   const features = [
     {
       id: 1,
-      title: "Manage payroll with ease",
-      desc: "Simplify payroll like never before. Track attendance, calculate salaries, and pay your team on time, every time.",
+      title: "Manage Payroll with Ease",
+      desc: "Handle employee payroll like never before with MUN-C’s HR Management System, a core part of our Business Management Suite (BMS).",
       // knowmore: "Know More",
       image: Payroll,
     },
     {
       id: 2,
-      title: "Track stock in real time",
-      desc: "Monitor your inventory levels live and reduce stock-outs with accurate insights.",
+      title: "Track Stock in Real Time",
+      desc: "Gain full visibility over your inventory with MUN-C’s Inventory Management Software. Monitor stock levels, supplier performance, and product movement in real time.",
       // knowmore: "Know More",
       image: stock,
     },
     {
       id: 3,
-      title: "Collect fees in seconds",
-      desc: "Make fee collection simple with instant receipts and integrated payment options.",
+      title: "Collect Fees in Seconds",
+      desc: "Simplify fee collection with MUN-C’s School Management System (SMS). Parents can payinstantly using integrated online gateways, while schools receive automated receipts and payment confirmations.",
       // knowmore: "Know More",
       image: fees,
     },
     {
       id: 4,
-      title: "Never miss a follow-up",
-      desc: "Stay on top of tasks with automatic reminders and real-time notifications.",
+      title: "Never Miss a Follow-Up",
+      desc: "Boost your sales and customer engagement using MUN-C’s Lead Management Software (LMS).Automate reminders, assign leads, and track every stage of the sales journey. Stay on top of client calls, follow-ups, and deals.",
       // knowmore: "Know More",
       image: followup,
     },
@@ -40,16 +40,16 @@ const HowHelpYou = () => {
 
   return (
     <div className=" ">
-     <div className="text-center mt-8 sm:mt-8 md:mt-10">
-          <h1
-            className="
+      <div className="text-center mt-8 sm:mt-8 md:mt-10">
+        <h1
+          className="
       text-2xl sm:text-3xl md:text-4xl lg:text-4xl
       font-medium text-[#1C2B33] leading-snug
     "
-          >
-           How Can We Help You? <span className=""></span>
-          </h1>
-        </div>
+        >
+          How Can We Help You? <span className=""></span>
+        </h1>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-10 sm:px-20 md:px-20 ">
         <div className="flex flex-col divide-y divide-gray-200 w-full">

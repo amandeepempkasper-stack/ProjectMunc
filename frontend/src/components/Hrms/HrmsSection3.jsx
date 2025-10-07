@@ -5,15 +5,15 @@ import Two from "../../assets/HrmsImg/BigImg/Two.png";
 const HrmsSection3 = () => {
   const features = [
     {
-      blue: "Employee",
-      black: "Database",
-      desc: "Centralized staff records.",
+      blue: "Employee Information",
+      black: " Hub",
+      desc: "Access, Update, and Manage records anytime without clutter.",
       img: One,
     },
     {
-      blue: "Payroll & Salary",
-      black: "Management",
-      desc: "Auto-calculated, error-free payroll.",
+      blue: "Smart Payroll ",
+      black: "Automation",
+      desc: "Generate payslips, track revisions, and stay compliant without stress.",
       img: Two,
     },
   ];
@@ -23,7 +23,7 @@ const HrmsSection3 = () => {
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto py-6 sm:py-12 lg:py-2">
         
         <h1 className="font-medium text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#1C2B33] text-center mb-6 sm:mb-10">
-        Core Features of MUN-C HRMS
+       Key Features That Redefine HR Operations
         </h1>
 
         
@@ -47,7 +47,7 @@ const HrmsSection3 = () => {
                   <span className="text-[#007AFF]">{item.blue} </span>
                   <span className="text-gray-900">{item.black}</span>
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-[#7D7D7D] mt-2">
+                <p className="text-sm sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl text-[#7D7D7D] mt-2">
                   {item.desc}
                 </p>
               </div>

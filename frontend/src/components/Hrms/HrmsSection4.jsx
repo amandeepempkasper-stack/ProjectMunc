@@ -10,30 +10,30 @@ const HrmsSection4 = () => {
   const features = [
     {
       icon: One,
-      text: "Automated payroll and salary slips",
+      text: "All-in-one Employee Management System — everything from hiring to exit in one dashboard.",
     },
     {
       icon: Two,
-      text: "Leave and attendance tracking",
+      text: "Fully Automated Payroll — fast, accurate, and completely stress-free.",
     },
     {
       icon: Three,
-      text: "Employee self-service portal",
+      text: "Real-time Insights — track, analyze, and act instantly.",
     },
     {
       icon: Four,
-      text: "Performance and appraisal management",
+      text: "Scalable Solution — perfect for small teams or large organizations.",
     },
     {
       icon: Five,
-      text: "Scalable for SMEs and enterprises",
+      text: "Secure Cloud-Based HR System — protect employee data with enterprise-grade security.",
     },
   ];
 
   return (
     <div className="bg-[#F0FDFF] py-12">
       <h2 className="text-3xl font-medium text-center text-[#1C2B33] mb-10">
-        Why Choose MUN-C for Your HR Management
+        Why Businesses Choose MUN-C HRMS
       </h2>
 
       <div className="grid px-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">

@@ -18,7 +18,7 @@ const Our_Product = () => {
       id: 2,
       name: "HR Management Software",
       description:
-        "HRMS streamlines Payroll, Attendance, and Employee Management.",
+        "Automate payroll, attendance, and employee data in minutes.",
       img: HRMS,
       slug: "human-resource-management-system",
     },
@@ -26,7 +26,7 @@ const Our_Product = () => {
       id: 3,
       name: "Lead Management Software",
       description:
-        "LMS helps Capture, Track, and Manage leads to boost sales performance.",
+        "Capture, assign, and convert leads faster using intelligent automation.",
       img: LMS,
       slug: "lead-management-system",
     },
@@ -34,7 +34,7 @@ const Our_Product = () => {
       id: 4,
       name: "School Management Software",
       description:
-        "SMS simplifies Admissions, Attendance, Fees, Exams, and Results Management.",
+        "Digitize admissions, attendance, exams, and fee collection with ease.",
       img: SMS,
       slug: "school-management-system",
     },

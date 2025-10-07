@@ -15,7 +15,7 @@ const HrmsSection1 = () => {
         <div className="text-white flex flex-col justify-start max-w-2xl text-left">
           <div className="space-y-4">
             <p className="py-0.5 px-4 bg-[#E2F1FF] text-left rounded-full w-fit md:mx-0 text-[#00439B] text-xs sm:text-sm md:text-base font-medium">
-              Simplify HR, Payroll & Employee Management
+              Smarter HR | Happier Teams | Seamless Growth
             </p>
 
             <h1 className="font-semibold text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
@@ -23,11 +23,12 @@ const HrmsSection1 = () => {
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base leading-relaxed font-normal text-gray-100">
-              Manage your workforce more efficiently with our all-in-one HRMS.
-              From attendance tracking and payroll processing to Leave
-              Management, Performance Reviews, and Employee Records — everything
-              you need is automated in one powerful platform. Save time, reduce
-              costs, and keep your team productive and engaged with ease.
+              Your people are the heart of your business — and managing them
+              should be simple. With MUN-C HR Management Software (HRMS), you
+              can take control of your workforce with clarity and confidence.
+              From new hires to payroll, performance, and beyond — everything
+              runs smoothly through one intelligent platform designed for modern
+              businesses.
             </p>
           </div>
         </div>
