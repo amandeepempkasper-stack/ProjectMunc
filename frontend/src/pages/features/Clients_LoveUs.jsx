@@ -26,12 +26,15 @@ const Clients_LoveUs = () => {
               <p className="font-medium text-2xl md:text-[28px] text-[#3E4247] leading-snug">
                 Built for,
                 <span className="text-[#007AFF]"> simplicity </span>
-                designed for you.
+                designed for results..
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
-                Our software removes the clutter and confusion, giving you an
-                intuitive experience that makes managing your business
-                effortless.
+                At MUN-C, simplicity drives innovation. Our Business Management
+                Suite (BMS) eliminates clutter and confusion with an
+                easy-to-navigate interface that feels natural for every user.
+                Whether you’re managing HR, inventory, or school operations,
+                everything is organized, responsive, and effortlessly
+                accessible.
               </p>
             </div>
             <img
@@ -50,13 +53,17 @@ const Clients_LoveUs = () => {
             />
             <div className="w-full md:w-1/2">
               <p className="font-medium text-2xl md:text-[28px] text-[#3E4247] leading-snug">
-                Premium features,
+                Premium features,at
                 <span className="text-[#007AFF]"> pocket-friendly </span>
                 pricing.
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
-                Save time, reduce errors, and manage your business better—with
-                software that’s as affordable as it is powerful.
+                We believe advanced technology shouldn’t come at a premium cost.
+                MUN-C delivers enterprise-grade tools—including payroll
+                automation, inventory tracking, analytics, and lead
+                management—at a price that fits businesses of all sizes. You get
+                the power of a complete BMS without the heavy financial burden
+                of multiple subscriptions.
               </p>
             </div>
           </div>
@@ -69,8 +76,11 @@ const Clients_LoveUs = () => {
                 <span className="text-[#007AFF]"> save money and minutes.</span>
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
-                Our platform helps you lower expenses and boost efficiency,
-                keeping your business ahead of the curve.
+                Every click in MUN-C is designed to make your day more
+                productive. From auto-generated reports and AI-driven insights
+                to real-time notifications, our platform helps reduce human
+                errors, lower operational costs, and improve accuracy across
+                departments.
               </p>
             </div>
             <img
@@ -93,8 +103,10 @@ const Clients_LoveUs = () => {
                 for every part of your business.
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
-                From HR to inventory, leads to school management—manage it all
-                without switching between multiple tools.
+                No more switching between apps or juggling multiple dashboards.
+                MUN-C connects your HR, inventory, lead, and school management
+                systems into one unified ecosystem. Manage payrolls, admissions,
+                leads, and reports—all in one place.
               </p>
             </div>
           </div>

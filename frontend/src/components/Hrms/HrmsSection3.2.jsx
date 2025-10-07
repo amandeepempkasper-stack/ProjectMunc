@@ -5,16 +5,16 @@ import Four from "../../assets/HrmsImg/BigImg/Four.png";
 const HrmsSection3_2 = () => {
   const features = [
     {
-      blue: "Leave & Attendance",
-      black: "Tracking",
-      desc: "Real-time employee attendance.",
+      blue: " Attendance & ",
+      black: "Leave Intelligence",
+      desc: "Get real-time visibility into who’s working, who’s on leave, and who’s late.",
       img: Three,
       align: "left",
     },
     {
       blue: "Performance &",
-      black: "Appraisal",
-      desc: "Set goals and track growth.",
+      black: "Growth Insights",
+      desc: "Turn performance reviews into growth opportunities.",
       img: Four,
       align: "right",
     },
@@ -45,7 +45,7 @@ const HrmsSection3_2 = () => {
                     <span className="text-[#007AFF]">{item.blue} </span>
                     <span className="text-gray-900">{item.black}</span>
                   </h3>
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-[#7D7D7D] mt-2">{item.desc}</p>
+                  <p className="text-sm sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl text-[#7D7D7D] mt-2">{item.desc}</p>
                 </div>
 
                 

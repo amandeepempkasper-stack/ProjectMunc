@@ -6,33 +6,33 @@ const FAQ = () => {
   const faqs = [
     {
       id: 1,
-      question: "Q1. What is HRMS?",
+      question: "Q1. How does MUN-C HRMS help my business?",
       answer:
-        "HRMS (Human Resource Management System) is a software that automates employee management, Payroll, Leaves, Attendance, Performance, and More.",
+        "It automates HR operations, saving time and cost while improving accuracy and employee satisfaction.",
     },
     {
       id: 2,
-      question: "Q2. Can it handle payroll automatically?",
+      question: "Q2. Can payroll and attendance work together?",
       answer:
-        "Yes, HRMS can calculate and process Payroll Automatically, Saving time and Reducing Errors.",
+        "Yes. Payroll is directly linked with attendance data, ensuring accurate payouts every month.",
     },
     {
       id: 3,
-      question: "Q3. Does it support attendance tracking?",
+      question: "Q3. Does MUN-C support remote or hybrid teams?",
       answer:
-        "Yes, Employees can check In/Out, and Attendance Records can be Managed Digitally Via Biometric, Web, or Mobile Devices.",
+        "Absolutely. Track attendance, leaves, and performance seamlessly — even for remote employees.",
     },
     {
       id: 4,
-      question: "Q4. Can employees access their details?",
+      question: "Q4. Is the system secure?",
       answer:
-        "Yes, HRMS provides employees with self-service portals where they can access Payslips, Leave Balance, and Personal Information.",
+        "Yes. MUN-C uses encrypted cloud technology to keep your employee data safe and private.",
     },
     {
       id: 5,
-      question: "Q5. Is it suitable for small businesses?",
+      question: "Q5. Can it integrate with other MUN-C modules?",
       answer:
-        "Yes, HRMS is Scalable and Fits Businesses of All Sizes, from Startups to Large Enterprises.",
+        "Yes. It connects with our Inventory, Lead, and School Management modules — giving you a complete Business Management Suite (BMS) experience.",
     },
   ];
 
@@ -40,7 +40,7 @@ const FAQ = () => {
     <>
       <div className="max-w-3xl mx-auto py-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-medium text-center leading-[120%] mb-6">
-          FAQs
+        Frequently Asked Questions
         </h2>
 
         <div className="space-y-3">

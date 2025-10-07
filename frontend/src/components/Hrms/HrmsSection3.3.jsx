@@ -5,16 +5,16 @@ import Six from "../../assets/HrmsImg/BigImg/Six.png";
 const HrmsSection3_3 = () => {
   const features = [
     {
-      blue: "Reports",
+      blue: "Data-Driven Reports ",
       black: "& Analytics",
-      desc: "Track performance and conversions.",
+      desc: "Every HR decision becomes smarter with real-time reports.",
       img: Five,
       align: "left",
     },
     {
       blue: "Integration",
-      black: "Ready",
-      desc: "Connect with CRM & marketing tools.",
+      black: "& Scalability",
+      desc: "Smooth integrate HRMS with your accounting, CRM, and inventory tools.",
       img: Six,
       align: "right",
     },
@@ -43,7 +43,7 @@ const HrmsSection3_3 = () => {
                   <span className="text-[#007AFF]">{item.blue} </span>
                   <span className="text-gray-900">{item.black}</span>
                 </h3>
-                <p className="text-sm text-[#7D7D7D] mt-1">{item.desc}</p>
+                <p className="text-sm sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl text-[#7D7D7D] mt-2">{item.desc}</p>
               </div>
             </div>
           ))}
