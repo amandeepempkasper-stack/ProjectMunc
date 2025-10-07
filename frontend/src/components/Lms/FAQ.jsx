@@ -5,37 +5,37 @@ const FAQ = () => {
   const faqs = [
     {
       id: 1,
-      question: "Q1. What is a Lead Management System?",
+      question: "Q1. What is a Lead Management System (LMS)?",
       answer:
-        "It is a tool that helps businesses capture, track, and convert leads into customers.",
+        "It’s a software tool that helps you capture, track, and convert potential customers into paying clients.",
       // knowmore: "Know More",
     },
     {
       id: 2,
       question: "Q2. Can it capture leads from multiple sources?",
       answer:
-        "Yes, it integrates with websites, campaigns, and social media to collect leads automatically.",
+        "Yes — MUN-C LMS collects leads from your website, campaigns, social media, and offline events in one place.",
       // knowmore: "Know More",
     },
     {
       id: 3,
       question: "Q3. How does it help sales teams?",
       answer:
-        "It assigns leads, sets reminders, and tracks progress in a sales pipeline to improve conversions.",
+        "It assigns leads automatically, reminds them of follow-ups, and shows live status — making your sales process faster and more organized.",
       // knowmore: "Know More",
     },
     {
       id: 4,
       question: "Q4. Will I get reports on performance?",
       answer:
-        "Yes, it provides detailed analytics on lead sources, conversions, and sales performance.",
+        "Absolutely. You can track conversion rates, lead sources, sales progress, and team efficiency using visual analytics.",
       // knowmore: "Know More",
     },
     {
       id: 5,
-      question: "Q5. Can I integrate it with other tools?",
+      question: "Q5. Can it integrate with other tools?",
       answer:
-        "Yes, it integrates with CRM, marketing platforms, and communication tools to streamline workflows.",
+        "Yes — MUN-C LMS integrates seamlessly with your CRM, marketing, and communication tools as part of the Business Management Suite (BMS).",
       // knowmore: "Know More",
     },
   ];
@@ -44,7 +44,7 @@ const FAQ = () => {
   return (
     <div className="max-w-3xl mx-auto py-10">
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-medium text-center leading-[120%] mb-6">
-        FAQs
+   Frequently Asked Questions
       </h2>
       <div className="space-y-4">
         {faqs.map((f) => (

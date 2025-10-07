@@ -14,7 +14,7 @@ const LmsSec3_3 = () => {
   {
     blue: "Self-Service",
     black: "Portal",
-    desc: "Empower employees with access to their info.",
+    desc: "Empower sales reps to access assigned leads, update statuses, and monitor targets directly.",
     img: Six,
      align: "right",
   }
@@ -43,7 +43,7 @@ const LmsSec3_3 = () => {
                   <span className="text-[#007AFF]">{item.blue} </span>
                   <span className="text-gray-900">{item.black}</span>
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-2xl 2xl:text-3xl text-[#7D7D7D] mt-2">{item.desc}</p>
+                <p className="text-sm sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl text-[#7D7D7D] mt-2">{item.desc}</p>
               </div>
             </div>
           ))}

@@ -7,13 +7,13 @@ const FeaturesGrid = () => {
     {
       blue: "Smart Reports &",
       black: "Analytics",
-      desc: "Sales trends, profit reports, and stock valuation.",
+      desc: "Understand your business better through visual dashboards and performance analytics.",
       img: Five,
     },
     {
       blue: "GST & Invoice",
       black: "Management",
-      desc: "Tax-ready invoices with compliance.",
+      desc: "Generate tax-ready invoices in seconds with built-in GST compliance.",
       img: Six,
     },
   ];

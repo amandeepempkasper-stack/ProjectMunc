@@ -8,14 +8,14 @@ const LmsSec3_2 = () => {
     {
       blue: "Pipeline",
       black: "Management",
-      desc: "Visual sales funnel with stages.",
+      desc: "Visualize your entire sales process with an easy-to-understand pipeline.",
       img: Three,
       align: "left",
     },
     {
       blue: "Follow-Up",
       black: "Reminders",
-      desc: "Never lose touch with prospects.",
+      desc: "Never let an opportunity slip through the cracks.",
       img: Four,
       align: "right",
     },
@@ -45,7 +45,7 @@ const LmsSec3_2 = () => {
                   <span className="text-[#007AFF]">{item.blue} </span>
                   <span className="text-gray-900">{item.black}</span>
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-2xl 2xl:text-3xl text-[#7D7D7D] mt-2">{item.desc}</p>
+                <p className="text-sm sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl text-[#7D7D7D] mt-2">{item.desc}</p>
               </div>
 
               {/* Image Right */}

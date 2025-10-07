@@ -9,23 +9,23 @@ const LmsSec4 = () => {
   const features = [
     {
       icon: One,
-      text: "Capture leads from multiple sources",
+      text: "Capture leads from multiple channels — all in one place",
     },
     {
       icon: Two,
-      text: "Assign and track leads easily",
+      text: "Automated lead assignment and notifications",
     },
     {
       icon: Three,
-      text: "Visual pipeline and sales funnel",
+      text: "Smart dashboards with conversion analytics",
     },
     {
       icon: Four,
-      text: "Smart follow-up reminders",
+      text: "AI-driven insights for smarter decisions",
     },
     {
       icon: Five,
-      text: "Performance reports and analytics",
+      text: "Fully integrated with the MUN-C Business Management Suite (BMS)",
     },
   ];
 
@@ -33,7 +33,7 @@ const LmsSec4 = () => {
     <>
       <div className="bg-[#F0FDFF] py-12">
         <h2 className="text-3xl font-medium text-center text-[#1C2B33] mb-10">
-          Why Choose Us
+        Why Businesses Choose MUN-C LMS
         </h2>
 
         

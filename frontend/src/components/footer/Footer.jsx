@@ -200,7 +200,7 @@ const Footer = () => {
           <div className="flex gap-4">
             <a
               className="bg-[#007AFF] p-2 rounded-full"
-              href="https://in.linkedin.com/company/mun-c?trk=similar-pages"
+              href="https://www.linkedin.com/company/mun-c/"
               target="_blank"
               rel="noreferrer"
             >
@@ -208,7 +208,7 @@ const Footer = () => {
             </a>
             <a
               className="bg-[#007AFF] p-2 rounded-full"
-              href="https://x.com/mun_c1"
+              href="https://x.com/mun_c1 "
               target="_blank"
               rel="noreferrer"
             >
@@ -224,7 +224,7 @@ const Footer = () => {
             </a>
             <a
               className="bg-[#007AFF] p-2 rounded-full"
-              href="https://www.facebook.com/people/MUN-C/61573443763703/"
+              href="https://www.facebook.com/profile.php?id=61573443763703"
               target="_blank"
               rel="noreferrer"
             >

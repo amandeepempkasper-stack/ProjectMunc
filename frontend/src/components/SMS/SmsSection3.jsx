@@ -6,14 +6,14 @@ const SmsSection3 = () => {
   const features = [
     {
       blue: "Admissions &",
-      black: "Enrollment",
-      desc: "Streamline new student registrations.",
+      black: "Enrollment Management",
+      desc: "Easily manage inquiries, approvals, and class allocations.",
       img: One,
     },
     {
       blue: "Attendance",
       black: "Management",
-      desc: "Track student & staff attendance digitally.",
+      desc: "Track student and teacher attendance accurately with digital logs.",
       img: Two,
     },
   ];
