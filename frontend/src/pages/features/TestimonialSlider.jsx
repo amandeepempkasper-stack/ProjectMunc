@@ -12,7 +12,7 @@ const testimonials = [
   {
     id: 1,
     name: "Black Bug",
-    role: "Client Partner",
+    role: "Client Black Bug",
     text: "MUN-C has completely transformed our HR management software. The HR dashboard makes tracking attendance and leave applications effortless, saving us valuable time.",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
@@ -21,7 +21,7 @@ const testimonials = [
   {
     id: 2,
     name: "MedLay International",
-    role: "HR Director",
+    role: "Mohd. Juned Hasni ",
     text: "Managing my team has never been easier! The employee management system and task management software help streamline operations, keeping everyone on the same page.",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
@@ -30,7 +30,7 @@ const testimonials = [
   {
     id: 3,
     name: "Netario Innovations",
-    role: "CTO",
+    role: "Kaushal Kumar",
     text: "The automated payroll processing feature ensures accurate salary calculations every time. With seamless integration to the attendance management system, payroll errors are now a thing of the past.",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
@@ -39,7 +39,7 @@ const testimonials = [
   {
     id: 4,
     name: "UPBS",
-    role: "Operations Head",
+    role: "Mr. Pulkit",
     text: "I love how MUN-C enhances team collaboration. The notice board and birthday reminder features help foster a more connected and engaged workplace.",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",

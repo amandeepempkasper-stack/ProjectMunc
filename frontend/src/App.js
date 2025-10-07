@@ -42,7 +42,7 @@ const App = () => {
 
   return (
     <>
-      <FirstVisitPopup></FirstVisitPopup>
+     
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>

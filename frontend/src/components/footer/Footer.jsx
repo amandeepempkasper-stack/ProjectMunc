@@ -30,14 +30,13 @@ const Footer = () => {
               className="h-8 sm:h-10 md:h-12 mb-4"
             />
             <p className="text-sm sm:text-base text-[#3E4247] leading-relaxed font-medium max-w-xs">
-              MUN-C is an all-in-one business management suite that simplifies
-              operations, saves time, and helps businesses grow.
+             Your All-In-One Business Management Suite that streamlines Operations, Save Time, and Drive Growth.
             </p>
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="font-medium text-gray-800 mb-3 text-base sm:text-lg">
-              Company
+            <h3 className="font-semibold text-gray-800 mb-3 text-base sm:text-lg">
+              Explore As
             </h3>
 
             <div className="list-none space-y-2 text-sm sm:text-base text-gray-600">
@@ -69,7 +68,7 @@ const Footer = () => {
           </div>
 
           <div className="list-none flex flex-col items-start text-left">
-            <h3 className="font-medium text-gray-800 mb-3 text-base sm:text-lg">
+            <h3 className="font-semibold text-gray-800 mb-3 text-base sm:text-lg">
               Our Products
             </h3>
             <div className="space-y-2 text-sm sm:text-base text-gray-600">
@@ -108,7 +107,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col items-start text-left">
-            <h3 className="font-medium text-gray-800 mb-3 text-base sm:text-lg">
+            <h3 className="font-semibold text-gray-800 mb-3 text-base sm:text-lg">
               Upcoming modules
             </h3>
 
@@ -129,8 +128,8 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="font-medium text-gray-800 mb-3 text-base sm:text-lg">
-              Head Office
+            <h3 className="font-semibold text-gray-800 mb-3 text-base sm:text-lg">
+              Corporate Office
             </h3>
             <div className="text-sm sm:text-base text-gray-600 space-y-3">
               <li className="flex items-start gap-2">

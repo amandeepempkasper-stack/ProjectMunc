@@ -58,6 +58,7 @@ import TestimonialSlider from "./TestimonialSlider";
 import MeetTeam from "./MeetTeam";
 import Contact from "./Contact";
 import NavBar from "../../components/navbar/Navbar";
+import FirstVisitPopup from "../../components/popup/FirstVisitPopup";
 
 const Features = () => {
   const { scrollY } = useScroll();
@@ -281,6 +282,7 @@ const Features = () => {
 
   return (
     <div>
+       <FirstVisitPopup></FirstVisitPopup>
       <NavBar />
 
       {/* hero section */}

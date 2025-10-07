@@ -24,16 +24,17 @@ const Clients_LoveUs = () => {
           <div className="ring-2 ring-black/10 rounded-xl bg-white flex flex-col md:flex-row justify-between items-center gap-10 p-8">
             <div className="w-full md:w-1/2">
               <p className="font-medium text-2xl md:text-[28px] text-[#3E4247] leading-snug">
-                Built for,{" "}
-                <span className="text-[#007AFF]">simplicity </span>
-                designed for results
+                Built for,
+                <span className="text-[#007AFF]"> Simplicity </span>
+                designed for results.
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
-                Our Business Management Suite (BMS) eliminates clutter and
-                confusion with an easy-to-navigate interface that feels natural
-                for every user. Whether you’re managing HR, inventory, or school
-                operations, everything is organized, responsive, and
-                effortlessly accessible.
+                At MUN-C, simplicity drives innovation. Our Business Management
+                Suite (BMS) eliminates clutter and confusion with an
+                easy-to-navigate interface that feels natural for every user.
+                Whether you’re managing HR, inventory, or school operations,
+                everything is organized, responsive, and effortlessly
+                accessible.
               </p>
             </div>
             <img
@@ -52,9 +53,9 @@ const Clients_LoveUs = () => {
             />
             <div className="w-full md:w-1/2">
               <p className="font-medium text-2xl md:text-[28px] text-[#3E4247] leading-snug">
-                Premium features, at
-                <span className="text-[#007AFF]"> pocket-friendly </span>
-                pricing
+                Premium features,at
+                <span className="text-[#007AFF]">  Pocket-Friendly </span>
+                pricing.
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
                 We believe advanced technology shouldn’t come at a premium cost.
@@ -72,7 +73,7 @@ const Clients_LoveUs = () => {
             <div className="w-full md:w-1/2">
               <p className="font-medium text-2xl md:text-[28px] text-[#3E4247] leading-snug">
                 Smart tools that
-                <span className="text-[#007AFF]"> save money and minutes</span>
+                <span className="text-[#007AFF]"> Save Money and Minutes.</span>
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
                 Every click in MUN-C is designed to make your day more
@@ -98,8 +99,8 @@ const Clients_LoveUs = () => {
             />
             <div className="w-full md:w-1/2">
               <p className="font-medium text-2xl md:text-[28px] text-[#3E4247] leading-snug">
-                <span className="text-[#007AFF]"> One platform </span>
-                for every part of your business
+                <span className="text-[#007AFF]"> One Platform </span>
+                for every part of your business.
               </p>
               <p className="text-[#7D7D7D] leading-[150%] font-normal mt-2">
                 No more switching between apps or juggling multiple dashboards.

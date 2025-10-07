@@ -16,7 +16,7 @@ const About = () => {
                 About
               </h1>
               <p className="text-sm sm:text-base lg:text-[16px]">
-                Kasper Infotech Private Limited. is the proud developer of
+                Kasper Infotech Private Limited is the proud developer of
                 MUN-C, our flagship business management brand.
               </p>
               <p className="text-sm sm:text-base lg:text-[16px]">
@@ -69,3 +69,4 @@ const About = () => {
 };
 
 export default About;
+
