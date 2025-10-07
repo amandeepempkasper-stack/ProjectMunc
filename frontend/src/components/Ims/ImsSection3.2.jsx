@@ -7,14 +7,14 @@ const ImsSection3_2 = () => {
     {
       blue: "Barcode & Scanner",
       black: "Support",
-      desc: "Faster billing and stock entry.",
+      desc: "Speed up stock entry and checkout with barcode scanning.",
       img: Three,
       align: "left",
     },
     {
       blue: "Warehouse & Multi-Location",
       black: "Control",
-      desc: "Manage inventory across branches.",
+      desc: "Manage multiple branches or warehouses under one unified platform..",
       img: Four,
       align: "right",
     },

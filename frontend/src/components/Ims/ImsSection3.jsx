@@ -9,14 +9,14 @@ const FeaturesGrid = () => {
     {
       blue: "Real-Time",
       black: "Stock Tracking",
-      desc: "Know your stock anytime.",
+      desc: "Monitor stock levels, incoming shipments, and outgoing sales instantly.",
       img: One,
       align: "left",
     },
     {
       blue: "Purchase & Sales",
       black: "Management",
-      desc: "Manage suppliers and customers easily.",
+      desc: "Simplify vendor and customer transactions with integrated sales and purchase modules.",
       img: Two,
       align: "right",
     },

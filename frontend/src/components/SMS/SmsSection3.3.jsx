@@ -7,14 +7,14 @@ const SmsSection3_3 = () => {
     {
       blue: "Teacher & Parent",
       black: "Portals",
-      desc: "Enhance communication & transparency.",
+      desc: "Enhance communication and transparency.",
       img: Five,
       align: "left",
     },
     {
       blue: "Transport & Hostel",
       black: "Management",
-      desc: "Safer and organized operations.",
+      desc: "Ensure student safety and operational efficiency with live transport tracking.",
       img: Six,
       align: "right",
     },

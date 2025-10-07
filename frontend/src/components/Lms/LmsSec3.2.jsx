@@ -8,14 +8,14 @@ const LmsSec3_2 = () => {
     {
       blue: "Pipeline",
       black: "Management",
-      desc: "Visual sales funnel with stages.",
+      desc: "Visualize your entire sales process with an easy-to-understand pipeline.",
       img: Three,
       align: "left",
     },
     {
       blue: "Follow-Up",
       black: "Reminders",
-      desc: "Never lose touch with prospects.",
+      desc: "Never let an opportunity slip through the cracks.",
       img: Four,
       align: "right",
     },

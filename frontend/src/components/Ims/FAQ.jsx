@@ -5,44 +5,44 @@ const FAQ = () => {
   const faqs = [
     {
       id: 1,
-      question: "Q1. What is an Inventory Management System?",
+      question: "Q1. What is an Inventory Management System (IMS)?",
       answer:
-        "An Inventory Management System helps businesses track stock, manage purchases & sales, and streamline warehouse operations in real time.",
-      knowmore: "Know More",
+        "It’s a software that automates the process of tracking inventory, purchases, sales, and warehouse operations in real time.",
+      // knowmore: "Know More",
     },
     {
       id: 2,
       question: "Q2. Can it manage multiple warehouses?",
       answer:
-        "Yes, it supports multi-location warehouse management and stock transfers easily.",
+        "Yes. MUN-C IMS allows centralized control of multiple branches or warehouses from a single dashboard.",
       // knowmore: "Know More",
     },
     {
       id: 3,
       question: "Q3. Does it support barcode scanning?",
       answer:
-        "Yes, barcode and QR code scanning make stock entry and billing faster and more accurate.",
+        "Absolutely. Barcode and QR code scanning make stock entry and billing faster and error-free.",
       // knowmore: "Know More",
     },
     {
       id: 4,
       question: "Q4. Can I generate invoices and GST reports?",
       answer:
-        "Yes, the system can generate GST-compliant invoices and financial reports instantly.",
+        "Yes. You can create tax-ready invoices instantly and generate detailed GST reports for compliance.",
       // knowmore: "Know More",
     },
     {
       id: 5,
-      question: "Q5. Is it suitable for small businesses?",
+      question: "Q5. Is it suitable for small and medium businesses?",
       answer:
-        "Yes, it is scalable and fits businesses of all sizes, from SMEs to enterprises.",
+        "Yes. MUN-C IMS is scalable — whether you’re a small retailer or a large enterprise, it adapts to your needs.",
       // knowmore: "Know More",
     },
     {
       id: 6,
       question: "Q6. Will I get alerts for low stock?",
       answer:
-        "Yes, the system notifies you with automated alerts when stock levels drop below the threshold.",
+        "Yes. You’ll receive instant notifications when items reach their reorder point to prevent stockouts.",
       // knowmore: "Know More",
     },
   ];
@@ -52,7 +52,7 @@ const FAQ = () => {
   return (
     <div className="max-w-3xl mx-auto py-10">
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-medium text-center leading-[120%] mb-6">
-        FAQs
+       Frequently Asked Questions
       </h2>
       <div className="space-y-4">
         {faqs.map((f) => (

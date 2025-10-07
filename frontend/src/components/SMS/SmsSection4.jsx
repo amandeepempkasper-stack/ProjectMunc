@@ -9,29 +9,29 @@ const SmsSection4 = () => {
   const features = [
     {
       icon: One,
-      text: "End-to-end admission and fee management",
+      text: "All-in-One Platform – Manage academics, finances, and communication together.",
     },
     {
       icon: Two,
-      text: "Digital attendance and exam tracking",
+      text: "Parent &amp; Teacher Collaboration – Improve engagement through secure portals.",
     },
     {
       icon: Three,
-      text: "Parent, teacher, and student portals",
+      text: "Automated Fee &amp; Admission System – Faster, error-free, and transparent.",
     },
     {
       icon: Four,
-      text: "Transport and hostel managementt",
+      text: "Data Insights &amp; Reports – Make better decisions with analytics.",
     },
     {
       icon: Five,
-      text: "Data security with role-based access",
+      text: "Cloud Security – Protect student and staff data with encrypted access.",
     },
   ];
   return (
     <div className="bg-[#F0FDFF] py-12">
       <h2 className="text-3xl font-medium text-center text-[#1C2B33] mb-10">
-        Why Choose Us
+        Why Choose MUN-C School Management Software
       </h2>
 
       

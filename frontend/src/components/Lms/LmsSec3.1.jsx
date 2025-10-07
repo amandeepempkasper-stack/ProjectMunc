@@ -7,13 +7,13 @@ const LmsSec3_1 = () => {
     {
       blue: "Lead",
       black: "Capture from Multiple Sources",
-      desc: "Website, social media, campaigns.",
+      desc: "Bring all your leads together — from websites, social media, chat, campaigns, and forms.",
       img: One,
     },
     {
       blue: "Lead",
       black: "Assignment & Tracking",
-      desc: "Assign to sales reps instantly.",
+      desc: "Distribute leads instantly to your sales reps based on region, expertise, or workload..",
       img: Two,
     },
   ];

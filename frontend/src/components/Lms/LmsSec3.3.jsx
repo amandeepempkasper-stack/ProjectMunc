@@ -14,7 +14,7 @@ const LmsSec3_3 = () => {
   {
     blue: "Self-Service",
     black: "Portal",
-    desc: "Empower employees with access to their info.",
+    desc: "Empower sales reps to access assigned leads, update statuses, and monitor targets directly.",
     img: Six,
      align: "right",
   }
