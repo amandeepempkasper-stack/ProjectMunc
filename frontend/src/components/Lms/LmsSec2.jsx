@@ -12,8 +12,7 @@ const LmsSec2 = () => {
             font-semibold text-[#3E4247]
           "
           >
-            Manage your sales pipeline, assign leads, set follow-ups, and boost
-            conversions
+            Capture. Track. Convert. Grow.
           </h1>
 
           <p
@@ -24,7 +23,11 @@ const LmsSec2 = () => {
             font-normal text-[#3E4247]
           "
           >
-            Capture, track, and convert leads faster. All in one dashboard.
+            Whether your leads come from websites, campaigns, or social media —
+            MUN-C automatically organizes them into your sales pipeline. Assign
+            leads instantly to your team, set reminders, and never miss a
+            follow-up again. Our AI-powered dashboard provides actionable
+            insights to help you focus on the right leads at the right time.
           </p>
         </div>
       </div>

@@ -9,35 +9,35 @@ const FAQ = () => {
       id: 1,
       question: "Q1. What is School Management Software?",
       answer:
-        "School Management Software is a digital solution that helps schools and colleges manage their daily operations such as admissions, attendance, exams, fee collection, and communication in a single platform.",
+        "It’s a digital platform that automates school operations — from admissions, attendance, and exams to fee collection and communication.",
       // knowmore: "Know More",
     },
     {
       id: 2,
       question: "Q2. Who can use this software?",
       answer:
-        "This software can be used by school administrators, teachers, students, and parents for managing and accessing school-related information.",
+        "Administrators, teachers, parents, and even students can use it through their respective login portals.",
       // knowmore: "Know More",
     },
     {
       id: 3,
       question: "Q3. Does it support online fee payments?",
       answer:
-        "Yes, it supports online fee collection so parents and students can make secure payments easily.",
+        "Yes, MUN-C supports secure online fee collection with instant receipts and payment tracking.",
       // knowmore: "Know More",
     },
     {
       id: 4,
       question: "Q4. Can parents and teachers access it?",
       answer:
-        "Yes, both parents and teachers can access it to stay updated on student progress, attendance, and other academic details.",
+        "Absolutely. The system includes dedicated portals for teachers and parents to ensure seamless updates and communication.",
       // knowmore: "Know More",
     },
     {
       id: 5,
       question: "Q5. Is student data secure?",
       answer:
-        "Yes, the system uses encrypted data access and strong security measures to ensure student data remains safe.",
+        "Yes, All data is encrypted, stored safely on the cloud, and accessible only through role-based permissions.",
       // knowmore: "Know More",
     },
   ];
@@ -45,7 +45,7 @@ const FAQ = () => {
   return (
     <div className="max-w-3xl mx-auto py-10">
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-medium text-center leading-[120%] mb-6">
-        FAQs
+    Frequently Asked Questions (FAQs)
       </h2>
       <div className="space-y-4">
         {faqs.map((f) => (

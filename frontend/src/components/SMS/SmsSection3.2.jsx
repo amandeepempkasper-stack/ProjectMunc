@@ -7,14 +7,14 @@ const SmsSection3_2 = () => {
      {
     blue: "Fee & Finance",
     black: "Module",
-    desc: "Secure online fee collection & reports.",
+    desc: "Say goodbye to cash handling and long queues.",
     img: Three,
      align: "left",
   },
   {
     blue: "Exams &",
-    black: "Results",
-    desc: "Easy exam scheduling & automated grading.",
+    black: "Results Management",
+    desc: "Plan, conduct, and evaluate exams effortlessly.",
     img: Four,
      align: "right",
   },

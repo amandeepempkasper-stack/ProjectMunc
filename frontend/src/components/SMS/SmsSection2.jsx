@@ -12,7 +12,7 @@ const SmsSection2 = () => {
             font-semibold text-[#3E4247]
           "
           >
-            From admissions to exams, fees, attendance, and parent communication
+            From Admission to Graduation — Manage It All Effortlessly
           </h1>
 
           <p
@@ -23,8 +23,8 @@ const SmsSection2 = () => {
             font-normal text-[#3E4247]
           "
           >
-            Digitize your school operations with ease. Everything runs smoothly
-            in one platform.{" "}
+            MUN-C’s all-in-one School ERP System helps educational institutions
+            automate daily tasks, save time, and improve efficiency.
           </p>
         </div>
       </div>

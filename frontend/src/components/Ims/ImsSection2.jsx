@@ -23,7 +23,8 @@ const ImsSection2 = () => {
             font-normal text-[#3E4247]
           "
         >
-          No more manual errors or stock-outs — just smooth operations.
+          Our Inventory Management Software ensures every item, Purchase, and
+          Sale is Recorded, Tracked, and analyzed instantly.
         </p>
       </div>
     </div>

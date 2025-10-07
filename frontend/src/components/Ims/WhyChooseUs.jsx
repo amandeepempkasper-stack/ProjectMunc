@@ -9,30 +9,30 @@ const WhyChooseUs = () => {
   const whyChooseUs = [
     {
       icon: Comp1,
-      title: "Customizable to Your Needs",
+      title: "Unified Control: Manage Purchases, Sales, and Stock from one dashboard.",
     },
     {
       icon: Comp2,
-      title: "Scalable & Secure",
+      title: "Real-Time Updates: Always know what’s in stock — No Surprises.",
     },
     {
       icon: Comp3,
-      title: "Affordable Pricing",
+      title: "Multi-Warehouse Ready: Perfect for retail chains and manufacturers.",
     },
     {
       icon: Comp4,
-      title: " One platform to manage purchases, sales, stock, and suppliers.",
+      title: " Automation Built-In: From billing to reporting, everything runs seamlessly.",
     },
     {
       icon: Comp5,
-      title: "Easy multi-location management",
+      title: "GST-Compliant Invoicing: Stay tax-ready and audit-safe.",
     },
   ];
 
   return (
     <div className="bg-[#F0FDFF] py-12">
       <h2 className="text-3xl font-medium text-center text-[#1C2B33] mb-10">
-        Why Choose Us
+       Why Choose MUN-C IMS
       </h2>
 
       
