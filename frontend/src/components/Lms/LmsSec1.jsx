@@ -15,7 +15,7 @@ const LmsSec1 = () => {
             <div className="space-y-4">
               {/* <div className="py-0.5 px-4 bg-[#E2F1FF]  rounded-full w-fit mx-auto md:mx-0"> */}
               <p className="text-[#00439B] py-0.5 px-4 bg-[#E2F1FF]  rounded-full w-fit  md:mx-0 text-xs sm:text-sm md:text-base font-medium">
-                Turn Every Inquiry Into a Conversion Opportunity
+                Connect | Convert | Celebrate
               </p>
               {/* </div> */}
               <h1 className="font-semibold text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">

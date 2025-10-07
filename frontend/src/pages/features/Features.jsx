@@ -282,7 +282,7 @@ const Features = () => {
 
   return (
     <div>
-       <FirstVisitPopup></FirstVisitPopup>
+      <FirstVisitPopup></FirstVisitPopup>
       <NavBar />
 
       {/* hero section */}
@@ -369,9 +369,10 @@ const Features = () => {
             </h1>
 
             <p className="text-sm sm:text-lg lg:text-2xl text-[#3E4247] max-w-5xl">
-              Our powerful systems – Lead, Inventory, Customer Relationship, Human Resource, School Management System and Chat App and   –
-              – combined <br />
-              into one seamless platform.
+              Our powerful systems—Lead, Inventory, Customer Relationship, Human
+              Resource, School Management, and Chat App — are combined <br />
+               into one
+              seamless platform.
             </p>
           </div>
 

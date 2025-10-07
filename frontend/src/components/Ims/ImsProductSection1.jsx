@@ -21,7 +21,7 @@ const ImsProduct = () => {
             <div className="space-y-4">
               {/* <div className="py-0.5 px-4 bg-[#E2F1FF] text-center rounded-full w-fit mx-auto md:mx-0"> */}
               <p className="text-[#00439B] text-xs sm:text-sm md:text-base font-medium py-0.5 px-4 whitespace-nowap bg-[#E2F1FF] text-center rounded-full w-fit md:mx-0">
-               Streamline Stock, Sales & Supply Chain Faster
+               Manage Inventory | Control Stock | Boost Efficiency
               </p>
               {/* </div> */}
               <h1 className="font-semibold text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
