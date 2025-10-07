@@ -11,8 +11,8 @@ const ImsSection2 = () => {
             font-semibold text-[#3E4247]
           "
         >
-          Our IMS gives you real-time visibility into stock, sales, and
-          purchases.
+          Our IMS gives you real-time visibility into Stock, Sales, and
+          Purchases.
         </h1>
 
         <p
