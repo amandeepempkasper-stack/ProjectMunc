@@ -7,9 +7,7 @@ const LmsSec2 = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <h1
             className="
-             text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 
-             tracking-tight !leading-[120%]
-            font-semibold text-[#3E4247]
+             text-[24px] md:text-[32px] font-medium leading-tight
           "
           >
             Manage your sales pipeline, assign leads, set follow-ups, and boost

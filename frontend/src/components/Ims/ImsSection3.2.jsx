@@ -22,8 +22,8 @@ const ImsSection3_2 = () => {
 
   return (
     <div className="bg-[#F0FDFF] px-0 sm:px-6 md:px-12 lg:px-0 xl:px-5 2xl:px-30">
-      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto py-6 sm:py-12 lg:py-7 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {features.map((item, idx) => (
             <div
               key={idx}
@@ -40,11 +40,11 @@ const ImsSection3_2 = () => {
 
              
               <div className="mt-4 sm:mt-0 sm:px-4 lg:px-6 text-center sm:text-left">
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl 2xl:text-5xl font-medium leading-snug">
+                <h3 className="text-[24px] md:text-[32px] font-medium leading-tight">
                   <span className="text-[#007AFF]">{item.blue} </span>
                   <span className="text-gray-900">{item.black}</span>
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-2xl 2xl:text-3xl text-[#7D7D7D] mt-2">{item.desc}</p>
+                <p className="text-base md:text-lg lg:text-xl text-[#7D7D7D] mt-2">{item.desc}</p>
               </div>
 
               {/* Image Right */}
