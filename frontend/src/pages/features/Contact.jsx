@@ -130,8 +130,8 @@ const Contact = () => {
             Get in Touch
           </h2>
           <p className="text-sm sm:text-base text-[#7D7D7D] mt-2 sm:mt-3">
-            Your business matters to us. Contact our team anytime for support,
-            demos, or partnerships.
+            Your business matters to us. Contact our team anytime for Support,
+            Demos, or Partnerships.
           </p>
 
           <form

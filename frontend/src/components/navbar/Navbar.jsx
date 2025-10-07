@@ -23,10 +23,10 @@ const NavBar = () => {
   ];
 
   const productItems = [
-    { label: "HRMS", path: "/products/human-resource-management-system" },
-    { label: "LMS", path: "/products/lead-management-system" },
-    { label: "SMS", path: "/products/school-management-system" },
-    { label: "IMS", path: "/products/inventory-management-system" },
+    { label: "Human Resource Management System", path: "/products/human-resource-management-system" },
+    { label: "Lead Management System", path: "/products/lead-management-system" },
+    { label: "School Management System", path: "/products/school-management-system" },
+    { label: "Inventory Management System", path: "/products/inventory-management-system" },
   ];
 
   useEffect(() => {
@@ -101,7 +101,7 @@ const NavBar = () => {
                   {/* Dropdown Menu */}
                   {el.dropdown && showDropdown && (
                     <div className="">
-                      <div className="absolute left-0 w-48 border bg-white shadow-lg rounded-md overflow-hidden z-50">
+                      <div className="absolute left-0 w-52 border bg-white shadow-lg rounded-md overflow-hidden z-50">
                         {productItems.map((item, i) => (
                           <NavLink
                             key={i}
