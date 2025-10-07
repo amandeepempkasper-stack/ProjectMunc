@@ -1,0 +1,11 @@
+/* Default: mobile/tablet */
+.modal-content img {
+  max-width: 100%;
+}
+
+/* Desktop: show bigger image */
+@media (min-width: 992px) {
+  .modal-content img {
+    max-width: 1000px; /* or 1000px if you want extra big */
+  }
+}

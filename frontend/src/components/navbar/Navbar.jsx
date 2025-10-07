@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/HomeSection/logo.svg";
@@ -28,6 +28,18 @@ const NavBar = () => {
     { label: "SMS", path: "/products/school-management-system" },
     { label: "IMS", path: "/products/inventory-management-system" },
   ];
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <>
@@ -79,8 +91,8 @@ const NavBar = () => {
                       <ChevronDown
                         className={`ml-1 transition-transform duration-300 ${
                           showDropdown ? "rotate-180" : "rotate-0"
-                        }`} 
-                        strokeWidth={1} 
+                        }`}
+                        strokeWidth={1}
                         size={20}
                       />
                     </span>

@@ -113,37 +113,17 @@ const Footer = () => {
             </h3>
 
             <div className="list-none space-y-2 text-sm sm:text-base text-gray-600">
-              <li>
-                <Link
-                  to="#"
-                  className="hover:text-blue-500 no-underline text-[#3E4247]"
-                >
-                  Finance and accounting
-                </Link>
+              <li className=" text-[#3E4247]">
+                Finance and accounting
               </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:text-blue-500 no-underline text-[#3E4247]"
-                >
-                  Manufacturing Management
-                </Link>
+              <li className=" text-[#3E4247]">
+                Manufacturing Management
               </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:text-blue-500 no-underline text-[#3E4247]"
-                >
-                  Supply Chain Management
-                </Link>
+              <li className=" text-[#3E4247]">
+                Supply Chain Management
               </li>
-              <li>
-                <Link
-                  to="#"
-                  className="hover:text-blue-500 no-underline text-[#3E4247]"
-                >
-                  Marketing Automation
-                </Link>
+              <li className=" text-[#3E4247]">
+                Marketing Automation
               </li>
             </div>
           </div>
