@@ -5,6 +5,7 @@ import BASE_URL from "../../pages/Config/config";
 import toast from "react-hot-toast";
 import "./navbar.css";
 
+
 const Contact = ({ setShowForm, showForm }) => {
   const [storeData, setStoreData] = useState({
     name: "",

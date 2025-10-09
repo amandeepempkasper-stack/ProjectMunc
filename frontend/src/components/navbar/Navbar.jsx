@@ -1,12 +1,15 @@
+
+
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/HomeSection/logo.svg";
-import BlueButton from "../../UI/BlueButton";
+// import BlueButton from "../../UI/BlueButton";
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaChevronDown } from "react-icons/fa";
 import Contact from "./Contact";
 import { ChevronDown } from "lucide-react";
+import { useLocation } from "react-router";
 
 const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -40,6 +43,17 @@ const NavBar = () => {
       document.body.style.overflow = "auto";
     };
   }, [mobileMenuOpen]);
+
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get("openDemo") === "true") {
+      setShowForm(true);
+    }
+  }, [location]);
+
 
   return (
     <>
