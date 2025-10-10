@@ -7,6 +7,7 @@ const demoRequestSchema = new mongoose.Schema({
   phone: { type: String, required: true },
   designation: { type: String }, // ✅ Added properly
   product: { type: String, required: true },
+  websiteName: { type: String }, 
   createdAt: { type: Date, default: Date.now },
 });
 

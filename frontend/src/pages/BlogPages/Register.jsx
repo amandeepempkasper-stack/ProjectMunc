@@ -45,6 +45,7 @@ const Register = () => {
         }
       );
 
+      console.log(data)
       if (data.success) {
         toast.success("Account created successfully");
         navigate("/login");

@@ -20,6 +20,7 @@ const ProductDemoList = () => {
     phone: "",
     product: "",
     designation: "",
+    websiteName:""
   });
   // const [toast, setToast] = useState(null);
 
@@ -52,7 +53,8 @@ const ProductDemoList = () => {
         demo.email?.toLowerCase().includes(lowerSearch) ||
         demo.phone?.toLowerCase().includes(lowerSearch) ||
         demo.product?.toLowerCase().includes(lowerSearch) ||
-        demo.designation?.toLowerCase().includes(lowerSearch)
+        demo.designation?.toLowerCase().includes(lowerSearch)||
+        demo.websiteName?.toLowerCase().includes(lowerSearch)
     );
     setFilteredDemos(results);
   }, [search, demos]);
@@ -87,6 +89,7 @@ const ProductDemoList = () => {
       phone: demo.phone || "",
       product: demo.product || "",
       designation: demo.designation || "",
+      websiteName: demo.websiteName || "",
     });
   };
 
@@ -142,6 +145,7 @@ const ProductDemoList = () => {
                   "Phone",
                   "Product",
                   "Designation",
+                  "websiteName",
                   "Actions",
                 ].map((head) => (
                   <th
@@ -186,6 +190,9 @@ const ProductDemoList = () => {
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-900">
                       {demo.designation}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-900">
+                      {demo.websiteName}
                     </td>
                     <td className="px-6 py-4 text-sm space-x-4 flex">
                       <button

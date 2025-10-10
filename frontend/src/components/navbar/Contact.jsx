@@ -77,14 +77,16 @@ const Contact = ({ setShowForm, showForm }) => {
 
     const payload = {
       ...storeData,
-      phone: `${countryCode}-${storeData.phone}`, // attach country code
+      phone: `${countryCode}-${storeData.phone}`,
+       websiteName: "mymunc.com", 
     };
 
+    console.log(payload)
     try {
       const response = await axios.post(`${BASE_URL}/api/demo`, payload);
 
       if (response.data.success) {
-        toast.success("Demo request submitted successfully!");
+        toast.success("Demo request submitted successfully! Check Your Mail.");
         setStoreData({
           name: "",
           companyName: "",

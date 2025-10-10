@@ -41,7 +41,7 @@ const productDomains = {
 // -------------------- CREATE Demo Request --------------------
 router.post("/", async (req, res) => {
   try {
-  const { name, companyName, email, phone, designation, product } = req.body;
+  const { name, companyName, email, phone, designation, product,websiteName } = req.body;
     // Validation
     if (!name || !companyName || !email || !phone || !product) {
       return res.status(400).json({ error: "All fields are required" });
@@ -49,12 +49,13 @@ router.post("/", async (req, res) => {
 
     // Save request in DB
     const newRequest = new DemoRequest({
-      name,
+      name,  
       companyName,
       email,
       phone,
       designation,
       product,
+      websiteName
     });
 
     await newRequest.save();
