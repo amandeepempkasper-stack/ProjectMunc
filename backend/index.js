@@ -18,8 +18,8 @@ const app = express();
 //middlewares
 const corsOptions = {
     origin: [
-        "https://mymunc.com", // replace with your frontend
-        // "http://localhost:3000" // for local dev
+        // "https://mymunc.com", // replace with your frontend
+        "http://localhost:3000" // for local dev
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
