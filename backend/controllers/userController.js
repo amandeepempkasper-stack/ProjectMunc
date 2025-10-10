@@ -5,50 +5,105 @@ const jwt = require("jsonwebtoken");
 const upload = require('../middlewares/multer');
 
 
-//create register user
+
+
 exports.registerController = async (req, res) => {
-    const profilePicture = req.file ? req.file.filename : ""
-    try {
-        const { username, email, password, bio } = req.body;
+  const profilePicture = req.file ? req.file.filename : "";
 
-        //validation
-        if (!username || !email || !password) {
-            return res.status(400).send({// "400 Bad Request"  something the client sent being considered invalid or malformed. 
-                success: false,
-                message: 'please fill all fields'
-            });
-        }
-        //existing user
-        const existingUser = await userModel.findOne({ email })
-        if (existingUser) {
-            return res.status(401).send({//"Unauthorized,"  it lacked valid authentication credentials 
-                success: false,
-                message: "user already exists"
-            });
-        }
-        //password hashing
-        const hashedPassword = await bcrypt.hash(password, 10)//hashed pasword with salt 10
-        // password= hashedPassword 
-        //replace password with hashed password
+  try {
+    const { username, email, password, bio } = req.body;
 
-
-        //save new user
-        const user = new userModel({ username, email, password: hashedPassword, profile: profilePicture, bio })
-        await user.save();//wait for use to save
-        return res.status(201).send({// the request was successful and a new resource has been created as a result, 
-            success: true,
-            message: 'New User created',
-            user,//show all user
-        });
-    } catch (error) {
-        console.log(error)
-        return res.status(500).send({// Internal Server Error  indicating a problem on the server-side
-            message: "Error In register",
-            success: false,
-            error//show all errors
-        })
+    // validation
+    if (!username || !email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill all fields",
+      });
     }
+
+    // check existing user
+    const existingUser = await userModel.findOne({ email });
+    if (existingUser) {
+      return res.status(401).json({
+        success: false,
+        message: "User already exists",
+      });
+    }
+
+    // hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // create and save user
+    const user = new userModel({
+      username,
+      email,
+      password: hashedPassword,
+      profile: profilePicture,
+      bio,
+    });
+    await user.save();
+
+    return res.status(201).json({
+      success: true,
+      message: "New user created",
+      user,
+    });
+  } catch (error) {
+    console.error("Register Error:", error.message);
+    console.error(error.stack);
+    return res.status(500).json({
+      success: false,
+      message: "Error in register",
+      error: error.message,
+    });
+  }
 };
+
+
+// //create register user
+// exports.registerController = async (req, res) => {
+//     const profilePicture = req.file ? req.file.filename : ""
+//     try {
+//         const { username, email, password, bio } = req.body;
+
+//         //validation
+//         if (!username || !email || !password) {
+//             return res.status(400).send({// "400 Bad Request"  something the client sent being considered invalid or malformed. 
+//                 success: false,
+//                 message: 'please fill all fields'
+//             });
+//         }
+//         //existing user
+//         const existingUser = await userModel.findOne({ email })
+//         if (existingUser) {
+//             return res.status(401).send({//"Unauthorized,"  it lacked valid authentication credentials 
+//                 success: false,
+//                 message: "user already exists"
+//             });
+//         }
+//         //password hashing
+//         const hashedPassword = await bcrypt.hash(password, 10)//hashed pasword with salt 10
+//         // password= hashedPassword 
+//         //replace password with hashed password
+
+
+//         //save new user
+//         const user = new userModel({ username, email, password: hashedPassword, profile: profilePicture, bio })
+//         await user.save();//wait for use to save
+//         return res.status(201).send({// the request was successful and a new resource has been created as a result, 
+//             success: true,
+//             message: 'New User created',
+//             user,//show all user
+//         });
+//     } catch (error) {
+//         console.log(error)
+//         return res.status(500).send({// Internal Server Error  indicating a problem on the server-side
+//             message: "Error In register",
+//             success: false,
+//             error//show all errors
+//         })
+//     }
+// };
 
 
 //get all users

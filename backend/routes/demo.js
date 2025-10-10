@@ -6,24 +6,27 @@ const DemoRequest = require("../models/DemoRequest");
 // Demo credentials per product
 const demoCredentials = {
   HRMS: [
-    { role: "Admin", username: "admin@hrms.com", password: "admin123" },
-    { role: "HR", username: "hr@hrms.com", password: "hr123" },
-    { role: "Manager", username: "manager@hrms.com", password: "manager123" },
-    { role: "Employee", username: "employee@hrms.com", password: "employee123" },
+    { role: "Admin", username: "admin@munc.com", password: "Admin@1234" },
+    { role: "HR", username: "hr@munc.com", password: "Hr@1234" },
+    { role: "Manager", username: "manager@munc.com", password: "Manager@1234" },
+    { role: "Employee", username: "employee@munc.com", password: "Emp@1234" },
   ],
   LMS: [
-    { role: "Admin", username: "admin@lms.com", password: "admin123" },
-    { role: "Trainer", username: "trainer@lms.com", password: "trainer123" },
-    { role: "Student", username: "student@lms.com", password: "student123" },
+    { role: "Admin", username: "admin@munc.com", password: "admin@1234" },
+    { role: "Manager", username: "manager@munc.com", password: "manager@1234" },
+    { role: "Employee", username: "emp@munc.com", password: "emp@123" },
   ],
   IMS: [
-    { role: "Admin", username: "admin@ims.com", password: "admin123" },
-    { role: "Seller", username: "seller@ims.com", password: "seller123" },
-    { role: "Customer", username: "customer@ims.com", password: "customer123" },
+    { role: "SuperAdmin", username: "super@munc.com", password: "Super@1234" },
+    { role: "Manager", username: "manager@munc.com", password: "Manager@1234" },
+    { role: "Seller", username: "seller@munc.com", password: "Seller@1234" },
+
   ],
   ChatApp: [
-    { role: "Admin", username: "admin@chatapp.com", password: "admin123" },
-    { role: "User", username: "user@chatapp.com", password: "user123" },
+    { role: "Admin", username: "admin@gamil.com", password: "Admin1234" },
+    { role: "User", username: "user1@gmail.com", password: "User1234" },
+    { role: "User1", username: "user2@gmail.com", password: "User1234" },
+
   ],
 };
 
@@ -32,31 +35,31 @@ const productDomains = {
   HRMS: "https://hrms.mymunc.com",
   LMS: "https://lms.mymunc.com",
   IMS: "https://ims.mymunc.com",
-  ChatApp: "https://chatapp.mymunc.com",
+  ChatApp: "https://chat.mymunc.com",
 };
 
-// POST request to handle demo form
+// -------------------- CREATE Demo Request --------------------
 router.post("/", async (req, res) => {
   try {
-    const { name, companyName, email, phone, product } = req.body;
-
+  const { name, companyName, email, phone, designation, product } = req.body;
+    // Validation
     if (!name || !companyName || !email || !phone || !product) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    console.log("Received demo request for:", product);
-
-    // Save request in database
+    // Save request in DB
     const newRequest = new DemoRequest({
       name,
       companyName,
       email,
       phone,
+      designation,
       product,
     });
+
     await newRequest.save();
 
-    // Validate product selection
+    // Validate product
     const credentials = demoCredentials[product];
     const domain = productDomains[product];
 
@@ -64,11 +67,12 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ error: "Invalid product selected" });
     }
 
-    // Build HTML email
+    // Build email content
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
-        <h2 style="color:#4f46e5;">Hello ${name},</h2>
+        <h2 style="color:#007AFF;">Hello,  ${name}</h2>
         <p>Thank you for requesting a demo of <strong>${product}</strong>!</p>
+       
         <p>Below are your login credentials for different roles:</p>
         <table style="width:100%; border-collapse:collapse; margin-top:10px;">
           <thead>
@@ -82,71 +86,124 @@ router.post("/", async (req, res) => {
             ${credentials
               .map(
                 (r) => `
-                  <tr>
-                    <td style="border:1px solid #ddd; padding:8px;">${r.role}</td>
-                    <td style="border:1px solid #ddd; padding:8px;">${r.username}</td>
-                    <td style="border:1px solid #ddd; padding:8px;">${r.password}</td>
-                  </tr>
-                `
+              <tr>
+                <td style="border:1px solid #ddd; padding:8px;">${r.role}</td>
+                <td style="border:1px solid #ddd; padding:8px;">${r.username}</td>
+                <td style="border:1px solid #ddd; padding:8px;">${r.password}</td>
+              </tr>`
               )
               .join("")}
           </tbody>
         </table>
-        <p style="margin-top:20px;">
-          Click below to access your demo:
-          <br /><br />
-          <a href="${domain}" 
-             style="color:#fff; background:#4f46e5; padding:10px 20px; 
-                    text-decoration:none; border-radius:5px; display:inline-block;">
-            Go to ${product}
-          </a>
-        </p>
-        <p style="margin-top:30px; font-size:14px; color:#666;">
-          — The MyMunc Team<br/>
-          <a href="https://mymunc.com" style="color:#4f46e5;">mymunc.com</a>
-        </p>
+        <p style="margin-top:20px; text-align:center;">
+  Click below to access your demo:
+  <br /><br />
+  <a href="${domain}" 
+     style="color:#fff; background:#007AFF; padding:12px 28px; 
+            text-decoration:none; border-radius:6px; 
+            display:inline-block; font-weight:600;">
+    Go to ${product}
+  </a>
+</p>
+
+<!-- Footer Section -->
+<div style="margin-top:50px; padding:10px; background:#f9f9fb; border-top:1px solid #e0e0e0; text-align:center; border-radius:8px;">
+  <img 
+    src="cid:logoImage"
+    alt="Munc Logo" 
+    style="width:200px; height:auto; margin-bottom:5px;"
+  />
+  <p style="margin:0; font-size:15px; color:#333; font-weight:500;">The Munc Team</p>
+  <a href="https://mymunc.com" 
+     style="color:#007AFF; text-decoration:none; font-size:14px;">
+    www.mymunc.com
+  </a>
+  <p style="margin-top:8px; font-size:12px; color:#888;">
+    © ${new Date().getFullYear()} MyMunc. All rights reserved.
+  </p>
+</div>
+
       </div>
     `;
 
-    // ✅ Configure Nodemailer Transporter
+    // Send email
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
-      secure: true, // true for 465, false for 587
-      auth: {
-        user: process.env.EMAIL_USER, // Your Gmail
-        pass: process.env.EMAIL_PASS, // App Password
-      },
+      secure: true,
+      auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
     });
 
-    // Verify transporter
-    await transporter.verify();
-    console.log("✅ Mail transporter verified successfully");
 
-    // Send the email
     await transporter.sendMail({
-      from: `"MyMunc Support" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: `Your Demo Credentials for ${product}`,
-      html: htmlContent,
-    });
+  from: `"MyMunc Support" <${process.env.EMAIL_USER}>`,
+  to: email,
+  subject: `Your Demo Credentials for ${product}`,
+  html: htmlContent,
+  attachments: [
+    {
+      filename: "logo.png",
+      path: __dirname + "/../assest/logo/logotm.png", // ✅ path to logo file
+      cid: "logoImage", // ✅ must match src="cid:logoImage" above
+    },
+  ],
+});
 
-    console.log(`📧 Demo email sent to ${email} for ${product}`);
-    res.json({ success: true, message: "Demo credentials sent & saved successfully!" });
+    res.json({
+      success: true,
+      message: "Demo credentials sent & saved successfully!",
+    });
   } catch (error) {
-    console.error("❌ Error sending demo email:", error);
-    res.status(500).json({ error: "Internal Server Error. Please try again later." });
+    console.error("❌ Error saving demo request:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-// GET all demo requests
+// -------------------- GET All Demo Requests --------------------
 router.get("/", async (req, res) => {
   try {
     const requests = await DemoRequest.find().sort({ createdAt: -1 });
     res.json(requests);
   } catch (error) {
-    console.error("❌ Error fetching demo requests:", error);
+    console.error(error);
     res.status(500).json({ error: "Failed to fetch demo requests" });
+  }
+});
+
+// -------------------- UPDATE Demo Request --------------------
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedData = req.body;
+
+    const updatedRequest = await DemoRequest.findByIdAndUpdate(id, updatedData, { new: true });
+
+    if (!updatedRequest) {
+      return res.status(404).json({ error: "Demo request not found" });
+    }
+
+    res.json({ success: true, message: "Demo request updated successfully", data: updatedRequest });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to update demo request" });
+  }
+});
+
+// -------------------- DELETE Demo Request --------------------
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedRequest = await DemoRequest.findByIdAndDelete(id);
+
+    if (!deletedRequest) {
+      return res.status(404).json({ error: "Demo request not found" });
+    }
+
+    res.json({ success: true, message: "Demo request deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to delete demo request" });
   }
 });
 

@@ -1,4 +1,3 @@
-// models/DemoRequest.js
 const mongoose = require("mongoose");
 
 const demoRequestSchema = new mongoose.Schema({
@@ -6,6 +5,7 @@ const demoRequestSchema = new mongoose.Schema({
   companyName: { type: String, required: true },
   email: { type: String, required: true },
   phone: { type: String, required: true },
+  designation: { type: String }, // ✅ Added properly
   product: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });

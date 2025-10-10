@@ -1,54 +1,62 @@
-const express=  require('express')
-const cors=  require('cors')
-const morgan=  require('morgan')
-const colors=  require('colors')
-const dotenv= require('dotenv')
-const connectDB = require('./config/db')
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const colors = require('colors');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
 const path = require('path');
-
 
 //env config
 dotenv.config();
 
-//router import
-const userRoutes = require('./routes/userRoutes');
-const blogRoutes = require('./routes/blogRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
-const commentRoutes = require('./routes/commentRoutes');
-const likeRoutes = require('./routes/likeRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const  demoRoutes = require ("./routes/demo.js");
-const  contactRoutes = require  ("./routes/contactRoutes.js"); // ✅ ES module import with .js extension
-
-
 //mongodb connection
 connectDB();
+
 //rest object
-const app=express()
+const app = express();
 
 //middlewares
-app.use(cors())
-app.use(express.json())
-app.use(morgan('dev'))
-
+const corsOptions = {
+    origin: [
+        "https://mymunc.com", // replace with your frontend
+        // "http://localhost:3000" // for local dev
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+};
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(morgan('dev'));
 app.use('/upload', express.static(path.join(__dirname, 'public','upload')));
 
-
 //routes
-app.use("/api/v1/user",userRoutes);
-app.use("/api/v1/blog",blogRoutes);
-app.use("/api/v1/category",categoryRoutes);
-app.use("/api/v1/comment",commentRoutes);
-app.use("/api/v1/like",likeRoutes);
-app.use("/api/v1/admin",adminRoutes);
+app.use("/api/v1/user", require('./routes/userRoutes'));
+app.use("/api/v1/blog", require('./routes/blogRoutes'));
+app.use("/api/v1/category", require('./routes/categoryRoutes'));
+app.use("/api/v1/comment", require('./routes/commentRoutes'));
+app.use("/api/v1/like", require('./routes/likeRoutes'));
+app.use("/api/v1/admin", require('./routes/adminRoutes'));
+app.use("/api/demo", require("./routes/demo.js"));
+app.use("/api/contact", require("./routes/contactRoutes.js"));
 
-app.use("/api/demo", demoRoutes);
-app.use("/api/contact", contactRoutes);
+
+const buildPath = path.join(__dirname, '../frontend/build');
+
+// Serve static files from the build directory
+app.use(express.static(buildPath));
+
+// Fallback route to serve index.html for any GET request that doesn't match a static file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(buildPath, 'index.html'));
+});
 
 
-const PORT= process.env.PORT || 8080
+
+
+
 
 //listen
-app.listen(PORT, "0.0.0.0",()=>{
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
-}); 
+});
